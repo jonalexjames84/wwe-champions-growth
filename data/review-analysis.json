@@ -1,0 +1,489 @@
+{
+"meta": {
+"n": 2945,
+"ios": 474,
+"gp": 2471,
+"nlo": 1143,
+"nhi": 1557,
+"fun_skew": -1.1,
+"money_n": 898,
+"fun_n": 699,
+"gp_score": 4.36,
+"gp_ratings": 402333,
+"gp_written": 32790,
+"gp_installs": "50M+",
+"ios_score": 4.31,
+"ios_ratings": 30026,
+"hist": {
+"1": 32779,
+"2": 9828,
+"3": 20283,
+"4": 57927,
+"5": 281498
+}
+},
+"cloud": [
+{
+"w": "money",
+"n": 898,
+"skew": 26.7
+},
+{
+"w": "fun",
+"n": 699,
+"skew": -1.1
+},
+{
+"w": "good",
+"n": 602,
+"skew": -6.8
+},
+{
+"w": "spend",
+"n": 480,
+"skew": 16.8
+},
+{
+"w": "great",
+"n": 459,
+"skew": -9.4
+},
+{
+"w": "love",
+"n": 447,
+"skew": -15.0
+},
+{
+"w": "new",
+"n": 429,
+"skew": 6.1
+},
+{
+"w": "pay",
+"n": 388,
+"skew": 14.5
+},
+{
+"w": "characters",
+"n": 347,
+"skew": 4.9
+},
+{
+"w": "superstars",
+"n": 275,
+"skew": -0.6
+},
+{
+"w": "match",
+"n": 257,
+"skew": 1.6
+},
+{
+"w": "scopely",
+"n": 254,
+"skew": 8.5
+},
+{
+"w": "fix",
+"n": 252,
+"skew": 6.0
+},
+{
+"w": "events",
+"n": 234,
+"skew": 7.5
+},
+{
+"w": "free",
+"n": 232,
+"skew": 4.2
+},
+{
+"w": "update",
+"n": 226,
+"skew": 4.8
+},
+{
+"w": "star",
+"n": 222,
+"skew": 3.2
+},
+{
+"w": "issues",
+"n": 212,
+"skew": 7.1
+},
+{
+"w": "wrestlers",
+"n": 207,
+"skew": -0.1
+},
+{
+"w": "support",
+"n": 205,
+"skew": 9.6
+},
+{
+"w": "rewards",
+"n": 198,
+"skew": 4.9
+},
+{
+"w": "level",
+"n": 194,
+"skew": 4.6
+},
+{
+"w": "best",
+"n": 191,
+"skew": -6.2
+},
+{
+"w": "spending",
+"n": 190,
+"skew": 7.6
+},
+{
+"w": "issue",
+"n": 184,
+"skew": 3.8
+},
+{
+"w": "stars",
+"n": 179,
+"skew": 1.1
+},
+{
+"w": "cash",
+"n": 170,
+"skew": 4.1
+},
+{
+"w": "hard",
+"n": 169,
+"skew": 2.6
+},
+{
+"w": "health",
+"n": 165,
+"skew": 4.5
+},
+{
+"w": "win",
+"n": 164,
+"skew": 5.5
+},
+{
+"w": "problem",
+"n": 160,
+"skew": 1.6
+},
+{
+"w": "times",
+"n": 156,
+"skew": 6.0
+},
+{
+"w": "help",
+"n": 156,
+"skew": 2.5
+},
+{
+"w": "character",
+"n": 152,
+"skew": 3.3
+},
+{
+"w": "glitches",
+"n": 151,
+"skew": 6.1
+},
+{
+"w": "awesome",
+"n": 147,
+"skew": -6.5
+},
+{
+"w": "spent",
+"n": 147,
+"skew": 5.5
+},
+{
+"w": "loot",
+"n": 147,
+"skew": 2.3
+},
+{
+"w": "work",
+"n": 144,
+"skew": 1.6
+},
+{
+"w": "customer",
+"n": 143,
+"skew": 8.3
+},
+{
+"w": "try",
+"n": 142,
+"skew": 3.9
+},
+{
+"w": "progress",
+"n": 141,
+"skew": 4.9
+},
+{
+"w": "bugs",
+"n": 141,
+"skew": 4.6
+},
+{
+"w": "won",
+"n": 141,
+"skew": 5.2
+},
+{
+"w": "first",
+"n": 140,
+"skew": 3.5
+},
+{
+"w": "account",
+"n": 140,
+"skew": 3.8
+},
+{
+"w": "real",
+"n": 139,
+"skew": 4.2
+},
+{
+"w": "everything",
+"n": 138,
+"skew": 3.3
+},
+{
+"w": "always",
+"n": 138,
+"skew": 2.0
+},
+{
+"w": "faction",
+"n": 135,
+"skew": 1.6
+},
+{
+"w": "day",
+"n": 134,
+"skew": 3.3
+},
+{
+"w": "unless",
+"n": 132,
+"skew": 7.9
+}
+],
+"top": [
+{
+"w": "money",
+"n": 898
+},
+{
+"w": "fun",
+"n": 699
+},
+{
+"w": "good",
+"n": 602
+},
+{
+"w": "spend",
+"n": 480
+},
+{
+"w": "great",
+"n": 459
+},
+{
+"w": "love",
+"n": 447
+},
+{
+"w": "new",
+"n": 429
+},
+{
+"w": "pay",
+"n": 388
+},
+{
+"w": "characters",
+"n": 347
+},
+{
+"w": "superstars",
+"n": 275
+},
+{
+"w": "match",
+"n": 257
+},
+{
+"w": "scopely",
+"n": 254
+},
+{
+"w": "fix",
+"n": 252
+},
+{
+"w": "events",
+"n": 234
+},
+{
+"w": "free",
+"n": 232
+}
+],
+"div": {
+"neg": [
+{
+"w": "money",
+"n": 898,
+"skew": 26.7
+},
+{
+"w": "spend",
+"n": 480,
+"skew": 16.8
+},
+{
+"w": "pay",
+"n": 388,
+"skew": 14.5
+},
+{
+"w": "support",
+"n": 205,
+"skew": 9.6
+},
+{
+"w": "scopely",
+"n": 254,
+"skew": 8.5
+},
+{
+"w": "customer",
+"n": 143,
+"skew": 8.3
+},
+{
+"w": "unless",
+"n": 132,
+"skew": 7.9
+},
+{
+"w": "spending",
+"n": 190,
+"skew": 7.6
+},
+{
+"w": "events",
+"n": 234,
+"skew": 7.5
+},
+{
+"w": "issues",
+"n": 212,
+"skew": 7.1
+}
+],
+"pos": [
+{
+"w": "love",
+"n": 447,
+"skew": -15.0
+},
+{
+"w": "great",
+"n": 459,
+"skew": -9.4
+},
+{
+"w": "good",
+"n": 602,
+"skew": -6.8
+},
+{
+"w": "awesome",
+"n": 147,
+"skew": -6.5
+},
+{
+"w": "best",
+"n": 191,
+"skew": -6.2
+},
+{
+"w": "fun",
+"n": 699,
+"skew": -1.1
+},
+{
+"w": "superstars",
+"n": 275,
+"skew": -0.6
+},
+{
+"w": "wrestlers",
+"n": 207,
+"skew": -0.1
+}
+]
+},
+"lex": [
+{
+"name": "Trust & odds",
+"reviews": 273,
+"pct": 9,
+"avg": 2.06
+},
+{
+"name": "Complexity & confusion",
+"reviews": 99,
+"pct": 3,
+"avg": 2.37
+},
+{
+"name": "Money & spending",
+"reviews": 1060,
+"pct": 36,
+"avg": 2.41
+},
+{
+"name": "Bugs & support",
+"reviews": 588,
+"pct": 20,
+"avg": 2.42
+},
+{
+"name": "Progress & grind",
+"reviews": 406,
+"pct": 14,
+"avg": 2.42
+},
+{
+"name": "Social & faction",
+"reviews": 209,
+"pct": 7,
+"avg": 2.7
+},
+{
+"name": "Fun & affection",
+"reviews": 1487,
+"pct": 50,
+"avg": 3.79
+}
+]
+}
