@@ -26,7 +26,7 @@ p{text-wrap:pretty}
 
 /* ---- sticky act nav ---- */
 .topnav{position:sticky;top:0;z-index:40;background:var(--paper);border-bottom:1px solid var(--rule)}
-@supports (backdrop-filter:blur(8px)){.topnav{background:color-mix(in srgb,var(--paper) 84%,transparent);backdrop-filter:saturate(150%) blur(10px)}}
+@supports (backdrop-filter:blur(8px)){.topnav{background:color-mix(in srgb,var(--paper) 93%,transparent);backdrop-filter:saturate(150%) blur(10px)}}
 .navin{max-width:1080px;margin:0 auto;padding:0 34px;display:flex;align-items:center;gap:20px;height:47px;overflow-x:auto;scrollbar-width:none}
 .navin::-webkit-scrollbar{display:none}
 @media(max-width:640px){.navin{padding:0 20px;gap:16px}}
@@ -35,6 +35,7 @@ p{text-wrap:pretty}
 .navin a.here{color:var(--brass);border-bottom-color:var(--brass)}
 .navin .nb{margin-left:auto;position:sticky;right:0;font-family:var(--mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);background:var(--paper);border:1px solid var(--rule);border-radius:999px;padding:6px 13px;cursor:pointer;white-space:nowrap;transition:.15s}
 .navin .nb:hover{border-color:var(--brass);color:var(--brass)}
+@media(max-width:640px){.navin .nb{position:static;margin-left:8px}}
 .act,.answers,#top{scroll-margin-top:64px}
 
 /* ---- the answer spine ---- */
@@ -70,6 +71,8 @@ details.more[open]>summary::after{content:"–"}
 .more-b>h3:first-child{margin-top:0}
 .more-b p{font-size:15.5px;color:var(--ink-2);max-width:64ch}
 .more-b .chart:first-child,.more-b .scroll:first-child,.more-b .model:first-child{margin-top:0}
+.more-b ul.clean li i{font-style:normal;font-family:var(--mono);font-size:.82em;color:var(--ink-3);letter-spacing:.03em}
+.more-b .callout:last-child,.more-b .unver:last-child{margin-bottom:0}
 @media print{details.more>summary{display:none}.topnav{display:none}}
 
 /* ---- cover ---- */
@@ -94,7 +97,7 @@ h1 em{font-style:normal;color:var(--brass)}
 .act-lede{font-size:18px;color:var(--ink-2);max-width:62ch;margin:0}
 .act-lede strong{color:var(--ink);font-weight:650}
 
-h3{font-weight:750;font-size:19px;letter-spacing:-.022em;margin:52px 0 14px;max-width:34ch}
+h3{font-weight:750;font-size:19px;letter-spacing:-.022em;margin:52px 0 14px;max-width:46ch}
 h4{font-weight:700;font-size:14px;letter-spacing:.01em;margin:0 0 10px}
 .body{max-width:64ch;color:var(--ink-2);font-size:17px}
 .body strong{color:var(--ink);font-weight:650}
@@ -283,6 +286,7 @@ a{color:var(--brass)}
   <p class="cover-cta">
     <a href="#proposal">Go to the proposal →</a>
     <a href="#spec">Read the specs →</a>
+    <a href="/prototype">Play the prototype →</a>
     <a href="#sources">Sources &amp; method →</a>
   </p>
 </header>
@@ -310,10 +314,12 @@ a{color:var(--brass)}
             (70% five-star), <strong>released 25 Jan 2017</strong> and <strong>still shipping</strong> — v0.900,
             updated 24 Jul 2026. That is a mature title carrying a very large lapsed population and a product
             people demonstrably liked.</p>
-          <p>A mature live game has two honest options: extract harder from the players who remain, or widen the
-            base again. The review corpus shows what the first costs in goodwill. <strong>The second is the
-            brief.</strong></p>
-          <p><a href="#context">Full lifecycle read, including what I could not verify →</a></p>
+          <p>The competitive set confirms it isn't the licence. <strong>WWE SuperCard is rated 4.77 by 2.6× as
+            many iOS raters</strong> — wrestling fans will happily five-star a WWE mobile game, they're doing it
+            next door. And <strong>Empires &amp; Puzzles launched five weeks later, in the same genre, with no
+            licence at all</strong>, and carries 3.4× the iOS ratings at 4.69. Same nine years, same mechanic,
+            no IP advantage.</p>
+          <p><a href="#context">The full competitive table and what I could not verify →</a></p>
         </div>
       </details>
     </div>
@@ -422,7 +428,7 @@ a{color:var(--brass)}
     <div class="qn">06</div>
     <div>
       <p class="q">Which improvement ranks best?</p>
-      <p class="a"><em>F2 · Rookie Crew</em> ranks first on value. <em>F1 · The Debut</em> ships first.</p>
+      <p class="a"><em>F2 · Rookie Crew</em> ranks first on value.<br>F1 · The Debut ships first.</p>
       <p class="sup">F2 is the highest-value bet in the portfolio because it moves D7 and D30, where the curve pays.
         F1 ships ahead of it because it is cheaper, removes the session-one dead-ends, and
         <strong>feeds F2 the cohort F2 then retains</strong>. Both are gated on one week-one query:
@@ -451,7 +457,7 @@ a{color:var(--brass)}
       <h2>Where this game is in its life</h2>
       <p class="act-lede">
         WWE Champions is a match-3 RPG built on one of the strongest licences in entertainment. It is
-        also <strong>nine years old, past its peak, and shedding revenue</strong>. That combination
+        also <strong>nine and a half years old and well past its growth phase</strong>. That combination
         decides which growth levers are worth pulling.
       </p>
     </div>
@@ -1333,14 +1339,7 @@ a{color:var(--brass)}
     analysis scripts are in <code>scripts/</code>. Both feeds are public and unauthenticated, so the
     corpus can be re-pulled and the numbers re-derived independently.
   </p>
-
-  <div class="callout">
-    <p><strong>The rule I applied.</strong> Anything I could fetch and re-fetch is stated flatly.
-    Anything computed from that data is marked reproducible and the dataset is published. Anything I
-    could not trace to a primary source is either labelled an assumption and made editable, or removed.</p>
-    <p>The revenue decline is the one I got wrong first time round — it read well and I could not source
-    it. <strong>It's better to lose the headline than to defend a number I can't show you.</strong></p>
-  </div>
+  </div></details>
 </section>
 
 
@@ -1914,7 +1913,7 @@ function recompute(){
     '<span>steady-state DAU from new installs <b>'+f(Math.round(dauBase))+'</b></span>'+
     '<span>implied annual revenue <b>'+money(dauBase*arp*365)+'</b></span>';
 
-  var tb=el('roitab');tb.innerHTML='';var T={low:0,base:0,high:0};
+  var tb=el('roitab');tb.innerHTML='';var T={low:0,base:0,high:0},R={};
   BETS.forEach(function(b,idx){
     var out={};
     ['low','base','high'].forEach(function(sc){
@@ -1931,13 +1930,58 @@ function recompute(){
       '<td class="hero">'+money(out.base.rev)+'</td>'+
       '<td class="n">'+money(out.high.rev)+'</td>';
     tb.appendChild(tr);
+    /* the per-idea "base-case value" fields in Act 05 */
+    var v=el('v'+b.id); if(v) v.innerHTML=money(out.base.rev)+' / yr<br><span style="color:var(--ink-3);font-weight:400">+'+out.base.pct.toFixed(1)+'% user-days</span>';
+    R[b.id]=out.base;
   });
   el('tl').textContent=money(T.low);el('tb').textContent=money(T.base);el('th').textContent=money(T.high);
+
+  /* the headline numbers in the answer spine and the spec summaries */
+  set('sv-f2pct','+'+R[2].pct.toFixed(0)+'%');
+  set('sv-ratio',(R[2].pct/R[1].pct).toFixed(1).replace(/\.0$/,'')+'×');
+  set('sv-lead',money(R[1].rev+R[2].rev));
+  set('sv-f1rev',money(R[1].rev));
+  set('sv-f2rev',money(R[2].rev));
 }
+function set(id,txt){var e=el(id); if(e) e.textContent=txt}
 ['i-inst','i-arp','i-d1','i-d7'].forEach(function(id){el(id).addEventListener('input',recompute)});
 el('reset').addEventListener('click',function(){
   el('i-inst').value=DEF.inst;el('i-arp').value=DEF.arp;el('i-d1').value=DEF.d1;el('i-d7').value=DEF.d7;recompute();
 });
 recompute();
+
+/* ---------- progressive disclosure ---------- */
+var ALL=function(){return [].slice.call(document.querySelectorAll('details.more'))};
+var btn=el('expandall');
+function syncBtn(){
+  var open=ALL().filter(function(d){return d.open}).length;
+  btn.textContent = open===ALL().length ? 'Collapse all detail' : 'Expand all detail';
+}
+btn.addEventListener('click',function(){
+  var want = ALL().some(function(d){return !d.open});
+  ALL().forEach(function(d){d.open=want});
+  syncBtn();
+});
+ALL().forEach(function(d){d.addEventListener('toggle',syncBtn)});
+syncBtn();
+
+/* open a target section's details when linked to from the answer spine */
+window.addEventListener('hashchange',function(){
+  var t=document.querySelector(location.hash);
+  if(t&&t.classList.contains('act')) t.querySelectorAll('details.more').forEach(function(d){d.open=true});
+});
+
+/* everything opens for print / PDF */
+window.addEventListener('beforeprint',function(){ALL().forEach(function(d){d.open=true})});
+
+/* ---------- nav scrollspy ---------- */
+var links=[].slice.call(document.querySelectorAll('.navin a'));
+var targets=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
+function spy(){
+  var y=window.scrollY+120, hit=-1;
+  targets.forEach(function(t,i){ if(t&&t.offsetTop<=y) hit=i });
+  links.forEach(function(a,i){a.classList.toggle('here',i===hit)});
+}
+window.addEventListener('scroll',spy,{passive:true});spy();
 })();
 </script>
