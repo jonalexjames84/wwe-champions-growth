@@ -54,6 +54,13 @@ p{text-wrap:pretty}
 .ans .sup{font-size:16px;color:var(--ink-2);margin:15px 0 0;max-width:62ch}
 .ans .sup strong{color:var(--ink);font-weight:650}
 .ans .sup .num{font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--ink);font-weight:650;font-size:.95em}
+.ansgrp{border-top:1px solid var(--ink);padding-top:14px;margin-top:38px;display:flex;align-items:baseline;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.ansgrp:first-of-type{margin-top:22px}
+.ansgrp .g{font-family:var(--mono);font-size:10.5px;letter-spacing:.19em;text-transform:uppercase;color:var(--brass);font-weight:650;margin:0}
+.ansgrp .r{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);margin:0}
+.ansgrp+.ans{border-top:0;padding-top:24px}
+.ans-tail{padding:0 0 4px 78px;margin:-8px 0 0}
+@media(max-width:640px){.ans-tail{padding-left:0}}
 
 /* ---- progressive disclosure ---- */
 details.more{margin:20px 0 0}
@@ -295,7 +302,12 @@ a{color:var(--brass)}
 <section class="answers" id="answers">
   <div class="answers-h">
     <p class="t">The argument, in six answers</p>
-    <p class="s">Every line below is expandable · the nine acts that follow are the evidence</p>
+    <p class="s">Grouped into three topics · the nine acts that follow are the evidence</p>
+  </div>
+
+  <div class="ansgrp">
+    <p class="g">The diagnosis</p>
+    <p class="r">Evidence in Acts 01–04</p>
   </div>
 
   <div class="ans">
@@ -307,21 +319,6 @@ a{color:var(--brass)}
         <span class="num">4.36★</span> rating has already monetised its whales close to their ceiling. The remaining
         upside is <strong>the players who install, look around, and leave</strong> before anything hooks them.
         The brief is reach and retention, not ARPPU.</p>
-      <details class="more"><summary>Where the game is in its life</summary>
-        <div class="more-b">
-          <p>Four numbers define the lifecycle, each read directly from a store API rather than estimated:
-            <strong>50M+ lifetime installs</strong> on Android alone, <strong>402,333 ratings at 4.36★</strong>
-            (70% five-star), <strong>released 25 Jan 2017</strong> and <strong>still shipping</strong> — v0.900,
-            updated 24 Jul 2026. That is a mature title carrying a very large lapsed population and a product
-            people demonstrably liked.</p>
-          <p>The competitive set confirms it isn't the licence. <strong>WWE SuperCard is rated 4.77 by 2.6× as
-            many iOS raters</strong> — wrestling fans will happily five-star a WWE mobile game, they're doing it
-            next door. And <strong>Empires &amp; Puzzles launched five weeks later, in the same genre, with no
-            licence at all</strong>, and carries 3.4× the iOS ratings at 4.69. Same nine years, same mechanic,
-            no IP advantage.</p>
-          <p><a href="#context">The full competitive table and what I could not verify →</a></p>
-        </div>
-      </details>
     </div>
   </div>
 
@@ -334,17 +331,6 @@ a{color:var(--brass)}
         already exposes a four-layer upgrade ladder, six gem stats, Trainer, Link &amp; Gear and injury timers —
         and a <strong>$99.99 pack as the only item on the League 2 store shelf</strong>. The first losable match
         ends in a <em>“rescue your Superstar for 100 cash”</em> prompt.</p>
-      <details class="more"><summary>What that player actually sees</summary>
-        <div class="more-b">
-          <p>I played a new account to League 2 and captured 42 screenshots of the activation window. In the first
-            ten minutes: four subscription passes offered before a team exists, a third of the roster asleep behind
-            a 59-minute injury timer, a Fuse Up priced at 9,000 coins and 80 shards, and
-            <strong>“Unlock FACTION at League 5”</strong> shown as a locked panel.</p>
-          <p>Monetisation surfaces arrive before the player has a team, a win, or a reason to care —
-            and several paths dead-end.</p>
-          <p><a href="#pain">The five pain points and the screenshots behind them →</a></p>
-        </div>
-      </details>
     </div>
   </div>
 
@@ -358,19 +344,32 @@ a{color:var(--brass)}
         “Money” skews <span class="num">+26.7pp</span> and is the most-used word in the entire corpus.
         Affection survives the one-star rating; <strong>what replaces it is a vocabulary of money.</strong>
         That is a fixable economy problem wrapped around a working loop — not a dying game.</p>
-      <details class="more"><summary>The finding, and how much weight it carries</summary>
-        <div class="more-b">
-          <p>The finding replicated independently on both platforms — 474 iOS reviews and 2,471 Android, sampled
-            across newest, rating and helpfulness, then de-duplicated. The divergence view is the most robust cut
-            here, because it compares rates <em>within</em> each rating group, so sampling bias doesn't distort it.</p>
-          <p>Two limits, stated before anyone finds them. Written reviews skew negative by construction — only
-            <strong>8.1%</strong> of raters write text, and angry players write. And onboarding complaints are just
-            3% of the corpus, which is expected, because players who churn on day one never come back to write a
-            review. <strong>That absence is itself the argument for pulling the funnel data.</strong></p>
-          <p><a href="#findings">All four views of the corpus →</a></p>
-        </div>
-      </details>
     </div>
+  </div>
+
+  <div class="ans-tail">
+    <details class="more"><summary>How these three fit together</summary>
+      <div class="more-b">
+        <p>These are one chain, and the order matters. A mature live title has only two honest options —
+          extract harder from who's left, or widen the base again — and the review corpus is what decides
+          between them. Affection survives the one-star rating intact; what replaces it is a vocabulary of
+          money. <strong>That rules out extraction.</strong> Widening the base then points at exactly one
+          cohort, because the players who never survived the first ten minutes are the only group both large
+          enough to matter and cheap enough to reach without out-bidding the casual-puzzle giants.</p>
+        <p>Each act below opens the evidence rather than restating it — the lifecycle and competitive numbers,
+          the method and the two limits it carries, the corpus itself, and the pain points with the
+          screenshots behind them.</p>
+        <p><a href="#context">Act 01 · Where the game is in its life →</a><br>
+           <a href="#research">Act 02 · How I looked, and what I couldn't see →</a><br>
+           <a href="#findings">Act 03 · What 2,945 players actually said →</a><br>
+           <a href="#pain">Act 04 · Five pain points, in players' own words →</a></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="ansgrp">
+    <p class="g">The bets</p>
+    <p class="r">Evidence in Act 05</p>
   </div>
 
   <div class="ans">
@@ -383,19 +382,27 @@ a{color:var(--brass)}
         <strong>F2 · Rookie Crew</strong> — auto-draft every new player into a small social unit within minutes of
         install, instead of making them wait until League 5. Both <strong>raise the free-to-play floor without
         lowering the whale ceiling</strong>, because whales pay for relative advantage, not absolute power.</p>
-      <details class="more"><summary>All five bets in one line each</summary>
-        <div class="more-b">
-          <ul class="clean">
-            <li><b>1 · The Debut.</b> Guided first session — guaranteed marquee pull, one clear win, one next verb. <i>6–8 wks.</i></li>
-            <li><b>2 · Rookie Crew.</b> Social on-ramp before League 5, with a mentor and curated chat. <i>8–10 wks.</i></li>
-            <li><b>3 · Catch-up track.</b> Event-gated coin faucet aimed at the exact band where progression stalls. <i>4–6 wks.</i></li>
-            <li><b>4 · Dupe protection + published odds.</b> Duplicates convert to shards; probabilities published. <i>5–7 wks.</i></li>
-            <li><b>5 · Tentpole win-back.</b> Personalised reactivation timed to WrestleMania and Royal Rumble. <i>3–4 wks.</i></li>
-          </ul>
-          <p><a href="#ideas">The mechanism behind each →</a></p>
-        </div>
-      </details>
     </div>
+  </div>
+
+  <div class="ans-tail">
+    <details class="more"><summary>All five bets in one line each</summary>
+      <div class="more-b">
+        <ul class="clean">
+          <li><b>1 · The Debut.</b> Guided first session — guaranteed marquee pull, one clear win, one next verb. <i>6–8 wks.</i></li>
+          <li><b>2 · Rookie Crew.</b> Social on-ramp before League 5, with a mentor and curated chat. <i>8–10 wks.</i></li>
+          <li><b>3 · Catch-up track.</b> Event-gated coin faucet aimed at the exact band where progression stalls. <i>4–6 wks.</i></li>
+          <li><b>4 · Dupe protection + published odds.</b> Duplicates convert to shards; probabilities published. <i>5–7 wks.</i></li>
+          <li><b>5 · Tentpole win-back.</b> Personalised reactivation timed to WrestleMania and Royal Rumble. <i>3–4 wks.</i></li>
+        </ul>
+        <p><a href="#ideas">Act 05 · The mechanism behind each →</a></p>
+      </div>
+    </details>
+  </div>
+
+  <div class="ansgrp">
+    <p class="g">What they're worth</p>
+    <p class="r">Evidence in Acts 06–07</p>
   </div>
 
   <div class="ans">
@@ -409,18 +416,6 @@ a{color:var(--brass)}
         Base case for the two lead bets together: <span class="num" id="sv-lead">$1.3M</span> a year,
         on the assumptions in Act 06. <strong>The two lead bets touch no economy surface</strong>, so they grow
         the base whales compete against rather than threatening revenue.</p>
-      <details class="more"><summary>Why the ranking is sensitive — and what to trust</summary>
-        <div class="more-b">
-          <p>This is a model you can audit, not a forecast. Fit a power-law curve through D1 and D7, integrate over
-            180 days for lifetime user-days per install, multiply by installs and ARPDAU. A retention lift re-fits
-            the curve; the difference in area is the gain.</p>
-          <p>The result is <strong>highly sensitive to the decay exponent</strong> — a ~3-point D7 lift moves
-            lifetime user-days by roughly a third. That sensitivity isn't a flaw to hide; it is the argument for
-            measuring rather than modelling. <strong>The Δ user-days column is the part to trust</strong>: it is
-            scale-invariant and depends only on the retention assumptions, not on the two unverified scale inputs.</p>
-          <p><a href="#roi">Open the model and change any input →</a></p>
-        </div>
-      </details>
     </div>
   </div>
 
@@ -434,18 +429,24 @@ a{color:var(--brass)}
         <strong>feeds F2 the cohort F2 then retains</strong>. Both are gated on one week-one query:
         <strong>is faction-join a top-2 retention correlate?</strong> If it isn't, F2 gets re-scoped before a line
         of code is written.</p>
-      <details class="more"><summary>The sequencing logic, and what I'd want to be wrong about</summary>
-        <div class="more-b">
-          <p>Sequenced by <strong>risk to the golden goose</strong>. Bets 1 and 2 are retention-accretive and touch
-            no economy surface. Bets 3 and 4 touch the gacha core, so they stay gated behind drop-rate and
-            cohort-LTV data. Bet 5 is cheap, independent, and can run in parallel with anything.</p>
-          <p>The load-bearing assumption is that faction-join is the top retention correlate — <strong>I've inferred
-            that, not measured it</strong>. The second is that the late-2025 team-mode change hurt retention; two
-            heavily-upvoted reviews are a signal, not a finding. Both are in the week-one pull list.</p>
-          <p><a href="#proposal">The six data pulls and the build order →</a></p>
-        </div>
-      </details>
     </div>
+  </div>
+
+  <div class="ans-tail">
+    <details class="more"><summary>Why value order and ship order disagree</summary>
+      <div class="more-b">
+        <p>Two different questions produce two different orders, and the proposal follows both. <strong>Value
+          order</strong> comes from the curve: late-curve retention compounds, so F2 outranks F1 despite F1
+          moving the more visible metric. <strong>Ship order</strong> comes from dependency and risk: F1 is
+          cheaper, clears the session-one dead-ends, and hands F2 a cohort worth retaining — so shipping F2
+          first would mean drafting players into crews they'd have quit before reaching.</p>
+        <p>Neither order survives contact with your telemetry unchanged. The ranking rests on a benchmark
+          retention curve, and the highest-value bet rests on an assumption I inferred rather than measured.
+          Both are the first things Act 07 goes and replaces.</p>
+        <p><a href="#roi">Act 06 · Open the model and change any input →</a><br>
+           <a href="#proposal">Act 07 · The six data pulls and the build order →</a></p>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -497,18 +498,6 @@ a{color:var(--brass)}
     base</strong>, <strong>rated 4.36</strong>, and <strong>still under active development</strong>.
     That is a mature title carrying a very large lapsed population and a product people demonstrably liked.
   </p>
-
-  <div class="unver">
-    <p class="unver-h">What I could not verify — and did not build on</p>
-    <p>Third-party trackers are widely reported to put WWE Champions well below its 2021 peak on revenue
-    and installs. Those figures show up in search results, <strong>but the Sensor Tower pages behind them
-    need a login and I could not open a primary source</strong>. An earlier draft of this document led
-    with a &ldquo;60% revenue decline&rdquo;. I've removed it — nothing here depends on a number I can't
-    show you.</p>
-    <p>I'm flagging it rather than dropping it silently, because if it's true it sharpens the case
-    considerably, and you can see the real curve in about thirty seconds.
-    <strong>That's a question for you, not a claim from me.</strong></p>
-  </div>
 
   <h3>The field it's ageing in</h3>
   <p class="body">
@@ -567,14 +556,20 @@ a{color:var(--brass)}
 
   <div class="unver">
     <p class="unver-h">What I could not verify — and did not build on</p>
-    <p>Third-party trackers publish revenue estimates for every title in that table — the figures put
-    Empires &amp; Puzzles in the hundreds of millions a year and MARVEL Puzzle Quest far below its peak.
-    <strong>Those pages are the same logged-in Sensor Tower sources I could not open</strong>, and blog
-    aggregations of them are not a primary source.</p>
-    <p>So none of the argument above rests on a revenue number. It rests on release dates, ratings and
-    update cadence, which are public and re-fetchable. <strong>The comparison is structural, not
-    financial</strong> — and the financial half is a question for someone with the licence to a data
-    tool.</p>
+    <p>One paywall accounts for every gap in this act. Third-party trackers are widely reported to put
+    WWE Champions well below its 2021 peak on revenue and installs, and they publish revenue estimates
+    for every title in the table above — putting Empires &amp; Puzzles in the hundreds of millions a year
+    and MARVEL Puzzle Quest far below its own peak. <strong>All of it traces back to Sensor Tower pages
+    that need a login, and I could not open a primary source.</strong> Blog aggregations of them aren't
+    one either.</p>
+    <p>An earlier draft of this document led with a &ldquo;60% revenue decline&rdquo;. I've removed it —
+    nothing here depends on a number I can't show you. So <strong>none of the argument in this act rests
+    on revenue at all</strong>. It rests on release dates, ratings, install counts and update cadence,
+    which are public and re-fetchable: <strong>the comparison is structural, not financial</strong>, and
+    the financial half is a question for someone with the licence to a data tool.</p>
+    <p>I'm flagging that rather than dropping it silently, because if the decline is real it sharpens the
+    case considerably — and you can see the true curve in about thirty seconds.
+    <strong>That's a question for you, not a claim from me.</strong></p>
   </div>
 
   </div></details>
