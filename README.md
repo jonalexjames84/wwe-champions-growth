@@ -2,7 +2,7 @@
 
 An independent product analysis of [WWE Champions](https://apps.apple.com/us/app/wwe-champions-wrestling-rpg/id1017432937) (Scopely), built from a firsthand new-player playthrough and a quantitative read of 2,945 public player reviews.
 
-**[Interactive prototype →](https://prototype-liard-nine.vercel.app)**  ·  **[Full analysis →](https://prototype-liard-nine.vercel.app/evidence)**
+**[Read the presentation →](https://wwe-champions-growth.vercel.app)**  ·  **[Play the prototype →](https://wwe-champions-growth.vercel.app/prototype)**
 
 ---
 
@@ -18,10 +18,10 @@ Players who rate this game one star still call it fun. The core loop and the IP 
 
 | Path | What it is |
 |---|---|
-| `index.html` | Interactive prototype — the first 10 minutes of a new account, with a before/after toggle. "Before" screens are real screenshots; "after" screens are proposed. |
-| `evidence/index.html` | The written analysis: lifecycle funnel, segmentation, five ranked bets, review-corpus charts, verbatim quotes, economy teardown. |
+| `index.html` | The presentation, in seven acts: lifecycle context → method → findings → player pain → ideas → ROI model → proposal. |
+| `prototype/index.html` | Interactive prototype — the first 10 minutes of a new account, with a before/after toggle. "Before" screens are real screenshots; "after" screens are proposed. |
 | `data/review-analysis.json` | Derived dataset behind the charts — word frequencies, rating divergence, theme reach, population histogram. |
-| `shots/` | Screenshots from the playthrough used by the prototype. |
+| `data/roi-model.json` | The ROI model: inputs, per-idea lift assumptions, and three-scenario outputs. |
 
 ## Method
 
@@ -32,6 +32,12 @@ Players who rate this game one star still call it fun. The core loop and the IP 
 **Population baseline.** Google Play exposes the full rating histogram: 402,333 ratings at 4.36★ (70% five-star, 8% one-star), against 50M+ installs. Only 8.1% of raters write text, which is why the written corpus skews negative — the histogram is the honest denominator, and the corpus is quoted only for *what people say*, never *how many feel it*.
 
 **Evidence tiers.** Every claim is tagged as verified fact, player-reported signal, or a named data gap requiring internal telemetry. The tiering is deliberate: player sentiment is treated as a hypothesis to validate against funnel and cohort data, not as measurement.
+
+## The ROI model
+
+Value estimates are a **transparent model, not a forecast**. A power-law retention curve is fitted through D1 and D7, integrated over 180 days to give lifetime user-days per install, multiplied by daily installs and ARPDAU. A retention lift re-fits the curve; the difference in area is the gain.
+
+Two inputs (D1, D7) are genre benchmarks rather than measured values, and the result is highly sensitive to the fitted decay exponent — a ~3-point D7 lift moves lifetime user-days by roughly a third. That sensitivity is stated in the document rather than hidden, because it is the argument for measuring rather than modelling. Every input is in `data/roi-model.json`.
 
 ## Limitations
 

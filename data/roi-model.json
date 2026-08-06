@@ -1,0 +1,157 @@
+{
+"traj": [
+[
+"May 2021",
+2.0,
+200
+],
+[
+"Feb 2023",
+1.0,
+100
+],
+[
+"Nov 2025 (iOS)",
+0.3,
+20
+],
+[
+"Mar 2026 (Play)",
+0.5,
+70
+]
+],
+"inputs": {
+"installs_mo": 90000,
+"rev_mo": 800000,
+"d1": 0.35,
+"d7": 0.16,
+"arpdau": 0.22,
+"k": 0.402,
+"user_days": 12.5,
+"base_dau": 37395,
+"horizon": 180
+},
+"bets": [
+{
+"id": 1,
+"name": "\"The Debut\" \u2014 guided first session",
+"metric": "D1 + D7",
+"effort": "6\u20138 wks \u00b7 1 pod",
+"sc": {
+"low": {
+"dau": 290,
+"rev": 23282,
+"pct": 0.2
+},
+"base": {
+"dau": 2804,
+"rev": 225145,
+"pct": 2.3
+},
+"high": {
+"dau": 7582,
+"rev": 608838,
+"pct": 6.3
+}
+}
+},
+{
+"id": 2,
+"name": "Social on-ramp before League 5",
+"metric": "D7 + D30",
+"effort": "8\u201310 wks \u00b7 1 pod + mod tooling",
+"sc": {
+"low": {
+"dau": 5658,
+"rev": 454315,
+"pct": 4.7
+},
+"base": {
+"dau": 13939,
+"rev": 1119316,
+"pct": 11.7
+},
+"high": {
+"dau": 26746,
+"rev": 2147729,
+"pct": 22.4
+}
+}
+},
+{
+"id": 3,
+"name": "Mid-game catch-up track",
+"metric": "D30",
+"effort": "4\u20136 wks \u00b7 live-ops",
+"sc": {
+"low": {
+"dau": 3720,
+"rev": 298699,
+"pct": 3.1
+},
+"base": {
+"dau": 8663,
+"rev": 695663,
+"pct": 7.2
+},
+"high": {
+"dau": 16144,
+"rev": 1296361,
+"pct": 13.5
+}
+}
+},
+{
+"id": 4,
+"name": "Dupe-protection + published odds",
+"metric": "D30 + trust",
+"effort": "5\u20137 wks \u00b7 economy",
+"sc": {
+"low": {
+"dau": 2770,
+"rev": 222464,
+"pct": 2.3
+},
+"base": {
+"dau": 7146,
+"rev": 573795,
+"pct": 6.0
+},
+"high": {
+"dau": 13939,
+"rev": 1119316,
+"pct": 11.7
+}
+}
+},
+{
+"id": 5,
+"name": "Tentpole win-back engine",
+"metric": "reactivation",
+"effort": "3\u20134 wks \u00b7 CRM",
+"sc": {
+"low": {
+"dau": 1834,
+"rev": 147272,
+"pct": 1.5
+},
+"base": {
+"dau": 4682,
+"rev": 375981,
+"pct": 3.9
+},
+"high": {
+"dau": 9692,
+"rev": 778243,
+"pct": 8.1
+}
+}
+}
+],
+"total": {
+"low": 1146032,
+"base": 2989900,
+"high": 5950487
+}
+}
