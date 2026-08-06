@@ -141,6 +141,32 @@ tfoot td{border-bottom:0;border-top:1px solid var(--ink);font-weight:650;color:v
 .rail .money{display:block;font-size:17px;color:var(--ink);font-weight:650;letter-spacing:-.02em;margin-bottom:5px;font-variant-numeric:tabular-nums}
 @media(max-width:820px){.rail{text-align:left;padding-top:12px}}
 
+/* ---- before/after figures ---- */
+.fig{margin:40px 0 0}
+.fig-h{margin:0 0 16px}
+.fig-h .t{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass);margin:0 0 7px}
+.fig-h .s{font-size:15.5px;color:var(--ink-2);margin:0;max-width:66ch}
+.fig-h .s strong{color:var(--ink);font-weight:650}
+.fig-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.fig-wrap svg{min-width:800px;width:100%;height:auto;display:block}
+.fig figcaption{font-size:14px;color:var(--ink-3);margin:16px 0 0;max-width:74ch;line-height:1.6}
+.fig figcaption em{color:var(--ink-2);font-style:italic}
+.fig .bx{fill:var(--surface);stroke:var(--rule)}
+.fig .bx-new{fill:var(--brass-wash);stroke:var(--brass)}
+.fig .ttl{font-weight:700;font-size:13px;fill:var(--ink)}
+.fig .sub{font-size:10.5px;fill:var(--ink-2)}
+.fig .edge{stroke:var(--ink-3);fill:none}
+.fig .elab{font-family:var(--mono);font-size:9px;letter-spacing:.05em;fill:var(--ink-3)}
+.fig .rowlab{font-family:var(--mono);font-size:10px;letter-spacing:.17em;fill:var(--ink-3)}
+.fig .band{fill:none;stroke-width:2}
+.fig .band.bad{stroke:var(--neg)}
+.fig .band.good{stroke:var(--brass)}
+.fig .bandlab{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em}
+.fig .bandlab.bad{fill:var(--neg)}
+.fig .bandlab.good{fill:var(--brass)}
+.fig .win{fill:var(--sunk);stroke:var(--rule-soft)}
+.fig .winlab{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;fill:var(--ink-3)}
+
 /* ---- steps list ---- */
 ol.steps{counter-reset:s;list-style:none;padding:0;margin:26px 0 0;max-width:70ch}
 ol.steps li{counter-increment:s;position:relative;padding:0 0 15px 42px;font-size:15.5px;color:var(--ink-2)}
@@ -540,6 +566,176 @@ ul.clean li b{color:var(--ink);font-weight:650}
     installs and ARPDAU — are unverified estimates, so treat the <em>ranking</em> as the output and the
     absolute figures as illustrative.
   </p>
+
+  <!-- ---- F1 before / after ---- -->
+  <figure class="fig">
+    <div class="fig-h">
+      <p class="t">Bet 1 · The Debut — what changes on screen</p>
+      <p class="s">One thing moves: <strong>when the economy is allowed to appear.</strong> Today it opens
+        before the player has a team or a win, and the first losable match ends at a checkout. In the
+        proposed flow the store doesn't exist until the player has already come back once.</p>
+    </div>
+    <div class="fig-wrap">
+      <svg viewBox="0 0 900 320" role="img" aria-label="The first session, today versus proposed. Today: install with no team, a tutorial that vanishes, a roster of three with four upgrade systems exposed, a store whose only offer is 99 dollars 99, and a losable match ending in a rescue-for-100-cash prompt. Economy surfaces open at the fourth step, before any win, and the session dead-ends at a checkout. Proposed: install with the store hidden, a debut pull granting a marquee superstar, a first match that cannot be lost, a win with a single call to action, and the store opening only on the day-two return.">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="var(--ink-3)"/>
+          </marker>
+        </defs>
+
+        <text class="rowlab" x="10" y="12">TODAY</text>
+        <rect class="bx" x="10"  y="24" width="134" height="66" rx="3"/>
+        <rect class="bx" x="194" y="24" width="134" height="66" rx="3"/>
+        <rect class="bx" x="378" y="24" width="134" height="66" rx="3"/>
+        <rect class="bx" x="562" y="24" width="134" height="66" rx="3"/>
+        <rect class="bx" x="746" y="24" width="134" height="66" rx="3"/>
+
+        <text class="ttl" x="24"  y="52">Install</text>
+        <text class="sub" x="24"  y="72">no team yet</text>
+        <text class="ttl" x="208" y="52">Tutorial</text>
+        <text class="sub" x="208" y="72">brief, vanishes</text>
+        <text class="ttl" x="392" y="52">Roster of 3</text>
+        <text class="sub" x="392" y="72">4 upgrade systems</text>
+        <text class="ttl" x="576" y="52">Store</text>
+        <text class="sub" x="576" y="72">$99.99, only offer</text>
+        <text class="ttl" x="760" y="52">Losable match</text>
+        <text class="sub" x="760" y="72">Rescue: 100 cash</text>
+
+        <line class="edge" x1="150" y1="57" x2="186" y2="57" marker-end="url(#ah)"/>
+        <line class="edge" x1="334" y1="57" x2="370" y2="57" marker-end="url(#ah)"/>
+        <line class="edge" x1="518" y1="57" x2="554" y2="57" marker-end="url(#ah)"/>
+        <line class="edge" x1="702" y1="57" x2="738" y2="57" marker-end="url(#ah)"/>
+        <text class="elab" x="536" y="18" text-anchor="middle">before a team exists</text>
+        <text class="elab" x="720" y="18" text-anchor="middle">first loss</text>
+
+        <path class="band bad" d="M562 102 L562 110 L880 110 L880 102"/>
+        <text class="bandlab bad" x="562" y="128">ECONOMY OPENS — BEFORE ANY WIN</text>
+        <text class="bandlab bad" x="562" y="143">SESSION DEAD-ENDS AT A CHECKOUT</text>
+
+        <text class="rowlab" x="10" y="186">PROPOSED</text>
+        <rect class="bx"     x="10"  y="198" width="134" height="66" rx="3"/>
+        <rect class="bx-new" x="194" y="198" width="134" height="66" rx="3"/>
+        <rect class="bx-new" x="378" y="198" width="134" height="66" rx="3"/>
+        <rect class="bx-new" x="562" y="198" width="134" height="66" rx="3"/>
+        <rect class="bx"     x="746" y="198" width="134" height="66" rx="3"/>
+
+        <text class="ttl" x="24"  y="226">Install</text>
+        <text class="sub" x="24"  y="246">store hidden</text>
+        <text class="ttl" x="208" y="226">Debut pull</text>
+        <text class="sub" x="208" y="246">marquee granted</text>
+        <text class="ttl" x="392" y="226">First match</text>
+        <text class="sub" x="392" y="246">cannot be lost</text>
+        <text class="ttl" x="576" y="226">The win</text>
+        <text class="sub" x="576" y="246">one CTA: Level up</text>
+        <text class="ttl" x="760" y="226">Day-2 return</text>
+        <text class="sub" x="760" y="246">store opens</text>
+
+        <line class="edge" x1="150" y1="231" x2="186" y2="231" marker-end="url(#ah)"/>
+        <line class="edge" x1="334" y1="231" x2="370" y2="231" marker-end="url(#ah)"/>
+        <line class="edge" x1="518" y1="231" x2="554" y2="231" marker-end="url(#ah)"/>
+        <line class="edge" x1="702" y1="231" x2="738" y2="231" marker-end="url(#ah)"/>
+        <text class="elab" x="352" y="192" text-anchor="middle">core loop only</text>
+        <text class="elab" x="720" y="192" text-anchor="middle">return hook</text>
+
+        <path class="band good" d="M746 276 L746 284 L880 284 L880 276"/>
+        <text class="bandlab good" x="880" y="302" text-anchor="end">ECONOMY DEFERRED TO DAY 2</text>
+      </svg>
+    </div>
+    <figcaption>
+      The same five steps of one session in both rows. What moves is the bracket: economy surfaces
+      currently open at step four and the session can end at a payment prompt, so value is asked for before
+      any has been delivered. Deferring them past the day-two return removes both the early ask and the dead
+      end. Steps drawn from a firsthand play session to League 2 — the screenshots behind each are on the
+      evidence page.
+    </figcaption>
+  </figure>
+
+  <!-- ---- F2 before / after ---- -->
+  <figure class="fig">
+    <div class="fig-h">
+      <p class="t">Bet 2 · Rookie Crew — what changes on screen</p>
+      <p class="s">One thing moves here too: <strong>when the player first belongs to something.</strong>
+        Today the first social tie forms at League 5 — after the window in which people decide whether to
+        stay. The proposal moves it to five minutes after install, inside that window.</p>
+    </div>
+    <div class="fig-wrap">
+      <svg viewBox="0 0 900 350" role="img" aria-label="The social ladder today versus proposed, across install plus five minutes, day one, days one to seven, League 4 and League 5. The activation window covering install through day seven is shaded. Today: global chat is open at install with recruitment spam and no block tool, nothing social happens through day seven, Showdown opens at League 4, and the first social tie is a cold solo faction join at League 5, outside the activation window. Proposed: the player is drafted into a crew of four to eight within five minutes, a mentor is matched on day one, a crew goal and curated chat run through day seven, global chat unlocks at League 4, and the crew graduates into a faction together at League 5 — so the first social tie forms inside the activation window.">
+        <defs>
+          <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M0 0 L10 5 L0 10 z" fill="var(--ink-3)"/>
+          </marker>
+        </defs>
+
+        <rect class="win" x="0" y="28" width="522" height="272" rx="3"/>
+        <text class="winlab" x="10" y="18">◄ ACTIVATION WINDOW — WHERE PLAYERS DECIDE WHETHER TO STAY ►</text>
+
+        <text class="rowlab" x="10" y="52">TODAY</text>
+        <rect class="bx" x="10"  y="64" width="134" height="66" rx="3"/>
+        <rect class="bx" x="194" y="64" width="134" height="66" rx="3"/>
+        <rect class="bx" x="378" y="64" width="134" height="66" rx="3"/>
+        <rect class="bx" x="562" y="64" width="134" height="66" rx="3"/>
+        <rect class="bx" x="746" y="64" width="134" height="66" rx="3"/>
+
+        <text class="ttl" x="24"  y="92">Global chat</text>
+        <text class="sub" x="24"  y="112">spam, no block</text>
+        <text class="ttl" x="208" y="92">Nothing social</text>
+        <text class="sub" x="208" y="112">solo play</text>
+        <text class="ttl" x="392" y="92">Nothing social</text>
+        <text class="sub" x="392" y="112">solo play</text>
+        <text class="ttl" x="576" y="92">Showdown opens</text>
+        <text class="sub" x="576" y="112">not social</text>
+        <text class="ttl" x="760" y="92">Faction opens</text>
+        <text class="sub" x="760" y="112">cold, solo join</text>
+
+        <line class="edge" x1="150" y1="97" x2="186" y2="97" marker-end="url(#ah2)"/>
+        <line class="edge" x1="334" y1="97" x2="370" y2="97" marker-end="url(#ah2)"/>
+        <line class="edge" x1="518" y1="97" x2="554" y2="97" marker-end="url(#ah2)"/>
+        <line class="edge" x1="702" y1="97" x2="738" y2="97" marker-end="url(#ah2)"/>
+
+        <circle cx="813" cy="144" r="4" fill="var(--neg)"/>
+        <text class="bandlab bad" x="880" y="168" text-anchor="end">FIRST SOCIAL TIE — OUTSIDE THE WINDOW</text>
+
+        <text class="rowlab" x="10" y="204">PROPOSED</text>
+        <rect class="bx-new" x="10"  y="216" width="134" height="66" rx="3"/>
+        <rect class="bx-new" x="194" y="216" width="134" height="66" rx="3"/>
+        <rect class="bx-new" x="378" y="216" width="134" height="66" rx="3"/>
+        <rect class="bx"     x="562" y="216" width="134" height="66" rx="3"/>
+        <rect class="bx-new" x="746" y="216" width="134" height="66" rx="3"/>
+
+        <text class="ttl" x="24"  y="244">Crew drafted</text>
+        <text class="sub" x="24"  y="264">4–8, matched</text>
+        <text class="ttl" x="208" y="244">Mentor matched</text>
+        <text class="sub" x="208" y="264">one veteran</text>
+        <text class="ttl" x="392" y="244">Crew goal</text>
+        <text class="sub" x="392" y="264">curated chat</text>
+        <text class="ttl" x="576" y="244">Chat unlocks</text>
+        <text class="sub" x="576" y="264">now actionable</text>
+        <text class="ttl" x="760" y="244">Graduation</text>
+        <text class="sub" x="760" y="264">≥2 crewmates</text>
+
+        <line class="edge" x1="150" y1="249" x2="186" y2="249" marker-end="url(#ah2)"/>
+        <line class="edge" x1="334" y1="249" x2="370" y2="249" marker-end="url(#ah2)"/>
+        <line class="edge" x1="518" y1="249" x2="554" y2="249" marker-end="url(#ah2)"/>
+        <line class="edge" x1="702" y1="249" x2="738" y2="249" marker-end="url(#ah2)"/>
+
+        <circle cx="77" cy="298" r="4" fill="var(--brass)"/>
+        <text class="bandlab good" x="92" y="302">FIRST SOCIAL TIE — INSIDE THE WINDOW, MINUTE 5</text>
+
+        <text class="elab" x="77"  y="336" text-anchor="middle">INSTALL +5 MIN</text>
+        <text class="elab" x="261" y="336" text-anchor="middle">DAY 1</text>
+        <text class="elab" x="445" y="336" text-anchor="middle">DAY 1–7</text>
+        <text class="elab" x="629" y="336" text-anchor="middle">LEAGUE 4</text>
+        <text class="elab" x="813" y="336" text-anchor="middle">LEAGUE 5</text>
+      </svg>
+    </div>
+    <figcaption>
+      Same timeline, same five moments. The shaded region is the activation window — the period that
+      decides whether an install becomes a player. Today the first social tie lands outside it, at League 5,
+      and the one social surface open on day one is unmoderated global chat. The proposal moves the tie to
+      minute five and holds global chat back until the player can act on it. Whether it is worth building
+      rests on faction-join being a top-2 retention correlate — that is data pull 3 below.
+    </figcaption>
+  </figure>
 
   <p class="ev-link"><a href="/#ideas">Evidence · the mechanism and guardrail behind each bet →</a></p>
 </section>
