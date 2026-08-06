@@ -1,4 +1,4 @@
-<title>WWE Champions — Growth Diagnosis &amp; Proposal</title>
+<title>WWE Champions — Growth Diagnosis, ROI &amp; Product Spec</title>
 <style>
 :root{
   --paper:#F2F3F5; --surface:#FFF; --sunk:#E9EBEF; --rule:#D9DCE2; --rule-soft:#E6E8EC;
@@ -91,14 +91,7 @@ h4{font-weight:700;font-size:14px;letter-spacing:.01em;margin:0 0 10px}
 .dk{font-family:var(--mono);font-size:12px;text-align:center;border-left:1px solid var(--rule);border-right:1px solid var(--rule);padding:0 6px}
 .dv{font-family:var(--mono);font-size:11px;color:var(--ink-3);padding:0 9px;font-variant-numeric:tabular-nums;white-space:nowrap}
 
-/* revenue trajectory */
-.traj{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;align-items:end;height:190px;border-bottom:1px solid var(--ink)}
-.tcol{display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:9px;height:100%}
-.tbar{width:100%;max-width:96px;background:var(--brass);border-radius:3px 3px 0 0;transition:filter .15s}
-.tcol:hover .tbar{filter:brightness(1.14)}
-.tcol .tv{font-family:var(--mono);font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}
-.tlabels{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:12px}
-.tlabels div{text-align:center;font-family:var(--mono);font-size:10.5px;color:var(--ink-3);line-height:1.5}
+
 
 /* ---- tables ---- */
 .scroll{overflow-x:auto;border-top:1px solid var(--ink);margin:26px 0}
@@ -179,6 +172,36 @@ footer.end{margin-top:88px;padding:26px 0 90px;border-top:1px solid var(--rule);
 a{color:var(--brass)}
 :focus-visible{outline:2px solid var(--brass);outline-offset:3px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+.cit{font-size:.62em;vertical-align:super;color:var(--brass);text-decoration:none;font-family:var(--mono);margin-left:2px;font-weight:600}
+.unver{border-left:2px solid var(--neg);padding:2px 0 2px 24px;margin:34px 0;max-width:64ch}
+.unver-h{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--neg);margin:0 0 12px}
+.unver p{margin:0 0 12px;font-size:15.5px;color:var(--ink-2)}
+.unver strong{color:var(--ink);font-weight:650}
+.model{border-top:1px solid var(--ink);margin:30px 0;padding-top:22px}
+.inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(184px,1fr));gap:20px 26px}
+.inp label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-bottom:7px}
+.inp input{width:100%;font-family:var(--mono);font-size:16px;font-variant-numeric:tabular-nums;color:var(--ink);background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:9px 11px}
+.inp input:focus{outline:2px solid var(--brass);outline-offset:1px;border-color:var(--brass)}
+.inp .src{font-size:11.5px;color:var(--ink-3);margin-top:6px;line-height:1.45}
+.inp .src.warn{color:var(--neg)}
+.derived{display:flex;flex-wrap:wrap;gap:26px;margin:24px 0 0;padding-top:18px;border-top:1px solid var(--rule-soft);font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.derived b{color:var(--ink);font-weight:650;font-variant-numeric:tabular-nums}
+.reset{font-family:var(--mono);font-size:11px;color:var(--ink-3);background:none;border:1px solid var(--rule);border-radius:999px;padding:7px 14px;cursor:pointer;margin-top:18px}
+.reset:hover{border-color:var(--brass);color:var(--brass)}
+.spec{border-top:1px solid var(--rule);padding:24px 0}
+.spec-h{display:grid;grid-template-columns:96px minmax(0,1fr);gap:22px;align-items:baseline}
+@media(max-width:640px){.spec-h{grid-template-columns:1fr;gap:8px}}
+.spec-id{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--brass)}
+.spec-b{max-width:64ch}
+.spec-b p{margin:0 0 12px;font-size:15.5px;color:var(--ink-2)}
+.spec-b p:last-child{margin-bottom:0}
+.spec-b strong{color:var(--ink);font-weight:650}
+.srctab td:first-child{white-space:nowrap;font-family:var(--mono);font-size:12px;color:var(--ink)}
+.conf{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap;display:inline-block}
+.conf.a{color:var(--pos);border:1px solid var(--pos)}
+.conf.b{color:var(--brass);border:1px solid var(--brass)}
+.conf.c{color:var(--neg);border:1px solid var(--neg)}
 @media print{.cover-cta{display:none}.act{page-break-before:always}}
 </style>
 
@@ -187,16 +210,18 @@ a{color:var(--brass)}
 <!-- ============== COVER ============== -->
 <header class="cover">
   <p class="tagline"><b>WWE Champions</b><i>·</i>Growth diagnosis &amp; proposal<i>·</i>August 2026</p>
-  <h1>A nine-year-old hit is<br>losing <em>60% of its revenue</em><br>— and it isn't the game</h1>
+  <h1>50 million people installed it.<br>The one-star reviewers<br><em>still call it fun.</em></h1>
   <p class="standfirst">
-    Across 2,945 player reviews, people who rate this game <strong>one star still call it fun</strong>.
-    The core loop and the licence are working. What's failing is the path a new player walks in the
-    first ten minutes — and the social layer that would have kept them. This is what the data says,
-    what it's worth, and what I'd ship first.
+    Across 2,945 player reviews, the word &ldquo;fun&rdquo; appears at the <strong>same rate in one-star
+    reviews as in five-star reviews</strong>. The core loop and the licence are working. What's failing
+    is the path a new player walks in the first ten minutes — and the social layer that would have kept
+    them. Here's what the data says, how I know it, what it's worth, and what I'd build.
   </p>
+  
   <p class="cover-cta">
-    <a href="/prototype">Play the interactive prototype →</a>
-    <a href="#proposal">Skip to the proposal →</a>
+    <a href="#proposal">Go to the proposal →</a>
+    <a href="#spec">Read the specs →</a>
+    <a href="#sources">Sources &amp; method →</a>
   </p>
 </header>
 
@@ -215,28 +240,36 @@ a{color:var(--brass)}
   </div>
 
   <div class="figs">
-    <div class="fig"><div class="n">50<sup>M+</sup></div><div class="k">Installs</div><div class="d">Google Play alone, lifetime. The audience was reached — the question is what happened to it.</div></div>
-    <div class="fig"><div class="n up">4.36<sup>★</sup></div><div class="k">Rating · 402,333 ratings</div><div class="d">70% five-star. This is not a disliked game, and any pitch that says so is wrong.</div></div>
-    <div class="fig"><div class="n dn">−60<sup>%</sup></div><div class="k">Revenue vs 2021 peak</div><div class="d">Roughly $2M/mo then; roughly $0.8M/mo now, across both stores.</div></div>
-    <div class="fig"><div class="n dn">−55<sup>%</sup></div><div class="k">Monthly installs vs 2021</div><div class="d">~200k/mo then, ~90k/mo now. Top-of-funnel is narrowing too.</div></div>
+    <div class="fig"><div class="n">50<sup>M+</sup></div><div class="k">Installs · Google Play</div><div class="d">Lifetime, Android alone. The audience was reached — the question is what happened to it.<a class="cit" href="#sources">1</a></div></div>
+    <div class="fig"><div class="n up">4.36<sup>★</sup></div><div class="k">402,333 ratings</div><div class="d">70% five-star. Not a disliked game — any pitch that opens by saying so is wrong.<a class="cit" href="#sources">1</a></div></div>
+    <div class="fig"><div class="n">9.5<sup>yrs</sup></div><div class="k">Since launch</div><div class="d">Released 25 Jan 2017, still shipping — v0.900, updated 24 Jul 2026.<a class="cit" href="#sources">1</a></div></div>
+    <div class="fig"><div class="n br">8.1<sup>%</sup></div><div class="k">Of raters write text</div><div class="d">32,790 written reviews from 402,333 ratings. This ratio governs how the corpus below must be read.<a class="cit" href="#sources">1</a></div></div>
   </div>
 
-  <div class="chart">
-    <div class="chart-h">
-      <p class="t">Estimated monthly revenue, 2021 → 2026</p>
-      <p class="s">Third-party estimates. Platform coverage differs between points, so read the <b>shape</b>, not the precise values — the shape is a title in managed decline.</p>
-    </div>
-    <div class="traj" id="traj"></div>
-    <div class="tlabels" id="trajlab"></div>
-    <p class="note">Sensor Tower estimates via public reporting · 2021 and 2023 figures are whole-title; Nov 2025 is iOS-only and Mar 2026 is Play-only, so the current combined figure (~$0.8M/mo) is the sum of the two most recent single-platform points</p>
+  <p class="body">
+    Those four numbers are the lifecycle picture, and each is a direct read from a store API rather than
+    an estimate. A game <strong>nine and a half years old</strong>, with a <strong>50-million install
+    base</strong>, <strong>rated 4.36</strong>, and <strong>still under active development</strong>.
+    That is a mature title carrying a very large lapsed population and a product people demonstrably liked.
+  </p>
+
+  <div class="unver">
+    <p class="unver-h">What I could not verify — and did not build on</p>
+    <p>Third-party trackers are widely reported to put WWE Champions well below its 2021 peak on revenue
+    and installs. Those figures show up in search results, <strong>but the Sensor Tower pages behind them
+    need a login and I could not open a primary source</strong>. An earlier draft of this document led
+    with a &ldquo;60% revenue decline&rdquo;. I've removed it — nothing here depends on a number I can't
+    show you.</p>
+    <p>I'm flagging it rather than dropping it silently, because if it's true it sharpens the case
+    considerably, and you can see the real curve in about thirty seconds.
+    <strong>That's a question for you, not a claim from me.</strong></p>
   </div>
 
   <h3>What that means for strategy</h3>
   <p class="body">
-    A mature live game with a narrowing funnel has two honest options: extract harder from the players
-    who remain, or widen the base again. The first is what the last few years already did — and the
-    review corpus shows exactly what it cost in goodwill. <strong>The second is the brief: engage more
-    people.</strong>
+    A mature live game has two honest options: extract harder from the players who remain, or widen the
+    base again. The review corpus below shows what the first costs in goodwill.
+    <strong>The second is the brief: engage more people.</strong>
   </p>
   <p class="body">
     That reframes the growth job. On a title this age, whales are already monetised near their ceiling.
@@ -559,15 +592,16 @@ a{color:var(--brass)}
   </div>
 </section>
 
-<!-- ============== ACT 6 ============== -->
+<!-- ============== ACT 6 · ROI (interactive) ============== -->
 <section class="act" id="roi">
   <div class="act-head">
     <div class="act-no">06</div>
     <div>
       <h2>What each idea is worth</h2>
       <p class="act-lede">
-        A transparent model, not a forecast. Every input is stated and every one of them is a
-        benchmark I would replace with your telemetry in week one.
+        A model you can audit, not a forecast. <strong>Every input is editable below</strong> — change
+        any of them and the table recalculates. Two of them are benchmarks I'd replace with your
+        telemetry in week one, and they're marked in red.
       </p>
     </div>
   </div>
@@ -575,43 +609,50 @@ a{color:var(--brass)}
   <h4>The model in one line</h4>
   <p class="body">
     Fit a power-law retention curve through D1 and D7, integrate it over 180 days to get
-    <strong>lifetime user-days per install</strong>, multiply by daily installs to get steady-state DAU,
-    and multiply by ARPDAU. A retention lift re-fits the curve; the difference in area is the gain.
+    <strong>lifetime user-days per install</strong>, multiply by daily installs for steady-state DAU,
+    and multiply by ARPDAU for revenue. A retention lift re-fits the curve; the difference in area under
+    it is the gain. Formally: <code>k = ln(D1/D7) / ln(7)</code>, and
+    <code>user-days = ∫₁¹⁸⁰ D1·d⁻ᵏ dd</code>.
   </p>
 
-  <div class="scroll">
-    <table>
-      <thead><tr><th>Input</th><th>Value</th><th>Source</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Monthly installs</strong></td><td class="n">90,000</td><td>Third-party estimate, both stores, 2026</td></tr>
-        <tr><td><strong>Monthly revenue</strong></td><td class="n">$800,000</td><td>Third-party estimate, both stores, 2026</td></tr>
-        <tr><td><strong>D1 retention</strong></td><td class="n">35%</td><td>Genre benchmark — <em>replace with actual</em></td></tr>
-        <tr><td><strong>D7 retention</strong></td><td class="n">16%</td><td>Genre benchmark — <em>replace with actual</em></td></tr>
-        <tr><td><strong>ARPDAU</strong></td><td class="n">$0.22</td><td>Back-solved from revenue ÷ implied DAU</td></tr>
-        <tr><td><strong>Decay exponent k</strong></td><td class="n">0.402</td><td>Fitted from D1/D7</td></tr>
-        <tr><td><strong>Lifetime user-days per install</strong></td><td class="n">12.5</td><td>Integral of the fitted curve, 180 days</td></tr>
-      </tbody>
-    </table>
+  <div class="model">
+    <p class="label">Inputs — edit any value</p>
+    <div class="inputs">
+      <div class="inp"><label for="i-inst">Monthly installs</label>
+        <input id="i-inst" type="number" value="90000" min="1000" step="5000">
+        <p class="src warn">Assumption. Third-party estimate I could not verify at source.</p></div>
+      <div class="inp"><label for="i-arp">ARPDAU (USD)</label>
+        <input id="i-arp" type="number" value="0.22" min="0.01" step="0.01">
+        <p class="src warn">Assumption. Genre range is roughly $0.15–0.40.</p></div>
+      <div class="inp"><label for="i-d1">D1 retention</label>
+        <input id="i-d1" type="number" value="35" min="5" max="90" step="1">
+        <p class="src">%. Match-3 RPG benchmark — replace with actual.</p></div>
+      <div class="inp"><label for="i-d7">D7 retention</label>
+        <input id="i-d7" type="number" value="16" min="2" max="80" step="0.5">
+        <p class="src">%. Match-3 RPG benchmark — replace with actual.</p></div>
+    </div>
+    <div class="derived" id="derived"></div>
+    <button class="reset" id="reset" type="button">Reset to defaults</button>
   </div>
 
   <div class="scroll">
     <table>
-      <thead><tr><th>Idea</th><th>Metric moved</th><th>Effort</th><th>Conservative</th><th>Base case</th><th>Optimistic</th></tr></thead>
+      <thead><tr><th>Idea</th><th>Assumed lift</th><th>Effort</th><th>Δ user-days</th><th>Conservative</th><th>Base case</th><th>Optimistic</th></tr></thead>
       <tbody id="roitab"></tbody>
-      <tfoot><tr><td colspan="3">Portfolio, all five</td><td class="n" id="tl"></td><td class="hero" id="tb"></td><td class="n" id="th"></td></tr></tfoot>
+      <tfoot><tr><td colspan="4">Portfolio, all five</td><td class="n" id="tl"></td><td class="hero" id="tb"></td><td class="n" id="th"></td></tr></tfoot>
     </table>
   </div>
-  <p class="note">Annualised incremental revenue. Percentages are share of current estimated annual revenue (~$9.6M).</p>
+  <p class="note">Annualised incremental revenue. “Δ user-days” is the base-case percentage change in lifetime user-days per install — <strong>scale-invariant</strong>, so it holds regardless of whether the install and ARPDAU assumptions are right.</p>
 
   <div class="callout">
-    <p><strong>Read this before you read the numbers.</strong> The model is most sensitive to the decay
-    exponent, and that is doing real work in the result. A ~3-point D7 lift changes lifetime user-days
-    by roughly a third under a power-law fit, which is why idea 2 outranks idea 1 despite idea 1 moving
-    the more visible metric.</p>
+    <p><strong>Read this before you read the numbers.</strong> The result is highly sensitive to the
+    decay exponent. A ~3-point D7 lift changes lifetime user-days by roughly a third under a power-law
+    fit, which is why idea 2 outranks idea 1 despite idea 1 moving the more visible metric.</p>
     <p>That sensitivity is not a flaw to hide — <strong>it is the argument for measuring rather than
-    modelling</strong>. Late-curve retention is worth more than early-curve retention on a mature title,
-    and if your real curve is flatter or steeper than the benchmark, the ranking can move. The first
-    thing I'd do is replace these two inputs.</p>
+    modelling</strong>. Late-curve retention is worth more than early-curve retention on a mature title.
+    If your real curve is flatter or steeper than the benchmark, the ranking can move, and the
+    <em>Δ user-days</em> column is the part to trust: it depends only on the retention assumptions, not
+    on the two unverified scale inputs.</p>
   </div>
 
   <h3>Why this order</h3>
@@ -619,104 +660,347 @@ a{color:var(--brass)}
     Sequenced by <strong>risk to the golden goose</strong>. Ideas 1 and 2 are retention-accretive and
     touch no economy surface — they grow the base whales compete against, so they help revenue rather
     than threaten it. Ideas 3 and 4 touch the gacha core, so they stay gated behind drop-rate and
-    cohort-LTV data. Idea 5 is cheap and independent, so it can run in parallel with anything.
+    cohort-LTV data. Idea 5 is cheap and independent and can run in parallel with anything.
   </p>
 </section>
 
-<!-- ============== ACT 7 ============== -->
+<!-- ============== ACT 7 · PROPOSAL ============== -->
 <section class="act" id="proposal">
   <div class="act-head">
     <div class="act-no">07</div>
     <div>
       <h2>The proposal</h2>
       <p class="act-lede">
-        Two builds, one experiment each, six data pulls to de-risk them, and a decision rule agreed
-        before either ships.
+        Six data pulls to replace my assumptions, then two builds shipped as experiments with
+        pre-agreed decision rules. Full specs follow in Act 08.
       </p>
     </div>
   </div>
 
   <h3>Week one — replace my assumptions</h3>
   <ol class="steps">
-    <li>Pull the <b>cohort retention table</b> (D1/D7/D30) by lifecycle stage × spend tier. This alone confirms or kills the ranking in Act 6.</li>
+    <li>Pull the <b>cohort retention table</b> (D1/D7/D30) by lifecycle stage × spend tier. This alone confirms or kills the ranking in Act 06.</li>
     <li>Query the <b>new-user funnel</b> step by step: install → tutorial → first pull → first faction join → first event complete. Find the largest single drop.</li>
-    <li>Correlate <b>“joined an active faction”</b> and <b>“first 4★ pull”</b> against D7 and D30. If faction-join isn't the top retention correlate, idea 2 gets re-scoped.</li>
+    <li>Correlate <b>“joined an active faction”</b> and <b>“first 4★ pull”</b> against D7 and D30. If faction-join isn't the top retention correlate, F2 gets re-scoped before a line is written.</li>
     <li>Map <b>faucet vs. sink per cohort</b> to locate the stall band precisely, rather than assuming where the wall is.</li>
     <li>Pull <b>historical free-reward tier distribution and dupe rate</b> to confirm or refute the eroding-value hypothesis behind idea 4.</li>
-    <li>Baseline <b>DAU/MAU, sessions per day and event participation</b> by segment, and pull the retention data around the <b>late-2025 team-mode change</b>.</li>
+    <li>Baseline <b>DAU/MAU, sessions per day and event participation</b> by segment — and pull retention around the <b>late-2025 team-mode change</b>.</li>
   </ol>
 
-  <h3>Build one — “The Debut”</h3>
-  <div class="two">
-    <div>
-      <h4>Scope</h4>
-      <ul class="clean">
-        <li><b>Guaranteed marquee pull</b> in the first 30 seconds. No gacha RNG on the debut.</li>
-        <li><b>≤ 2 systems visible</b> in session one. Everything else gated to a disclosure schedule: Level Up on first win, Enhance at second star, Fuse at League 3, Evolve and Boss Breakers at League 5+.</li>
-        <li><b>Store and offers deferred</b> until the player has a team and a reason.</li>
-        <li><b>No losable debut match</b> and no cash-rescue prompt in session one.</li>
-        <li><b>Exactly one primary CTA</b> per screen — teaching one verb at a time.</li>
-        <li><b>Zero reachable dead-ends.</b> Unavailable actions are hidden, not shown-then-blocked.</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Experiment</h4>
-      <ul class="clean">
-        <li><b>Split.</b> New installs, 50/50 by device cohort.</li>
-        <li><b>Primary.</b> D1 and D7 retention.</li>
-        <li><b>Secondary.</b> Tutorial completion, time-to-first-win, time-to-first-upgrade.</li>
-        <li><b>Guardrail.</b> D30 payer conversion and ARPDAU, non-inferior.</li>
-        <li><b>Instrumentation.</b> <code>debut_start</code>, <code>marquee_claimed</code>, <code>first_match_win</code>, <code>first_upgrade_tap</code>, <code>system_unlock_shown/_engaged</code>, <code>dead_end_hit</code> (must trend to zero), <code>session1_complete</code>.</li>
-      </ul>
-    </div>
+  <h3>Then build, in this order</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Phase</th><th>What ships</th><th>Gate to pass first</th><th>Window</th></tr></thead>
+      <tbody>
+        <tr><td><strong>0</strong></td><td>The six pulls above; re-run the Act 06 model on real inputs</td><td>—</td><td>Week 1–2</td></tr>
+        <tr class="lead"><td><strong>1</strong></td><td><strong>F1 · The Debut</strong> — guided first session</td><td>Funnel data confirms a session-1 drop</td><td>Week 3–10</td></tr>
+        <tr class="lead"><td><strong>2</strong></td><td><strong>F2 · Rookie Crew</strong> — social on-ramp</td><td>Faction-join confirmed as a top-2 retention correlate</td><td>Week 6–16</td></tr>
+        <tr><td><strong>3</strong></td><td>Catch-up track and dupe-protection, in whichever order the economy data supports</td><td>F1/F2 guardrails held; drop-rate data in hand</td><td>Week 17+</td></tr>
+      </tbody>
+    </table>
   </div>
-
-  <h3>Build two — Rookie Crew</h3>
-  <div class="two">
-    <div>
-      <h4>Scope</h4>
-      <ul class="clean">
-        <li><b>Auto-draft within 5 minutes</b> of install. Crew of 4–8, matched by install cohort and timezone for live overlap.</li>
-        <li><b>One shared low-stakes goal</b> — a collective bar, no dead-weight penalty, none of the feud's complexity.</li>
-        <li><b>One opt-in veteran mentor</b> per crew, rewarded on the crew's retention.</li>
-        <li><b>Curated chat</b> until League 4, with report and mute shipped before launch.</li>
-        <li><b>Graduation at League 5</b> — the crew enters a real faction together, carrying at least two crewmates where possible.</li>
-      </ul>
-    </div>
-    <div>
-      <h4>Experiment</h4>
-      <ul class="clean">
-        <li><b>Split.</b> New installs, 50/50.</li>
-        <li><b>Primary.</b> Share of new players in an active social unit by D7.</li>
-        <li><b>Secondary.</b> D30 retention of crew-joiners vs. non-joiners; faction-join rate by League 5.</li>
-        <li><b>Guardrail.</b> Veteran feud participation, chat-report rate, moderation load.</li>
-        <li><b>The correlation to prove.</b> Crew-joiners must retain measurably better than non-joiners. The entire thesis rests on it.</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="callout">
-    <p><strong>Decision rule, agreed before either ships.</strong> Ship if the primary metric clears the
-    pre-registered MDE at p&lt;0.05 <em>and</em> both revenue guardrails are non-inferior.</p>
-    <p>If activation rises but D30 monetization regresses, that means we bought retention by giving away
-    the economy — hold and iterate, don't ship. If the guardrails hold but the primary misses, the
-    hypothesis was wrong and we say so publicly and move to idea 3.</p>
-  </div>
+  <p class="note">F1 and F2 overlap deliberately — they touch different surfaces and can be split-tested independently on the same install cohort.</p>
 
   <h3>What I'd want to be wrong about</h3>
   <ul class="clean">
     <li><b>That faction-join is the top retention correlate.</b> It's the load-bearing assumption under the highest-value idea, and I've inferred it rather than measured it.</li>
-    <li><b>That the late-2025 team-mode change hurt.</b> Two upvoted reviews are a signal, not a finding — the retention data around that change decides whether idea 2 is a restoration or a new build.</li>
+    <li><b>That the late-2025 team-mode change hurt.</b> Two upvoted reviews are a signal, not a finding — the retention data around that change decides whether F2 is a restoration or a new build.</li>
     <li><b>That the benchmark retention curve resembles yours.</b> If your curve is materially flatter, ideas 3 and 4 move up the list.</li>
   </ul>
+</section>
 
-  <div class="pull">
-    <p>The opportunity here isn't to monetize the remaining players harder. It's that a game <b>50 million
-    people installed</b>, which <b>one-star reviewers still call fun</b>, loses most of them in the first
-    ten minutes and never gives them anyone to play with. <b>That's a fixable problem.</b></p>
-    <footer>The argument in three sentences</footer>
+<!-- ============== ACT 8 · SPECS ============== -->
+<section class="act" id="spec">
+  <div class="act-head">
+    <div class="act-no">08</div>
+    <div>
+      <h2>The specs</h2>
+      <p class="act-lede">
+        Two one-pagers, written to be handed to a pod. Each states the problem, the hypothesis, what
+        ships, what doesn't, how it's measured, and what would make us kill it.
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ F1 ============ -->
+  <h3 style="margin-top:0">F1 · “The Debut” — a guided first session</h3>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Problem</div><div class="spec-b">
+    <p>A new player lands on a three-superstar roster that already exposes a four-layer upgrade ladder,
+    six gem stats, Trainer, Link &amp; Gear, Boss Breakers and injury timers. Within the first ten
+    minutes they are offered a <strong>$99.99 pack as the only item on the League 2 store shelf</strong>,
+    four subscription passes, and a padlocked Premium rewards column at zero points. The first losable
+    match ends in a <strong>“RESCUE your Superstar for 100 cash”</strong> prompt.</p>
+    <p>Monetisation surfaces arrive before the player has a team, a win, or a reason to care. Nothing in
+    the first session teaches the core loop cleanly, and several paths dead-end.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Hypothesis</div><div class="spec-b">
+    <p>If we defer every economy surface until the player has a roster and a win, and reveal systems on
+    a schedule tied to readiness rather than dumping them at once, then <strong>time-to-first-reward
+    falls, session-1 completion rises, and D1/D7 retention improves</strong> — without touching the
+    economy's ceiling, because nothing about whale-facing content changes.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Goal</div><div class="spec-b">
+    <p><strong>Primary:</strong> D1 and D7 retention of new installs.<br>
+    <strong>Secondary:</strong> tutorial completion rate, time-to-first-win, time-to-first-upgrade,
+    session-1 completion.<br>
+    <strong>Guardrail:</strong> D30 payer conversion and ARPDAU, both non-inferior.</p>
+    <p>Base-case model value: <strong>+2.3% of annual revenue</strong> at the Act 06 assumptions. The
+    honest read is that F1's value is mostly <em>enabling</em> — it feeds the cohort F2 then retains.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Non-goals</div><div class="spec-b">
+    <p>Not touching drop rates, pack pricing, gacha odds, or any existing player's experience. Not a
+    tutorial rewrite for players past League 3. Not a new-art project — this reuses existing screens and
+    changes what is <em>shown when</em>.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">The flow</div><div class="spec-b">
+    <p><strong>Screen 1 — the debut pull.</strong> Cold open on a named marquee superstar, granted
+    outright. No gacha animation, no currency, no RNG. Copy frames it as a debut, not a reward. One CTA:
+    <em>Claim your star</em>. Bottom-nav Store and Loot are hidden, not greyed.</p>
+    <p><strong>Screen 2 — the first match.</strong> Match-3 plus one finisher. Boss Breakers, Link &amp;
+    Gear and the six gem-crit stats are suppressed. A single coach line explains the finisher bar. The
+    match <strong>cannot be lost</strong>: if the player's health would hit zero, the opponent's next
+    turn is scripted to miss. No rescue prompt exists in this session.</p>
+    <p><strong>Screen 3 — the win, and one next action.</strong> Victory, XP, coins, and exactly one
+    contextual CTA: <em>Level up The Rock</em>. Not six systems — one verb. Completing it fires the
+    Level Up unlock and ends session 1 on a return hook.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Disclosure schedule</div><div class="spec-b">
+    <p>Systems unlock against triggers, one card per session, queued if they collide:</p>
+  </div></div></div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Trigger</th><th>Reveals</th><th>Why there</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Session 1</strong></td><td>Match-3 + finisher</td><td>The core loop, taught with one guaranteed win</td></tr>
+        <tr><td><strong>First win</strong></td><td>Level Up</td><td>First upgrade verb — cheap, instant, satisfying</td></tr>
+        <tr><td><strong>2nd match / 2★</strong></td><td>Enhance</td><td>Opens the colour-class ladder once one star exists</td></tr>
+        <tr><td><strong>Day-2 return</strong></td><td>2nd superstar + team</td><td>Rewards the return; introduces team-building</td></tr>
+        <tr><td><strong>League 3</strong></td><td>Fuse · daily missions</td><td>Depth once a habit is forming</td></tr>
+        <tr><td><strong>League 4</strong></td><td>Showdown · global chat</td><td>Competitive modes when a roster exists</td></tr>
+        <tr><td><strong>League 5+</strong></td><td>Evolve · Boss Breakers · Link &amp; Gear · crit stats</td><td>End-game complexity for engaged players only</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Requirements</div><div class="spec-b"></div></div></div>
+  <ul class="clean">
+    <li><b>R1.</b> Guaranteed marquee pull fires on 100% of first sessions. No RNG on the debut pull.</li>
+    <li><b>R2.</b> At most two systems visible in session 1; all others gated to the schedule above.</li>
+    <li><b>R3.</b> Store, Loot, offers and subscription surfaces are hidden until the Day-2 return.</li>
+    <li><b>R4.</b> The debut match cannot be lost, and no cash-rescue prompt can be reached in session 1.</li>
+    <li><b>R5.</b> Every screen exposes exactly one primary CTA.</li>
+    <li><b>R6.</b> Zero reachable dead-ends. Unavailable actions are hidden, never shown-then-blocked.</li>
+    <li><b>R7.</b> A skip path exists for reinstalls and veterans — never trap an experienced player.</li>
+  </ul>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Edge cases</div><div class="spec-b">
+    <p><strong>Interrupt or offline:</strong> resume at the last completed step, not from scratch.
+    <strong>Reveal collision:</strong> one unlock card per session, queue the rest.
+    <strong>Marquee already owned</strong> (reinstall with restored account): substitute the next star in
+    the debut pool. <strong>Accessibility:</strong> coach tips dismissible, reduced-motion honoured.
+    <strong>Skip abuse:</strong> skipping forfeits the guaranteed pull, so it can't be farmed.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Instrumentation</div><div class="spec-b">
+    <p><code>debut_start</code> · <code>marquee_claimed</code> · <code>first_match_win</code> (with
+    <code>time_to_win</code>) · <code>first_upgrade_tap</code> · <code>system_unlock_shown</code> and
+    <code>system_unlock_engaged</code> (per system, per trigger) · <code>dead_end_hit</code> —
+    <strong>must trend to zero against control</strong> · <code>session1_complete</code>.</p>
+    <p>All eight validated in the analytics pipeline <strong>before</strong> the experiment opens.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Experiment</div><div class="spec-b">
+    <p><strong>Unit:</strong> new installs, 50/50 by device cohort. <strong>Control:</strong> current
+    onboarding. <strong>Variant:</strong> The Debut.</p>
+    <p><strong>Decision rule:</strong> ship if D7 retention clears the pre-registered MDE at p&lt;0.05
+    <em>and</em> both revenue guardrails are non-inferior. If activation rises but D30 monetisation
+    regresses, we bought retention by giving away the economy — hold and iterate. If guardrails hold but
+    the primary misses, the hypothesis was wrong; say so and move to F2.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Risks</div><div class="spec-b">
+    <p><strong>Deferred monetisation costs early revenue.</strong> Some share of players do convert on a
+    day-1 offer. The guardrail catches it; if D30 conversion drops, we re-introduce offers earlier in the
+    variant rather than abandoning the build.</p>
+    <p><strong>A scripted unlosable match may read as fake.</strong> Mitigation: the assist is invisible
+    (opponent misses), not a revive prompt. Watch qualitative feedback and session-2 return.</p>
+  </div></div></div>
+
+  <!-- ============ F2 ============ -->
+  <h3>F2 · Rookie Crew — a social on-ramp before League 5</h3>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Problem</div><div class="spec-b">
+    <p>Faction unlocks at <strong>League 5</strong> and Showdown at League 4 — so the entire activation
+    window passes with no social tie. Meanwhile <strong>global chat is open on day one</strong> and is
+    wall-to-wall faction recruitment (one ad in my own session demanded “discord mandatory”) interleaved
+    with factions insulting each other. A player is shown the party they cannot join, in the least
+    welcoming room available, and there is <strong>no block or report tool</strong>.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Hypothesis</div><div class="spec-b">
+    <p>If a new player is placed in a small, low-stakes social unit within minutes of installing, given
+    one shared goal and one experienced person to ask, then <strong>the share who form a social tie
+    before they can churn rises, and D7/D30 retention rises with it</strong> — while the existing faction
+    system is protected, because crews graduate into it rather than competing with it.</p>
+    <p>This rests on faction-join being a top retention correlate. <strong>Pull 3 in Act 07 tests that
+    before we build.</strong></p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Goal</div><div class="spec-b">
+    <p><strong>Primary:</strong> share of new players in an active social unit by D7.<br>
+    <strong>Secondary:</strong> D30 retention of crew-joiners vs. non-joiners; faction-join rate by
+    League 5; crew-goal completion.<br>
+    <strong>Guardrail:</strong> veteran feud participation, chat-report rate, moderation load.</p>
+    <p>Base-case model value: <strong>+11.7% of annual revenue</strong> — the highest of the five, because
+    it moves late-curve retention.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Non-goals</div><div class="spec-b">
+    <p>Not replacing or re-balancing Faction Feud. Not building a new chat platform — this is a scoped
+    channel with moderation, not a social network. Not touching veteran-facing feud scoring or rewards.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">The flow</div><div class="spec-b">
+    <p><strong>Draft.</strong> Within five minutes of install, the player is auto-assigned to a crew of
+    four to eight, matched by install cohort and timezone so someone is actually online. Framed as being
+    drafted, not joining a queue.</p>
+    <p><strong>Crew home.</strong> One shared goal — a collective bar such as “win 20 matches together”
+    — with no dead-weight penalty and none of the feud's slot requirements. A curated chat channel sits
+    beneath it, with report and mute present from launch.</p>
+    <p><strong>Mentor.</strong> One opt-in veteran per crew, rewarded on the crew's D7 retention rather
+    than on their own play, so the incentive is to help rather than to farm.</p>
+    <p><strong>Graduation.</strong> At League 5 the crew is offered a real faction <em>together</em>,
+    carrying at least two crewmates where slots allow. The player arrives with people they know instead
+    of browsing anonymous factions cold.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Social ladder</div><div class="spec-b"></div></div></div>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>When</th><th>Surface</th><th>What it does</th><th>Today</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Install +5 min</strong></td><td>Rookie Crew draft</td><td>Auto-assign to a cohort-matched crew</td><td>Nothing</td></tr>
+        <tr><td><strong>Day 1</strong></td><td>Mentor match</td><td>Opt-in veteran, rewarded on crew retention</td><td>Nothing</td></tr>
+        <tr><td><strong>Day 1–7</strong></td><td>Crew goal + curated chat</td><td>Shared bar; filtered, moderated conversation</td><td>Unfiltered global chat</td></tr>
+        <tr><td><strong>League 4</strong></td><td>Global chat unlocks</td><td>Full chat once the player can act on recruitment</td><td>Open from day 1</td></tr>
+        <tr><td><strong>League 5</strong></td><td>Graduate to Faction</td><td>Crew enters a real faction together</td><td>Cold, solo join</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Requirements</div><div class="spec-b"></div></div></div>
+  <ul class="clean">
+    <li><b>R1.</b> Every new player is auto-assigned to a crew within 5 minutes of install.</li>
+    <li><b>R2.</b> Crew size 4–8, matched on install cohort and timezone for live overlap.</li>
+    <li><b>R3.</b> Curated new-player channel filters recruitment and abuse until League 4.</li>
+    <li><b>R4.</b> Report and mute ship <em>before</em> the channel opens — non-negotiable.</li>
+    <li><b>R5.</b> Mentor matching and reward loop live, and abuse-resistant (rewards on crew retention, capped per mentor).</li>
+    <li><b>R6.</b> Graduation carries ≥2 crewmates into the same faction where slots allow.</li>
+    <li><b>R7.</b> No crew mechanic may affect Faction Feud scoring.</li>
+  </ul>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Edge cases</div><div class="spec-b">
+    <p><strong>No mentor available:</strong> crew forms anyway; the slot fills asynchronously.
+    <strong>Crew goes inactive:</strong> auto-reshuffle stragglers into a fresh active crew rather than
+    stranding them. <strong>Toxicity inside a crew:</strong> report and mute in-channel, with graduated
+    enforcement. <strong>Player reaches L5 with a dissolved crew:</strong> fall back to normal faction
+    browse. <strong>Mentor churns:</strong> reassign; never leave a crew leaderless.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Instrumentation</div><div class="spec-b">
+    <p><code>crew_assigned</code> (with match-reason attributes) · <code>crew_home_view</code> ·
+    <code>crew_contribution</code> · <code>mentor_matched</code> / <code>mentor_message</code> ·
+    <code>crew_chat_message</code> · <code>crew_goal_complete</code> ·
+    <code>graduation_to_faction</code> (with <code>faction_join_source</code>) ·
+    <code>chat_report</code> as a moderation-health signal.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Experiment</div><div class="spec-b">
+    <p><strong>Unit:</strong> new installs, 50/50. <strong>Control:</strong> faction at L5, global chat
+    from day 1. <strong>Variant:</strong> Rookie Crew plus curated chat.</p>
+    <p><strong>Decision rule:</strong> ship if D7 social-tie rate <em>and</em> D30 retention both lift at
+    p&lt;0.05 with veteran feud metrics non-inferior. <strong>The correlation that must hold:</strong>
+    crew-joiners retain measurably better than non-joiners. If that fails, the thesis is wrong and the
+    build stops regardless of the other numbers.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Risks</div><div class="spec-b">
+    <p><strong>Moderation load.</strong> A new chat surface for every new player is a real cost. Mitigated
+    by scoping the channel small, shipping tooling first, and tracking report rate as a guardrail.</p>
+    <p><strong>Crews could cannibalise factions.</strong> Mitigated by making graduation the only exit —
+    crews are temporary by design and cannot score in feuds.</p>
+    <p><strong>The late-2025 team-mode change.</strong> If team modes were deliberately reduced, this
+    build runs against a recent strategic decision. That conversation happens before the spec is
+    approved, not after.</p>
+  </div></div></div>
+</section>
+
+<!-- ============== ACT 9 · SOURCES ============== -->
+<section class="act" id="sources">
+  <div class="act-head">
+    <div class="act-no">09</div>
+    <div>
+      <h2>Sources &amp; method</h2>
+      <p class="act-lede">
+        Every number in this document, where it came from, and how much weight it can carry. Anything
+        marked <span class="conf c">Assumption</span> is mine, not measured.
+      </p>
+    </div>
+  </div>
+
+  <div class="scroll">
+    <table class="srctab">
+      <thead><tr><th>Number</th><th>Value</th><th>Source &amp; method</th><th>Confidence</th></tr></thead>
+      <tbody>
+        <tr><td>Installs</td><td>50,000,000+</td><td>Google Play store listing, <code>minInstalls</code> field, fetched via API 6 Aug 2026</td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>Play rating</td><td>4.356</td><td>Same call, <code>score</code> field</td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>Play ratings count</td><td>402,333</td><td>Same call, <code>ratings</code> field</td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>Rating histogram</td><td>1★ 32,779 · 2★ 9,828 · 3★ 20,283 · 4★ 57,927 · 5★ 281,498</td><td>Same call, <code>histogram</code> field. This is the full population, not a sample</td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>Written reviews</td><td>32,790</td><td>Same call, <code>reviews</code> field. 8.1% write-rate is 32,790 ÷ 402,333</td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>Release date</td><td>25 Jan 2017</td><td>Same call, <code>released</code> field. Age computed to Aug 2026</td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>Current version</td><td>0.900, updated 24 Jul 2026</td><td>Same call, <code>version</code> / <code>updated</code></td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>iOS rating</td><td>4.309 from 30,026</td><td>iTunes Lookup API, <code>id=1017432937</code>, US storefront</td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>Review corpus</td><td>2,945 unique</td><td>474 from the iTunes customer-reviews RSS feed (10 pages across mostRecent + mostHelpful); 2,471 from Google Play via <code>google-play-scraper</code> (6 pages each across newest, rating, helpfulness). De-duplicated on review ID</td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>“fun” skew</td><td>−1.1pp</td><td>Computed: share of 1–2★ reviews containing the token (19.2%, n=1,143) minus share of 4–5★ (20.3%, n=1,557). Tokeniser strips stop-words and game-name words</td><td><span class="conf a">Reproducible</span></td></tr>
+        <tr><td>“money” count / skew</td><td>898 uses · +26.7pp</td><td>Same method. Full derived dataset in <code>data/review-analysis.json</code></td><td><span class="conf a">Reproducible</span></td></tr>
+        <tr><td>Theme reach &amp; sentiment</td><td>e.g. trust 9%, 2.06★</td><td>Keyword families over the same corpus; a review can match several. Averages are of matching reviews</td><td><span class="conf b">Reproducible, sample-biased</span></td></tr>
+        <tr><td>All verbatim quotes</td><td>—</td><td>Copied exactly from the two review feeds, with handle, rating, date and upvote count as returned by the API</td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>Screenshots</td><td>42 captured</td><td>Firsthand play session, League 1–2, July 2026. Captions re-checked against each image</td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>Store screenshots</td><td>6 shown</td><td>iTunes Lookup API, <code>screenshotUrls</code></td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>Monthly installs</td><td>~90,000</td><td><strong>Assumption.</strong> Third-party estimates seen in search results; the Sensor Tower pages behind them require a login and I could not open a primary source</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>Monthly revenue</td><td>~$800,000</td><td><strong>Assumption.</strong> Same limitation. Used only to derive ARPDAU; the Δ user-days column does not depend on it</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>ARPDAU</td><td>$0.22</td><td><strong>Assumption.</strong> Back-solved from the two rows above, and inside the typical mid-core range of roughly $0.15–0.40</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>D1 / D7 retention</td><td>35% / 16%</td><td><strong>Assumption.</strong> Match-3 RPG genre benchmarks, not measured for this title. The single most important thing to replace</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>Per-idea lifts</td><td>see Act 06</td><td><strong>Assumption.</strong> My judgement, expressed as conservative / base / optimistic ranges rather than point estimates</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>Revenue decline</td><td>withdrawn</td><td>An earlier draft claimed a ~60% decline from a 2021 peak. Could not be traced to a primary source, so it has been removed rather than caveated</td><td><span class="conf c">Withdrawn</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>How to reproduce this</h3>
+  <p class="body">
+    The derived datasets are in the repository: <code>data/review-analysis.json</code> holds the word
+    frequencies, divergence scores, theme reach and population histogram;
+    <code>data/roi-model.json</code> holds the model inputs and per-idea outputs. The collection and
+    analysis scripts are in <code>scripts/</code>. Both feeds are public and unauthenticated, so the
+    corpus can be re-pulled and the numbers re-derived independently.
+  </p>
+
+  <div class="callout">
+    <p><strong>The rule I applied.</strong> Anything I could fetch and re-fetch is stated flatly.
+    Anything computed from that data is marked reproducible and the dataset is published. Anything I
+    could not trace to a primary source is either labelled an assumption and made editable, or removed.</p>
+    <p>The revenue decline is the one I got wrong first time round — it read well and I could not source
+    it. <strong>It's better to lose the headline than to defend a number I can't show you.</strong></p>
   </div>
 </section>
+
 
 <footer class="end">
   <span>WWE Champions · independent growth diagnosis · Aug 2026</span>
@@ -1214,239 +1498,104 @@ var D={
 "avg": 3.79
 }
 ]
-}, R={
-"traj": [
-[
-"May 2021",
-2.0,
-200
-],
-[
-"Feb 2023",
-1.0,
-100
-],
-[
-"Nov 2025 (iOS)",
-0.3,
-20
-],
-[
-"Mar 2026 (Play)",
-0.5,
-70
-]
-],
-"inputs": {
-"installs_mo": 90000,
-"rev_mo": 800000,
-"d1": 0.35,
-"d7": 0.16,
-"arpdau": 0.22,
-"k": 0.402,
-"user_days": 12.5,
-"base_dau": 37395,
-"horizon": 180
-},
-"bets": [
-{
-"id": 1,
-"name": "\"The Debut\" \u2014 guided first session",
-"metric": "D1 + D7",
-"effort": "6\u20138 wks \u00b7 1 pod",
-"sc": {
-"low": {
-"dau": 290,
-"rev": 23282,
-"pct": 0.2
-},
-"base": {
-"dau": 2804,
-"rev": 225145,
-"pct": 2.3
-},
-"high": {
-"dau": 7582,
-"rev": 608838,
-"pct": 6.3
-}
-}
-},
-{
-"id": 2,
-"name": "Social on-ramp before League 5",
-"metric": "D7 + D30",
-"effort": "8\u201310 wks \u00b7 1 pod + mod tooling",
-"sc": {
-"low": {
-"dau": 5658,
-"rev": 454315,
-"pct": 4.7
-},
-"base": {
-"dau": 13939,
-"rev": 1119316,
-"pct": 11.7
-},
-"high": {
-"dau": 26746,
-"rev": 2147729,
-"pct": 22.4
-}
-}
-},
-{
-"id": 3,
-"name": "Mid-game catch-up track",
-"metric": "D30",
-"effort": "4\u20136 wks \u00b7 live-ops",
-"sc": {
-"low": {
-"dau": 3720,
-"rev": 298699,
-"pct": 3.1
-},
-"base": {
-"dau": 8663,
-"rev": 695663,
-"pct": 7.2
-},
-"high": {
-"dau": 16144,
-"rev": 1296361,
-"pct": 13.5
-}
-}
-},
-{
-"id": 4,
-"name": "Dupe-protection + published odds",
-"metric": "D30 + trust",
-"effort": "5\u20137 wks \u00b7 economy",
-"sc": {
-"low": {
-"dau": 2770,
-"rev": 222464,
-"pct": 2.3
-},
-"base": {
-"dau": 7146,
-"rev": 573795,
-"pct": 6.0
-},
-"high": {
-"dau": 13939,
-"rev": 1119316,
-"pct": 11.7
-}
-}
-},
-{
-"id": 5,
-"name": "Tentpole win-back engine",
-"metric": "reactivation",
-"effort": "3\u20134 wks \u00b7 CRM",
-"sc": {
-"low": {
-"dau": 1834,
-"rev": 147272,
-"pct": 1.5
-},
-"base": {
-"dau": 4682,
-"rev": 375981,
-"pct": 3.9
-},
-"high": {
-"dau": 9692,
-"rev": 778243,
-"pct": 8.1
-}
-}
-}
-],
-"total": {
-"low": 1146032,
-"base": 2989900,
-"high": 5950487
-}
 };
 var f=function(n){return n.toLocaleString('en-US')};
 var money=function(n){return n>=1e6?'$'+(n/1e6).toFixed(2)+'M':'$'+Math.round(n/1e3)+'k'};
 function pole(s){return s>8?'var(--neg)':(s<-4?'var(--pos)':'var(--mid)')}
 
-/* revenue trajectory */
-var T=R.traj, tmax=Math.max.apply(null,T.map(function(t){return t[1]}));
-var tw=document.getElementById('traj'), tl=document.getElementById('trajlab');
-T.forEach(function(t){
-  var c=document.createElement('div'); c.className='tcol';
-  c.innerHTML='<div class="tv">$'+t[1].toFixed(1)+'M</div><div class="tbar" style="height:'+(t[1]/tmax*100)+'%"></div>';
-  c.title=t[0]+' — $'+t[1]+'M/mo, '+t[2]+'k downloads';
-  tw.appendChild(c);
-  var l=document.createElement('div'); l.textContent=t[0]; tl.appendChild(l);
-});
-
-/* word cloud */
+/* ---------- static charts ---------- */
 var cl=document.getElementById('cloud');
-var mx=Math.max.apply(null,D.cloud.map(function(d){return d.n})), mn=Math.min.apply(null,D.cloud.map(function(d){return d.n}));
+var mx=Math.max.apply(null,D.cloud.map(function(d){return d.n})),mn=Math.min.apply(null,D.cloud.map(function(d){return d.n}));
 D.cloud.forEach(function(d){
   var t=(Math.sqrt(d.n)-Math.sqrt(mn))/(Math.sqrt(mx)-Math.sqrt(mn));
   var b=document.createElement('b');
-  b.textContent=d.w; b.style.fontSize=(13+t*52).toFixed(1)+'px'; b.style.color=pole(d.skew);
+  b.textContent=d.w;b.style.fontSize=(13+t*52).toFixed(1)+'px';b.style.color=pole(d.skew);
   b.title=d.w+' — '+f(d.n)+' mentions · '+(d.skew>0?'+'+d.skew+'pp toward 1–2★':d.skew.toFixed(1)+'pp toward 4–5★');
   cl.appendChild(b);
 });
 
-/* divergence */
-var dr=document.getElementById('div'), all=D.div.pos.concat(D.div.neg);
+var dr=document.getElementById('div'),all=D.div.pos.concat(D.div.neg);
 var dmax=Math.max.apply(null,all.map(function(d){return Math.abs(d.skew)}));
 all.sort(function(a,b){return a.skew-b.skew}).forEach(function(d){
-  var w=(Math.abs(d.skew)/dmax*100).toFixed(1), neg=d.skew>0;
-  var r=document.createElement('div'); r.className='drow';
+  var w=(Math.abs(d.skew)/dmax*100).toFixed(1),neg=d.skew>0;
+  var r=document.createElement('div');r.className='drow';
   r.innerHTML='<div class="dl">'+(neg?'':'<span class="dv">'+d.skew.toFixed(1)+'pp</span><i style="width:'+w+'%"></i>')+'</div>'+
     '<div class="dk">'+d.w+'</div>'+
     '<div class="dr">'+(neg?'<i style="width:'+w+'%"></i><span class="dv">+'+d.skew.toFixed(1)+'pp</span>':'')+'</div>';
   dr.appendChild(r);
 });
 
-/* histogram */
-var H=D.meta.hist, tot=0; Object.keys(H).forEach(function(k){tot+=H[k]});
-var hm=Math.max.apply(null,Object.keys(H).map(function(k){return H[k]})), hw=document.getElementById('hist');
+var H=D.meta.hist,tot=0;Object.keys(H).forEach(function(k){tot+=H[k]});
+var hm=Math.max.apply(null,Object.keys(H).map(function(k){return H[k]})),hw=document.getElementById('hist');
 ['5','4','3','2','1'].forEach(function(k){
   var col=k>='4'?'var(--pos)':(k<='2'?'var(--neg)':'var(--mid)');
-  var r=document.createElement('div'); r.className='brow';
-  r.innerHTML='<div class="k">'+k+'★</div><div class="track"><div class="fill" style="width:'+(H[k]/hm*100).toFixed(1)+'%;background:'+col+'"></div></div>'+
-    '<div class="v">'+(H[k]/tot*100).toFixed(1)+'%</div>';
-  r.title=k+'★ — '+f(H[k])+' ratings';
-  hw.appendChild(r);
+  var r=document.createElement('div');r.className='brow';
+  r.innerHTML='<div class="k">'+k+'★</div><div class="track"><div class="fill" style="width:'+(H[k]/hm*100).toFixed(1)+'%;background:'+col+'"></div></div><div class="v">'+(H[k]/tot*100).toFixed(1)+'%</div>';
+  r.title=k+'★ — '+f(H[k])+' ratings';hw.appendChild(r);
 });
 
-/* themes */
 var lw=document.getElementById('lex');
 D.lex.slice().sort(function(a,b){return a.avg-b.avg}).forEach(function(d){
   var col=d.avg<2.3?'var(--neg)':(d.avg>3?'var(--pos)':'var(--mid)');
-  var r=document.createElement('div'); r.className='brow';
+  var r=document.createElement('div');r.className='brow';
   r.innerHTML='<div class="k" style="font-family:var(--sans);font-size:13.5px;color:var(--ink)">'+d.name+'</div>'+
     '<div class="track"><div class="fill" style="width:'+d.pct+'%;background:'+col+'"></div></div>'+
     '<div class="v" style="color:'+col+';font-weight:650">'+d.avg.toFixed(2)+'★</div>';
-  r.title=d.name+' — '+d.pct+'% of reviews ('+f(d.reviews)+'), avg '+d.avg+'★';
-  lw.appendChild(r);
+  r.title=d.name+' — '+d.pct+'% of reviews ('+f(d.reviews)+'), avg '+d.avg+'★';lw.appendChild(r);
 });
 
-/* ROI table + side values */
-var tb=document.getElementById('roitab');
-R.bets.forEach(function(b,i){
-  var s=b.sc, tr=document.createElement('tr');
-  if(i<2) tr.className='lead';
-  tr.innerHTML='<td><strong>'+b.id+'. '+b.name+'</strong></td><td>'+b.metric+'</td><td>'+b.effort+'</td>'+
-    '<td class="n">'+money(s.low.rev)+'</td><td class="hero">'+money(s.base.rev)+'<br><span style="font-weight:400;font-size:11px;color:var(--ink-3)">'+s.base.pct+'% of revenue</span></td>'+
-    '<td class="n">'+money(s.high.rev)+'</td>';
-  tb.appendChild(tr);
-  var el=document.getElementById('v'+b.id);
-  if(el) el.textContent=money(s.base.rev)+'/yr';
+/* ---------- interactive ROI model ---------- */
+var HORIZON=180, DEF={inst:90000,arp:0.22,d1:35,d7:16};
+var BETS=[
+ {id:1,name:'"The Debut" — guided first session',eff:'6–8 wks · 1 pod',
+  lift:{low:[0.02,0.005],base:[0.04,0.015],high:[0.06,0.03]},say:'D1 +4pp · D7 +1.5pp'},
+ {id:2,name:'Social on-ramp before League 5',eff:'8–10 wks · 1 pod + mod tooling',
+  lift:{low:[0,0.012],base:[0,0.028],high:[0,0.05]},say:'D7 +2.8pp'},
+ {id:3,name:'Mid-game catch-up track',eff:'4–6 wks · live-ops',
+  lift:{low:[0,0.008],base:[0,0.018],high:[0,0.032]},say:'D30 +1.8pp'},
+ {id:4,name:'Dupe-protection + published odds',eff:'5–7 wks · economy',
+  lift:{low:[0,0.006],base:[0,0.015],high:[0,0.028]},say:'D30 +1.5pp'},
+ {id:5,name:'Tentpole win-back engine',eff:'3–4 wks · CRM',
+  lift:{low:[0,0.004],base:[0,0.010],high:[0,0.020]},say:'Reactivation +1pp'}
+];
+function area(d1,k){return d1*(Math.pow(HORIZON,1-k)-1)/(1-k)}
+function el(id){return document.getElementById(id)}
+function val(id){return parseFloat(el(id).value)}
+
+function recompute(){
+  var inst=val('i-inst'), arp=val('i-arp'), d1=val('i-d1')/100, d7=val('i-d7')/100;
+  if(!(inst>0&&arp>0&&d1>0&&d7>0&&d7<d1)){el('derived').innerHTML='<span style="color:var(--neg)">Check the inputs — D7 must be below D1 and all values above zero.</span>';return}
+  var k=Math.log(d1/d7)/Math.log(7), base=area(d1,k), dauBase=inst/30*base;
+  el('derived').innerHTML=
+    '<span>decay exponent k <b>'+k.toFixed(3)+'</b></span>'+
+    '<span>lifetime user-days / install <b>'+base.toFixed(1)+'</b></span>'+
+    '<span>steady-state DAU from new installs <b>'+f(Math.round(dauBase))+'</b></span>'+
+    '<span>implied annual revenue <b>'+money(dauBase*arp*365)+'</b></span>';
+
+  var tb=el('roitab');tb.innerHTML='';var T={low:0,base:0,high:0};
+  BETS.forEach(function(b,idx){
+    var out={};
+    ['low','base','high'].forEach(function(sc){
+      var nd1=d1+b.lift[sc][0], nd7=d7+b.lift[sc][1];
+      var nk=Math.log(nd1/nd7)/Math.log(7), na=area(nd1,nk);
+      var dDau=inst/30*(na-base);
+      out[sc]={rev:dDau*arp*365, pct:(na/base-1)*100};
+      T[sc]+=out[sc].rev;
+    });
+    var tr=document.createElement('tr'); if(idx<2)tr.className='lead';
+    tr.innerHTML='<td><strong>'+b.id+'. '+b.name+'</strong></td><td>'+b.say+'</td><td>'+b.eff+'</td>'+
+      '<td class="n">+'+out.base.pct.toFixed(1)+'%</td>'+
+      '<td class="n">'+money(out.low.rev)+'</td>'+
+      '<td class="hero">'+money(out.base.rev)+'</td>'+
+      '<td class="n">'+money(out.high.rev)+'</td>';
+    tb.appendChild(tr);
+  });
+  el('tl').textContent=money(T.low);el('tb').textContent=money(T.base);el('th').textContent=money(T.high);
+}
+['i-inst','i-arp','i-d1','i-d7'].forEach(function(id){el(id).addEventListener('input',recompute)});
+el('reset').addEventListener('click',function(){
+  el('i-inst').value=DEF.inst;el('i-arp').value=DEF.arp;el('i-d1').value=DEF.d1;el('i-d7').value=DEF.d7;recompute();
 });
-document.getElementById('tl').textContent=money(R.total.low);
-document.getElementById('tb').textContent=money(R.total.base);
-document.getElementById('th').textContent=money(R.total.high);
+recompute();
 })();
 </script>
