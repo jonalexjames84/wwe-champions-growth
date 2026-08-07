@@ -1,157 +1,240 @@
 {
-"traj": [
-[
-"May 2021",
-2.0,
-200
-],
-[
-"Feb 2023",
-1.0,
-100
-],
-[
-"Nov 2025 (iOS)",
-0.3,
-20
-],
-[
-"Mar 2026 (Play)",
-0.5,
-70
-]
-],
-"inputs": {
-"installs_mo": 90000,
-"rev_mo": 800000,
-"d1": 0.35,
-"d7": 0.16,
-"arpdau": 0.22,
-"k": 0.402,
-"user_days": 12.5,
-"base_dau": 37395,
-"horizon": 180
-},
-"bets": [
-{
-"id": 1,
-"name": "\"The Debut\" \u2014 guided first session",
-"metric": "D1 + D7",
-"effort": "6\u20138 wks \u00b7 1 pod",
-"sc": {
-"low": {
-"dau": 290,
-"rev": 23282,
-"pct": 0.2
-},
-"base": {
-"dau": 2804,
-"rev": 225145,
-"pct": 2.3
-},
-"high": {
-"dau": 7582,
-"rev": 608838,
-"pct": 6.3
-}
-}
-},
-{
-"id": 2,
-"name": "Social on-ramp before League 5",
-"metric": "D7 + D30",
-"effort": "8\u201310 wks \u00b7 1 pod + mod tooling",
-"sc": {
-"low": {
-"dau": 5658,
-"rev": 454315,
-"pct": 4.7
-},
-"base": {
-"dau": 13939,
-"rev": 1119316,
-"pct": 11.7
-},
-"high": {
-"dau": 26746,
-"rev": 2147729,
-"pct": 22.4
-}
-}
-},
-{
-"id": 3,
-"name": "Mid-game catch-up track",
-"metric": "D30",
-"effort": "4\u20136 wks \u00b7 live-ops",
-"sc": {
-"low": {
-"dau": 3720,
-"rev": 298699,
-"pct": 3.1
-},
-"base": {
-"dau": 8663,
-"rev": 695663,
-"pct": 7.2
-},
-"high": {
-"dau": 16144,
-"rev": 1296361,
-"pct": 13.5
-}
-}
-},
-{
-"id": 4,
-"name": "Dupe-protection + published odds",
-"metric": "D30 + trust",
-"effort": "5\u20137 wks \u00b7 economy",
-"sc": {
-"low": {
-"dau": 2770,
-"rev": 222464,
-"pct": 2.3
-},
-"base": {
-"dau": 7146,
-"rev": 573795,
-"pct": 6.0
-},
-"high": {
-"dau": 13939,
-"rev": 1119316,
-"pct": 11.7
-}
-}
-},
-{
-"id": 5,
-"name": "Tentpole win-back engine",
-"metric": "reactivation",
-"effort": "3\u20134 wks \u00b7 CRM",
-"sc": {
-"low": {
-"dau": 1834,
-"rev": 147272,
-"pct": 1.5
-},
-"base": {
-"dau": 4682,
-"rev": 375981,
-"pct": 3.9
-},
-"high": {
-"dau": 9692,
-"rev": 778243,
-"pct": 8.1
-}
-}
-}
-],
-"total": {
-"low": 1146032,
-"base": 2989900,
-"high": 5950487
-}
+ "generated_by": "scripts/build-model.py",
+ "metric": "ARPDAU = (payers / DAU) x ARPPU",
+ "inputs": {
+  "installs_mo": 90000,
+  "d1": 0.35,
+  "d7": 0.16,
+  "arpdau": 0.22,
+  "rev_mo": 800000,
+  "horizon": 180,
+  "payer_rate_dau": 0.03,
+  "ever_pay": 0.02,
+  "ltv180_existing": 62.0,
+  "ltv180_marginal": 21.0,
+  "repeat30": 0.35,
+  "repeat_haircut": 0.6,
+  "payer_extra_userdays": 12.0,
+  "marginal_arpdau_factor": 0.5
+ },
+ "scenario_inputs": {
+  "low": {
+   "ltv180_marginal": 14.0
+  },
+  "base": {
+   "ltv180_marginal": 21.0
+  },
+  "high": {
+   "ltv180_marginal": 34.0
+  }
+ },
+ "baseline": {
+  "k": 0.4023,
+  "user_days": 12.46,
+  "dau_new_installs": 37395,
+  "dau_total": 121212,
+  "dau_legacy": 83817,
+  "arppu_per_paying_dau_day": 7.33,
+  "new_payers_mo": 1800,
+  "purchases_per_new_payer_180d": 1.538,
+  "new_payer_value_mo": 111600
+ },
+ "moves": [
+  {
+   "id": 1,
+   "name": "Earn the ask",
+   "sub": "no monetisation surface before a win",
+   "effort": "6-8 wks \u00b7 1 pod",
+   "sc": {
+    "low": {
+     "added_payers_mo": 90,
+     "conv_pp": 0.1,
+     "added_payer_rev": 15120,
+     "repeat_rev": 0,
+     "payer_retention_rev": 2891,
+     "nonpayer_retention_rev": 32546,
+     "rev": 50556,
+     "d_dau": 847
+    },
+    "base": {
+     "added_payers_mo": 225,
+     "conv_pp": 0.25,
+     "added_payer_rev": 56700,
+     "repeat_rev": 0,
+     "payer_retention_rev": 7227,
+     "nonpayer_retention_rev": 65130,
+     "rev": 129057,
+     "d_dau": 1712
+    },
+    "high": {
+     "added_payers_mo": 495,
+     "conv_pp": 0.55,
+     "added_payer_rev": 201960,
+     "repeat_rev": 0,
+     "payer_retention_rev": 15899,
+     "nonpayer_retention_rev": 97750,
+     "rev": 315609,
+     "d_dau": 2633
+    }
+   }
+  },
+  {
+   "id": 2,
+   "name": "Build the rung",
+   "sub": "a three-rung deterministic starter ladder",
+   "effort": "6-8 wks \u00b7 1 pod + economy",
+   "sc": {
+    "low": {
+     "added_payers_mo": 198,
+     "conv_pp": 0.22,
+     "added_payer_rev": 33264,
+     "repeat_rev": 0,
+     "payer_retention_rev": 6360,
+     "nonpayer_retention_rev": 0,
+     "rev": 39624,
+     "d_dau": 79
+    },
+    "base": {
+     "added_payers_mo": 495,
+     "conv_pp": 0.55,
+     "added_payer_rev": 124740,
+     "repeat_rev": 0,
+     "payer_retention_rev": 15899,
+     "nonpayer_retention_rev": 0,
+     "rev": 140639,
+     "d_dau": 198
+    },
+    "high": {
+     "added_payers_mo": 990,
+     "conv_pp": 1.1,
+     "added_payer_rev": 403920,
+     "repeat_rev": 0,
+     "payer_retention_rev": 31799,
+     "nonpayer_retention_rev": 0,
+     "rev": 435719,
+     "d_dau": 396
+    }
+   }
+  },
+  {
+   "id": 3,
+   "name": "Make it safe to buy",
+   "sub": "published odds + dupe-to-shard, entry band only",
+   "effort": "4-6 wks \u00b7 economy",
+   "sc": {
+    "low": {
+     "added_payers_mo": 72,
+     "conv_pp": 0.08,
+     "added_payer_rev": 12096,
+     "repeat_rev": 38880,
+     "payer_retention_rev": 2313,
+     "nonpayer_retention_rev": 0,
+     "rev": 53289,
+     "d_dau": 29
+    },
+    "base": {
+     "added_payers_mo": 180,
+     "conv_pp": 0.2,
+     "added_payer_rev": 45360,
+     "repeat_rev": 96977,
+     "payer_retention_rev": 5782,
+     "nonpayer_retention_rev": 0,
+     "rev": 148118,
+     "d_dau": 72
+    },
+    "high": {
+     "added_payers_mo": 315,
+     "conv_pp": 0.35,
+     "added_payer_rev": 128520,
+     "repeat_rev": 220574,
+     "payer_retention_rev": 10118,
+     "nonpayer_retention_rev": 0,
+     "rev": 359212,
+     "d_dau": 126
+    }
+   }
+  }
+ ],
+ "programme": {
+  "low": {
+   "rev": 143469,
+   "d_dau": 955,
+   "conv_pp": 0.4,
+   "ever_pay_after": 2.4,
+   "arpdau_after": 0.22154,
+   "d_arpdau": 0.00154,
+   "d_arpdau_pct": 0.7
+  },
+  "base": {
+   "rev": 417814,
+   "d_dau": 1982,
+   "conv_pp": 1.0,
+   "ever_pay_after": 3.0,
+   "arpdau_after": 0.22588,
+   "d_arpdau": 0.00588,
+   "d_arpdau_pct": 2.67
+  },
+  "high": {
+   "rev": 1110540,
+   "d_dau": 3155,
+   "conv_pp": 2.0,
+   "ever_pay_after": 4.0,
+   "arpdau_after": 0.23922,
+   "d_arpdau": 0.01922,
+   "d_arpdau_pct": 8.74
+  }
+ },
+ "compare": {
+  "note": "Same DAU denominator, same baseline. The only difference between the two columns is whether a marginal retained user is assumed to monetise at the average ARPDAU or at half of it.",
+  "as_modelled": {
+   "retention_leads": {
+    "d_dau": 16743,
+    "rev": 1344463,
+    "arpdau_after": 0.22037,
+    "d_arpdau": 0.00037,
+    "d_arpdau_pct": 0.17
+   },
+   "first_dollar": {
+    "d_dau": 1982,
+    "rev": 482944,
+    "arpdau_after": 0.22735,
+    "d_arpdau": 0.00735,
+    "d_arpdau_pct": 3.34
+   }
+  },
+  "marginal_corrected": {
+   "retention_leads": {
+    "d_dau": 16743,
+    "rev": 672231,
+    "arpdau_after": 0.20684,
+    "d_arpdau": -0.01316,
+    "d_arpdau_pct": -5.98
+   },
+   "first_dollar": {
+    "d_dau": 1982,
+    "rev": 417814,
+    "arpdau_after": 0.22588,
+    "d_arpdau": 0.00588,
+    "d_arpdau_pct": 2.67
+   }
+  }
+ },
+ "parked": [
+  {
+   "name": "Rookie Crew",
+   "why": "D30 follow-on; build once a payer base exists. Still blocked on the faction correlate."
+  },
+  {
+   "name": "Mid-game catch-up track",
+   "why": "Blocked on faucet-vs-sink data, and it is a denominator play."
+  },
+  {
+   "name": "Tentpole win-back",
+   "why": "Ships after move 02, so returners land on a real ladder."
+  },
+  {
+   "name": "Deeper whale extraction",
+   "why": "Rejected. No headroom, and the corpus prices the goodwill cost."
+  }
+ ]
 }

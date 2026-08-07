@@ -269,8 +269,8 @@ a{color:var(--brass)}
   <div class="navin">
     <a href="/case">← The case</a>
     <a href="#answers">The argument</a>
-    <a href="#ideas">The bets</a>
-    <a href="#roi">What they're worth</a>
+    <a href="#ideas">The programme</a>
+    <a href="#roi">What it's worth</a>
     <a href="#proposal">The proposal</a>
     <a href="#spec">Specs</a>
     <a href="#sources">Sources</a>
@@ -286,9 +286,10 @@ a{color:var(--brass)}
   <h1>50 million people installed it.<br>The one-star reviewers<br><em>still call it fun.</em></h1>
   <p class="standfirst">
     Across 2,945 player reviews, the word &ldquo;fun&rdquo; appears at the <strong>same rate in one-star
-    reviews as in five-star reviews</strong>. The core loop and the licence are working. What's failing
-    is the path a new player walks in the first ten minutes — and the social layer that would have kept
-    them. Here's what the data says, how I know it, what it's worth, and what I'd build.
+    reviews as in five-star reviews</strong> — while &ldquo;money&rdquo; is the most-used word in the whole
+    corpus. The loop is loved and the transaction is hated. <strong>That is a first-purchase conversion
+    problem</strong>, and it is the one factor of ARPDAU nobody on this title has ever worked on. Here's
+    what the data says, how I know it, what it's worth, and what I'd build.
   </p>
   
   <p class="cover-cta">
@@ -304,23 +305,24 @@ a{color:var(--brass)}
 <section class="answers" id="answers">
   <div class="answers-h">
     <p class="t">The argument, in six answers</p>
-    <p class="s">Grouped into three topics · the nine acts that follow are the evidence</p>
+    <p class="s">Grouped into three topics &middot; the nine acts that follow are the evidence</p>
   </div>
 
   <div class="ansgrp">
     <p class="g">The diagnosis</p>
-    <p class="r">Evidence in Acts 01–04</p>
+    <p class="r">Evidence in Acts 01&ndash;04</p>
   </div>
 
   <div class="ans">
     <div class="qn">01</div>
     <div>
       <p class="q">What is the goal?</p>
-      <p class="a">Widen the base again — don't extract harder from what's left.</p>
-      <p class="sup">A <span class="num">9.5</span>-year-old title with <span class="num">50M+</span> installs and a
-        <span class="num">4.36★</span> rating has already monetised its whales close to their ceiling. The remaining
-        upside is <strong>the players who install, look around, and leave</strong> before anything hooks them.
-        The brief is reach and retention, not ARPPU.</p>
+      <p class="a">Raise ARPDAU &mdash; which means raising the share of players who pay at all.</p>
+      <p class="sup">ARPDAU has two factors: <strong>(payers &divide; DAU) &times; ARPPU</strong>. On a
+        <span class="num">9.5</span>-year-old title with <span class="num">50M+</span> installs, ARPPU is
+        already close to its ceiling and the review corpus prices the cost of pushing it further.
+        <strong>Payer rate is the factor nobody has worked on</strong> &mdash; and it is set in a player's
+        first week, which is the week this game spends showing them a $99.99 pack.</p>
     </div>
   </div>
 
@@ -328,11 +330,13 @@ a{color:var(--brass)}
     <div class="qn">02</div>
     <div>
       <p class="q">Who is the customer?</p>
-      <p class="a">The brand-new installer, in their first ten minutes.</p>
-      <p class="sup">Roughly <span class="num">90,000</span> installs a month land on a three-superstar roster that
-        already exposes a four-layer upgrade ladder, six gem stats, Trainer, Link &amp; Gear and injury timers —
-        and a <strong>$99.99 pack as the only item on the League 2 store shelf</strong>. The first losable match
-        ends in a <em>“rescue your Superstar for 100 cash”</em> prompt.</p>
+      <p class="a">The early-game spender, across their first three purchases.</p>
+      <p class="sup">Not &ldquo;the new installer&rdquo; &mdash; that's the group, not the cohort.
+        <strong>P0&rarr;P1</strong> is two to five sessions in with a roster they care about and a wall in
+        front of them. <strong>P1&rarr;P2</strong> has bought once and is the highest-propensity group in
+        the game. <strong>P2&rarr;P3</strong> is where the habit either forms or lapses. All three are
+        blocked by the same thing: <strong>at League 2 the featured shelf holds one offer, at $99.99</strong>,
+        and the first losable match ends in a <em>&ldquo;rescue your Superstar for 100 cash&rdquo;</em> prompt.</p>
     </div>
   </div>
 
@@ -340,37 +344,39 @@ a{color:var(--brass)}
     <div class="qn">03</div>
     <div>
       <p class="q">Why optimise <em>this</em> cohort?</p>
-      <p class="a">Because the game isn't the problem. The on-ramp is.</p>
-      <p class="sup">Across <span class="num">2,945</span> reviews, the word “fun” appears at the
-        <strong>same rate in 1–2★ reviews as in 4–5★</strong> — a skew of <span class="num">−1.1pp</span>.
-        “Money” skews <span class="num">+26.7pp</span> and is the most-used word in the entire corpus.
-        Affection survives the one-star rating; <strong>what replaces it is a vocabulary of money.</strong>
-        That is a fixable economy problem wrapped around a working loop — not a dying game.</p>
+      <p class="a">Because the loop is loved and the transaction is hated.</p>
+      <p class="sup">Across <span class="num">2,945</span> reviews, the word &ldquo;fun&rdquo; appears at the
+        <strong>same rate in 1&ndash;2&#9733; reviews as in 4&ndash;5&#9733;</strong> &mdash; a skew of
+        <span class="num">&minus;1.1pp</span>. &ldquo;Money&rdquo; skews <span class="num">+26.7pp</span> and
+        is the most-used word in the entire corpus; trust in the odds is the lowest-rated theme at
+        <span class="num">2.06&#9733;</span>. <strong>People who don't care about spending don't talk about
+        money.</strong> That is high intent meeting a hostile transaction &mdash; a conversion problem, and
+        conversion problems are cheaper to fix than desire problems.</p>
     </div>
   </div>
 
   <div class="ans-tail">
     <details class="more"><summary>How these three fit together</summary>
       <div class="more-b">
-        <p>These are one chain, and the order matters. A mature live title has only two honest options —
-          extract harder from who's left, or widen the base again — and the review corpus is what decides
-          between them. Affection survives the one-star rating intact; what replaces it is a vocabulary of
-          money. <strong>That rules out extraction.</strong> Widening the base then points at exactly one
-          cohort, because the players who never survived the first ten minutes are the only group both large
-          enough to matter and cheap enough to reach without out-bidding the casual-puzzle giants.</p>
-        <p>Each act below opens the evidence rather than restating it — the lifecycle and competitive numbers,
-          the method and the two limits it carries, the corpus itself, and the pain points with the
-          screenshots behind them.</p>
-        <p><a href="#context">Act 01 · Where the game is in its life →</a><br>
-           <a href="#research">Act 02 · How I looked, and what I couldn't see →</a><br>
-           <a href="#findings">Act 03 · What 2,945 players actually said →</a><br>
-           <a href="#pain">Act 04 · Five pain points, in players' own words →</a></p>
+        <p>These are one chain, and the order matters. Decompose the metric and one factor is defended and
+          one is untouched &mdash; so the brief is more payers, not bigger ones. That points at exactly one
+          cohort: the players standing at the first purchase with nothing in front of them they can afford.
+          The corpus then explains why they don't convert. <strong>Affection survives the one-star rating;
+          what replaces it is a vocabulary of money.</strong></p>
+        <p><strong>An earlier version of this analysis chose &ldquo;the brand-new installer&rdquo; and ranked
+          its bets on retention.</strong> That answer wasn't wrong so much as underspecified &mdash; retaining
+          installs grows DAU, which is the <em>denominator</em>. Same ten minutes, same screens, different
+          success metric. Act 06 shows exactly what that difference is worth.</p>
+        <p><a href="#context">Act 01 &middot; Where the game is in its life &rarr;</a><br>
+           <a href="#research">Act 02 &middot; How I looked, and what I couldn't see &rarr;</a><br>
+           <a href="#findings">Act 03 &middot; What 2,945 players actually said &rarr;</a><br>
+           <a href="#pain">Act 04 &middot; Five pain points, in players' own words &rarr;</a></p>
       </div>
     </details>
   </div>
 
   <div class="ansgrp">
-    <p class="g">The bets</p>
+    <p class="g">The programme</p>
     <p class="r">Evidence in Act 05</p>
   </div>
 
@@ -378,46 +384,52 @@ a{color:var(--brass)}
     <div class="qn">04</div>
     <div>
       <p class="q">What can we actually do?</p>
-      <p class="a">Five bets. Two of them are the main event.</p>
-      <p class="sup"><strong>F1 · The Debut</strong> — defer every economy surface until the player has a roster
-        and a win, and reveal systems on a schedule instead of dumping them.
-        <strong>F2 · Rookie Crew</strong> — auto-draft every new player into a small social unit within minutes of
-        install, instead of making them wait until League 5. Both <strong>raise the free-to-play floor without
-        lowering the whale ceiling</strong>, because whales pay for relative advantage, not absolute power.</p>
+      <p class="a">One programme, three moves. Not a menu.</p>
+      <p class="sup"><strong>01 &middot; Earn the ask</strong> &mdash; no monetisation surface before a win, so
+        the first thing the game asks you to buy stops being a rescue from a defeat.
+        <strong>02 &middot; Build the rung</strong> &mdash; a three-rung deterministic starter ladder in the
+        entry band, which is currently empty. <strong>03 &middot; Make it safe to buy</strong> &mdash;
+        published odds and dupe-to-shard, scoped to the entry band so no existing drop rate moves.
+        <strong>Each one unblocks the next, and none works alone.</strong></p>
     </div>
   </div>
 
   <div class="ans-tail">
-    <details class="more"><summary>All five bets in one line each</summary>
+    <details class="more"><summary>Why in this order &mdash; and what we're parking</summary>
       <div class="more-b">
         <ul class="clean">
-          <li><b>1 · The Debut.</b> Guided first session — guaranteed marquee pull, one clear win, one next verb. <i>6–8 wks.</i></li>
-          <li><b>2 · Rookie Crew.</b> Social on-ramp before League 5, with a mentor and curated chat. <i>8–10 wks.</i></li>
-          <li><b>3 · Catch-up track.</b> Event-gated coin faucet aimed at the exact band where progression stalls. <i>4–6 wks.</i></li>
-          <li><b>4 · Dupe protection + published odds.</b> Duplicates convert to shards; probabilities published. <i>5–7 wks.</i></li>
-          <li><b>5 · Tentpole win-back.</b> Personalised reactivation timed to WrestleMania and Royal Rumble. <i>3–4 wks.</i></li>
+          <li><b>02 without 01.</b> A great offer in front of someone who hasn't won yet.</li>
+          <li><b>02 without 03.</b> They convert once and never twice.</li>
+          <li><b>01 + 03 without 02.</b> A clean shop with nothing on the shelf at their price.</li>
         </ul>
-        <p><a href="#ideas">Act 05 · The mechanism behind each →</a></p>
+        <p><strong>Parked, with the condition each is waiting on.</strong> <b>Rookie Crew</b> &mdash; a good
+          D30 play, but it retains rather than converts, so it builds the denominator; ships once a payer
+          base exists, still gated on the faction correlate. <b>Mid-game catch-up track</b> &mdash; blocked
+          on faucet-vs-sink data, and also a denominator play. <b>Tentpole win-back</b> &mdash; sequenced
+          after move 02 so returners land on a real ladder. <b>Deeper whale extraction</b> &mdash; rejected;
+          no headroom, and the corpus prices the goodwill cost.</p>
+        <p><a href="#ideas">Act 05 &middot; The mechanism and guardrail behind each move &rarr;</a></p>
       </div>
     </details>
   </div>
 
   <div class="ansgrp">
-    <p class="g">What they're worth</p>
-    <p class="r">Evidence in Acts 06–07</p>
+    <p class="g">What it's worth</p>
+    <p class="r">Evidence in Acts 06&ndash;07</p>
   </div>
 
   <div class="ans">
     <div class="qn">05</div>
     <div>
       <p class="q">Why does it matter?</p>
-      <p class="a">Late-curve retention compounds. Early-curve retention doesn't.</p>
-      <p class="sup">On a fitted power-law curve, the D7-moving bet is worth
-        <span class="num" id="sv-f2pct">+37%</span> lifetime user-days per install —
-        roughly <span class="num" id="sv-ratio">5×</span> what the D1-moving bet delivers, for comparable effort.
-        Base case for the two lead bets together: <span class="num" id="sv-lead">$1.3M</span> a year,
-        on the assumptions in Act 06. <strong>The two lead bets touch no economy surface</strong>, so they grow
-        the base whales compete against rather than threatening revenue.</p>
+      <p class="a">Converting a non-payer buys you retention. Retaining a non-payer does not buy you a payer.</p>
+      <p class="sup">That asymmetry orders the whole portfolio, and it's where the downstream D7 and D30
+        effect comes from. Base case for the programme: <span class="num" id="sv-prog">&mdash;</span> a year,
+        moving ever-pay conversion from <span class="num">2.00%</span> to
+        <span class="num" id="sv-conv">&mdash;</span> and ARPDAU by
+        <span class="num" id="sv-arpdau">&mdash;</span>. <strong>One caveat stated plainly:</strong> payers
+        retaining better is correlational until it's matched on session count, which is why the downstream
+        retention line is the smallest of the three revenue components in the model.</p>
     </div>
   </div>
 
@@ -425,28 +437,33 @@ a{color:var(--brass)}
     <div class="qn">06</div>
     <div>
       <p class="q">Which improvement ranks best?</p>
-      <p class="a"><em>F2 · Rookie Crew</em> ranks first on value.<br>F1 · The Debut ships first.</p>
-      <p class="sup">F2 is the highest-value bet in the portfolio because it moves D7 and D30, where the curve pays.
-        F1 ships ahead of it because it is cheaper, removes the session-one dead-ends, and
-        <strong>feeds F2 the cohort F2 then retains</strong>. Both are gated on one week-one query:
-        <strong>is faction-join a top-2 retention correlate?</strong> If it isn't, F2 gets re-scoped before a line
-        of code is written.</p>
+      <p class="a">All three ship. The real ranking is <em>programme vs. the retention portfolio</em>.</p>
+      <p class="sup">Scored against ARPDAU, the previously-recommended retention leads are worth
+        <span class="num" id="sv-retrev">&mdash;</span> a year and move the metric by
+        <span class="num" id="sv-retarp">&mdash;</span> &mdash; because they grow the denominator.
+        The programme is worth <em>less money</em> and moves the metric <em>up</em>.
+        <strong>That trade is the recommendation</strong>, and it turns on one query: does a new player
+        currently see anything under $10? If pull 2 says yes, move 02 is wrong and this collapses back to a
+        retention case.</p>
     </div>
   </div>
 
   <div class="ans-tail">
-    <details class="more"><summary>Why value order and ship order disagree</summary>
+    <details class="more"><summary>Why the bigger revenue number is the wrong one</summary>
       <div class="more-b">
-        <p>Two different questions produce two different orders, and the proposal follows both. <strong>Value
-          order</strong> comes from the curve: late-curve retention compounds, so F2 outranks F1 despite F1
-          moving the more visible metric. <strong>Ship order</strong> comes from dependency and risk: F1 is
-          cheaper, clears the session-one dead-ends, and hands F2 a cohort worth retaining — so shipping F2
-          first would mean drafting players into crews they'd have quit before reaching.</p>
-        <p>Neither order survives contact with your telemetry unchanged. The ranking rests on a benchmark
-          retention curve, and the highest-value bet rests on an assumption I inferred rather than measured.
-          Both are the first things Act 07 goes and replaces.</p>
-        <p><a href="#roi">Act 06 · Open the model and change any input →</a><br>
-           <a href="#proposal">Act 07 · The six data pulls and the build order →</a></p>
+        <p>Scored the previous model's own way &mdash; every added user monetising at the full average
+          ARPDAU &mdash; the retention leads are worth <span class="num" id="sv-retrev-raw">&mdash;</span> a
+          year and move ARPDAU by <span class="num" id="sv-retarp-raw">&mdash;</span>. Neutral.
+          <strong>And neutral by construction:</strong> that model multiplies added user-days by average
+          ARPDAU, so the ratio cannot move. The answer was fixed before the model ran.</p>
+        <p>The correction is one assumption: the users a retention bet adds are marginal survivors of the
+          activation window, and they convert to payer below the average rate. Score them at half and the
+          same bets read negative. <strong>There is no assumption under which a retention bet raises
+          ARPDAU</strong> &mdash; that isn't a modelling choice, it's what arithmetic does when you add to a
+          denominator. The programme is robust to the same correction because its gain comes from the
+          numerator.</p>
+        <p><a href="#roi">Act 06 &middot; Open the model and change any input &rarr;</a><br>
+           <a href="#proposal">Act 07 &middot; The four data pulls and the build order &rarr;</a></p>
       </div>
     </details>
   </div>
@@ -810,94 +827,82 @@ a{color:var(--brass)}
   <div class="act-head">
     <div class="act-no">05</div>
     <div>
-      <h2>Five ideas, and the mechanism behind each</h2>
+      <h2>One programme, and the mechanism behind each move</h2>
       <p class="act-lede">
-        Every one raises the free-to-play floor without lowering the whale ceiling. Whales pay for
-        <strong>relative advantage and status</strong>, not absolute power — so the two are separable,
-        and that separation is the whole design constraint.
+        Three moves on one causal chain, all aimed at the same factor: <strong>the share of players who
+        ever pay</strong>. None of them touches whale pricing or an existing drop rate, because the goal is
+        <strong>more payers, not bigger ones</strong> &mdash; and those two get confused constantly.
       </p>
     </div>
   </div>
 
   <div class="idea top">
-    <div class="rk">1</div>
+    <div class="rk">01</div>
     <div>
-      <p class="slot">Activate · retention entry</p>
-      <h4>“The Debut” — a guided first session</h4>
-      <p>Defer the economy. Session one becomes a guaranteed marquee pull, one clear win, and core-loop mastery. Enhance, Fuse, Evolve, Boss Breakers and factions are revealed progressively instead of dumped at once, and the store stays shut until there's a team to spend on.</p>
-      <p class="ev"><b>Mechanism.</b> Cuts time-to-first-reward and removes every dead-end in session one, so more installs survive to the point where the loop can hook them.</p>
+      <p class="slot">Numerator &middot; P0&rarr;P1</p>
+      <h4>Earn the ask</h4>
+      <p>No monetisation surface before a win. The first match cannot be lost, so the first thing the game ever asks you to buy stops being a rescue from a defeat. Systems reveal on a schedule; the store opens after a victory, not before a roster.</p>
+      <p class="ev"><b>Mechanism.</b> Today the first offer is a loss-tax shown to a player with three superstars and no win. Moving the ask behind the first win changes what is being sold from <em>relief</em> to <em>momentum</em> &mdash; the only framing an entry purchase converts on.</p>
     </div>
     <dl class="side">
       <div class="val"><dt>Base-case value</dt><dd id="v1"></dd></div>
-      <div><dt>Moves</dt><dd>D1 +4pp · D7 +1.5pp</dd></div>
-      <div><dt>Effort</dt><dd>6–8 wks · 1 pod</dd></div>
-      <div class="grd"><dt>Guardrail</dt><dd>D30 monetization flat or up</dd></div>
+      <div><dt>Moves</dt><dd>Ever-pay +0.25pp</dd></div>
+      <div><dt>Effort</dt><dd>6&ndash;8 wks &middot; 1 pod</dd></div>
+      <div class="grd"><dt>Guardrail</dt><dd>D30 ARPDAU non-inferior</dd></div>
     </dl>
   </div>
 
   <div class="idea top">
-    <div class="rk">2</div>
+    <div class="rk">02</div>
     <div>
-      <p class="slot">Engage · retention core</p>
-      <h4>Social on-ramp before League 5</h4>
-      <p>Auto-draft every new player into a small “Rookie Crew” within minutes of install, with one opt-in veteran mentor and a shared low-stakes goal. Curated chat replaces the global recruitment dump until League 4. At League 5 the crew graduates into a real faction <em>together</em>.</p>
-      <p class="ev"><b>Mechanism.</b> Faction membership is likely the strongest retention correlate in the game, and it is currently locked for the entire window in which players decide whether to stay. This moves the social tie earlier and warms the handoff instead of a cold solo join.</p>
+      <p class="slot">Numerator &middot; P0&rarr;P1&rarr;P2</p>
+      <h4>Build the rung</h4>
+      <p>A three-rung starter ladder in the entry band. Every rung <strong>deterministic</strong> &mdash; the player sees exactly what they get &mdash; and built around a superstar they have already used. Rung 1 at the first wall, rung 2 within 72 hours of rung 1, rung 3 gated on rung 2. Once per account, time-boxed, no contents shared with a whale SKU.</p>
+      <p class="ev"><b>Mechanism.</b> The load-bearing move. Right now there is nothing to convert <em>on</em>: the featured shelf at League 2 holds one offer, at $99.99. A rung is not a discount &mdash; it is the missing bottom of a ladder that currently starts above almost everyone's head.</p>
     </div>
     <dl class="side">
       <div class="val"><dt>Base-case value</dt><dd id="v2"></dd></div>
-      <div><dt>Moves</dt><dd>D7 +2.8pp · D30</dd></div>
-      <div><dt>Effort</dt><dd>8–10 wks · 1 pod + moderation</dd></div>
-      <div class="grd"><dt>Guardrail</dt><dd>Veteran feud participation</dd></div>
+      <div><dt>Moves</dt><dd>Ever-pay +0.55pp</dd></div>
+      <div><dt>Effort</dt><dd>6&ndash;8 wks &middot; 1 pod + economy</dd></div>
+      <div class="grd"><dt>Guardrail</dt><dd>Top-decile ARPPU &mdash; kill metric</dd></div>
     </dl>
   </div>
 
-  <div class="idea">
-    <div class="rk">3</div>
+  <div class="idea top">
+    <div class="rk">03</div>
     <div>
-      <p class="slot">Engage · mid-game</p>
-      <h4>Mid-game catch-up track</h4>
-      <p>An event-gated coin-faucet and catch-up track aimed at the specific band where progression stalls — not a global giveaway. Targeted at the cohort the retention curve identifies, so it recovers churn without discounting the players who were going to pay through the wall anyway.</p>
-      <p class="ev"><b>Mechanism.</b> Inverts the faucet-to-sink ratio for non-payers at the stall point, converting a motivation cliff into a slope.</p>
+      <p class="slot">Numerator &middot; P1&rarr;P2&rarr;P3</p>
+      <h4>Make it safe to buy</h4>
+      <p>Publish the pull probabilities. Convert duplicates to shards toward a star the player chooses. Scoped to the entry band first, where the rungs are deterministic anyway &mdash; so it touches <strong>no existing drop rate</strong>. Published odds ships ahead of the rest: it is largely configuration and legal review, and it needs to be live before the rungs are.</p>
+      <p class="ev"><b>Mechanism.</b> Trust is the lowest-sentiment theme in the corpus at 2.06&#9733;, and a first purchase is an act of trust. This is also the only move that lifts <em>repeat</em> purchase, which is where the model's compounding lives &mdash; and where its softest assumption sits.</p>
     </div>
     <dl class="side">
       <div class="val"><dt>Base-case value</dt><dd id="v3"></dd></div>
-      <div><dt>Moves</dt><dd>D30 +1.8pp</dd></div>
-      <div><dt>Effort</dt><dd>4–6 wks · live-ops</dd></div>
-      <div class="grd"><dt>Guardrail</dt><dd>Adjacent-payer ARPDAU</dd></div>
+      <div><dt>Moves</dt><dd>Ever-pay +0.20pp &middot; repeat +7pp</dd></div>
+      <div><dt>Effort</dt><dd>4&ndash;6 wks &middot; economy</dd></div>
+      <div class="grd"><dt>Guardrail</dt><dd>Gacha revenue per payer</dd></div>
     </dl>
   </div>
 
-  <div class="idea">
-    <div class="rk">4</div>
-    <div>
-      <p class="slot">Monetize · trust</p>
-      <h4>Dupe-protection and published odds</h4>
-      <p>Duplicates convert to shards toward a star the player chooses, and pull probabilities are published. Ship to a test cohort first and read the trust and retention effect before going wide.</p>
-      <p class="ev"><b>Mechanism.</b> Trust is the lowest-sentiment theme in the corpus at 2.06★. Published odds are cheap to build, are already regulatory table-stakes in several markets, and directly answer the loudest constructive complaint players make.</p>
-    </div>
-    <dl class="side">
-      <div class="val"><dt>Base-case value</dt><dd id="v4"></dd></div>
-      <div><dt>Moves</dt><dd>D30 +1.5pp · trust</dd></div>
-      <div><dt>Effort</dt><dd>5–7 wks · economy</dd></div>
-      <div class="grd"><dt>Guardrail</dt><dd>Payer conversion / ARPPU</dd></div>
-    </dl>
+  <div class="callout">
+    <p><strong>Why in this order &mdash; each necessary, none sufficient.</strong> <b>02 without 01</b> puts a
+    great offer in front of someone who hasn't won yet. <b>02 without 03</b> converts them once and never
+    twice. <b>01 and 03 without 02</b> is a clean, honest, well-sequenced shop with nothing on the shelf at
+    their price.</p>
   </div>
 
-  <div class="idea">
-    <div class="rk">5</div>
-    <div>
-      <p class="slot">Resurrect · reach</p>
-      <h4>Tentpole win-back engine</h4>
-      <p>Personalised reactivation tied to a lapsed player's own top superstar and timed to WrestleMania and Royal Rumble. Cheapest re-acquisition available on a title with 50M lifetime installs.</p>
-      <p class="ev"><b>Mechanism.</b> A dormant pool this large, against a live WWE calendar of natural return moments, is currently addressed with generic push if at all.</p>
-    </div>
-    <dl class="side">
-      <div class="val"><dt>Base-case value</dt><dd id="v5"></dd></div>
-      <div><dt>Moves</dt><dd>Reactivation +1.0pp</dd></div>
-      <div><dt>Effort</dt><dd>3–4 wks · CRM</dd></div>
-      <div class="grd"><dt>Guardrail</dt><dd>Reactivation ROAS</dd></div>
-    </dl>
-  </div>
+  <h3>Parked, and the condition each one is waiting on</h3>
+  <ul class="clean">
+    <li><b>Rookie Crew</b> &mdash; the social on-ramp before League 5. A D30 play, and a good one, but it
+      retains players rather than converting them, so it builds the denominator. Ships once there is a payer
+      base worth retaining, and remains gated on whether faction-join is a top-2 retention correlate.</li>
+    <li><b>Mid-game catch-up track</b> &mdash; blocked on faucet-vs-sink data, as before. Also a denominator
+      play: it keeps people alive rather than converting them.</li>
+    <li><b>Tentpole win-back</b> &mdash; cheap, and the dormant pool is enormous. Sequenced after move 02, so
+      returning players land on a real ladder instead of the shelf that lost them the first time.</li>
+    <li><b>Deeper whale extraction</b> &mdash; rejected outright. No headroom, and the corpus prices the
+      goodwill cost. This programme adds payers; it does not enlarge the ones we have.</li>
+  </ul>
 </section>
 
 <!-- ============== ACT 6 · ROI (interactive) ============== -->
@@ -905,11 +910,11 @@ a{color:var(--brass)}
   <div class="act-head">
     <div class="act-no">06</div>
     <div>
-      <h2>What each idea is worth</h2>
+      <h2>What the programme is worth</h2>
       <p class="act-lede">
-        A model you can audit, not a forecast. <strong>Every input is editable below</strong> — change
-        any of them and the table recalculates. Two of them are benchmarks I'd replace with your
-        telemetry in week one, and they're marked in red.
+        A payer-funnel model you can audit, not a forecast. <strong>Every input is editable below</strong> —
+        change any of them and both tables recalculate. The ones I would replace with your telemetry in week
+        one are marked in red, and there are more of them than I would like.
       </p>
     </div>
   </div>
@@ -918,11 +923,19 @@ a{color:var(--brass)}
   <div class="more-b">
   <h4>The model in one line</h4>
   <p class="body">
-    Fit a power-law retention curve through D1 and D7, integrate it over 180 days to get
-    <strong>lifetime user-days per install</strong>, multiply by daily installs for steady-state DAU,
-    and multiply by ARPDAU for revenue. A retention lift re-fits the curve; the difference in area under
-    it is the gain. Formally: <code>k = ln(D1/D7) / ln(7)</code>, and
-    <code>user-days = ∫₁¹⁸⁰ D1·d⁻ᵏ dd</code>.
+    <code>ARPDAU = (payers ÷ DAU) × ARPPU</code>. The moves act on <strong>ever-pay conversion</strong> —
+    the share of installs that ever make a purchase — and on <strong>repeat rate</strong>. Added payers are
+    priced at the <em>marginal</em> converter's value, not the incumbent's, because adding a cheap rung
+    raises conversion <em>and lowers</em> average first-purchase value. A power-law retention curve
+    (<code>k = ln(D1/D7) / ln 7</code>, D1 35%, D7 16%) is still fitted, but only to split total DAU into
+    new-install and legacy, and to price move 01's non-payer retention side-effect.
+  </p>
+  <p class="body">
+    <strong>One correction to the previous model, carried into this one.</strong> Its <code>base_dau</code>
+    of 37,395 against $800k a month only reconciles at $0.22 ARPDAU if that figure is
+    <em>DAU attributable to new installs</em> (90,000 × 12.5 user-days ÷ 30), not total DAU. Total DAU is
+    therefore ~121,000, including the 9.5-year legacy base. That was ignorable when the metric was
+    retention. It is load-bearing now, because ARPDAU is measured against total DAU.
   </p>
 
   <div class="model">
@@ -934,12 +947,21 @@ a{color:var(--brass)}
       <div class="inp"><label for="i-arp">ARPDAU (USD)</label>
         <input id="i-arp" type="number" value="0.22" min="0.01" step="0.01">
         <p class="src warn">Assumption. Genre range is roughly $0.15–0.40.</p></div>
-      <div class="inp"><label for="i-d1">D1 retention</label>
-        <input id="i-d1" type="number" value="35" min="5" max="90" step="1">
-        <p class="src">%. Match-3 RPG benchmark — replace with actual.</p></div>
-      <div class="inp"><label for="i-d7">D7 retention</label>
-        <input id="i-d7" type="number" value="16" min="2" max="80" step="0.5">
-        <p class="src">%. Match-3 RPG benchmark — replace with actual.</p></div>
+      <div class="inp"><label for="i-rev">Monthly revenue (USD)</label>
+        <input id="i-rev" type="number" value="800000" min="10000" step="25000">
+        <p class="src warn">Assumption. Sets the DAU denominator with ARPDAU.</p></div>
+      <div class="inp"><label for="i-conv">Ever-pay conversion</label>
+        <input id="i-conv" type="number" value="2.0" min="0.1" max="30" step="0.1">
+        <p class="src warn">%. Mid-core benchmark — <b>this is data pull 1</b>.</p></div>
+      <div class="inp"><label for="i-ltvm">Marginal converter, 180d</label>
+        <input id="i-ltvm" type="number" value="21" min="1" step="1">
+        <p class="src warn">USD. The softest input in the model — <b>data pull 2</b>.</p></div>
+      <div class="inp"><label for="i-ltve">Existing converter, 180d</label>
+        <input id="i-ltve" type="number" value="62" min="1" step="1">
+        <p class="src warn">USD. Today's converters skew high because the ladder does.</p></div>
+      <div class="inp"><label for="i-rep">Second purchase in 30d</label>
+        <input id="i-rep" type="number" value="35" min="1" max="90" step="1">
+        <p class="src warn">%. Carries the compounding term — <b>data pull 4</b>.</p></div>
     </div>
     <div class="derived" id="derived"></div>
     <button class="reset" id="reset" type="button">Reset to defaults</button>
@@ -948,31 +970,51 @@ a{color:var(--brass)}
 
   <div class="scroll">
     <table>
-      <thead><tr><th>Idea</th><th>Assumed lift</th><th>Effort</th><th>Δ user-days</th><th>Conservative</th><th>Base case</th><th>Optimistic</th></tr></thead>
+      <thead><tr><th>Move</th><th>Assumed lift</th><th>Effort</th><th class="n">Added payers / mo</th><th class="n">Conservative</th><th class="n">Base case</th><th class="n">Optimistic</th></tr></thead>
       <tbody id="roitab"></tbody>
-      <tfoot><tr><td colspan="4">Portfolio, all five</td><td class="n" id="tl"></td><td class="hero" id="tb"></td><td class="n" id="th"></td></tr></tfoot>
+      <tfoot><tr><td colspan="3">Programme, all three</td><td class="n" id="tp"></td><td class="n" id="tl"></td><td class="hero" id="tb"></td><td class="n" id="th"></td></tr></tfoot>
     </table>
   </div>
-  <p class="note">Annualised incremental revenue. “Δ user-days” is the base-case percentage change in lifetime user-days per install — <strong>scale-invariant</strong>, so it holds regardless of whether the install and ARPDAU assumptions are right.</p>
+  <p class="note">Annualised incremental revenue. “Added payers” is the base-case monthly increase in installs that go on to make a purchase.</p>
+
+  <h3>The comparison that decides the portfolio</h3>
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Portfolio</th><th class="n">&Delta; revenue / yr</th><th class="n">&Delta; DAU</th><th class="n">&Delta; ARPDAU</th><th>What it moves</th></tr></thead>
+      <tbody id="cmptab"></tbody>
+    </table>
+  </div>
+  <p class="note">
+    Both rows scored the same way against the same baseline. Marginal retained users are assumed to monetise
+    at <strong>half</strong> the average ARPDAU, on the grounds that the users a retention bet adds are
+    marginal survivors of the activation window who convert to payer below average.
+  </p>
 
   <div class="callout">
-    <p><strong>Read this before you read the numbers.</strong> The result is highly sensitive to the
-    decay exponent. A ~3-point D7 lift changes lifetime user-days by roughly a third under a power-law
-    fit, which is why idea 2 outranks idea 1 despite idea 1 moving the more visible metric.</p>
-    <p>That sensitivity is not a flaw to hide — <strong>it is the argument for measuring rather than
-    modelling</strong>. Late-curve retention is worth more than early-curve retention on a mature title.
-    If your real curve is flatter or steeper than the benchmark, the ranking can move, and the
-    <em>Δ user-days</em> column is the part to trust: it depends only on the retention assumptions, not
-    on the two unverified scale inputs.</p>
+    <p><strong>Read this before you read the numbers.</strong> Scored the previous model's own way — every
+    added user monetising at the full average — the retention leads are worth
+    <strong id="sv-retrev-raw2">—</strong> a year and move ARPDAU by <strong id="sv-retarp-raw2">—</strong>.
+    Neutral, and <strong>neutral by construction</strong>: that model multiplies added user-days by average
+    ARPDAU, so the ratio cannot move. <strong>There is no assumption under which a retention bet raises
+    ARPDAU.</strong> That is not a modelling choice; it is what arithmetic does when you add to a
+    denominator.</p>
+    <p>The programme's figure is robust to the same correction because its gain comes from the numerator
+    rather than from added user-days. <strong>That robustness, not the headline dollar figure, is the
+    argument</strong> — and the programme's headline figure is the smaller of the two, deliberately shown
+    rather than hidden.</p>
   </div>
 
-  <h3>Why this order</h3>
-  <p class="body">
-    Sequenced by <strong>risk to the golden goose</strong>. Ideas 1 and 2 are retention-accretive and
-    touch no economy surface — they grow the base whales compete against, so they help revenue rather
-    than threaten it. Ideas 3 and 4 touch the gacha core, so they stay gated behind drop-rate and
-    cohort-LTV data. Idea 5 is cheap and independent and can run in parallel with anything.
-  </p>
+  <h3>Where this model is softest, in order</h3>
+  <ul class="clean">
+    <li><b>The marginal converter's value.</b> Adding a cheap rung raises conversion <em>and lowers</em>
+      average first-purchase value. The model prices an added payer at a third of an incumbent's — but the
+      gap between those two figures is modelled, not measured, and it drives the headline more than anything
+      else here.</li>
+    <li><b>The repeat-rate lift.</b> It is the compounding term, and it carries move 03 to the top of the
+      per-move table on the softest evidence in the document.</li>
+    <li><b>The baseline itself.</b> Ever-pay at 2.0% is a genre benchmark, not your number. So is the daily
+      payer rate the ARPPU readout is derived from. Every one of these is a week-one query.</li>
+  </ul>
 </section>
 
 <!-- ============== ACT 7 · PROPOSAL ============== -->
@@ -982,41 +1024,72 @@ a{color:var(--brass)}
     <div>
       <h2>The proposal</h2>
       <p class="act-lede">
-        Six data pulls to replace my assumptions, then two builds shipped as experiments with
-        pre-agreed decision rules. Full specs follow in Act 08.
+        Four data pulls to replace my assumptions, then one programme shipped as experiments with pre-agreed
+        decision rules and a kill criterion written before the work starts. Full specs follow in Act 08.
       </p>
     </div>
   </div>
 
   <h3>Week one — replace my assumptions</h3>
   <ol class="steps">
-    <li>Pull the <b>cohort retention table</b> (D1/D7/D30) by lifecycle stage × spend tier. This alone confirms or kills the ranking in Act 06.</li>
-    <li>Query the <b>new-user funnel</b> step by step: install → tutorial → first pull → first faction join → first event complete. Find the largest single drop.</li>
-    <li>Correlate <b>“joined an active faction”</b> and <b>“first 4★ pull”</b> against D7 and D30. If faction-join isn't the top retention correlate, F2 gets re-scoped before a line is written.</li>
-    <li>Map <b>faucet vs. sink per cohort</b> to locate the stall band precisely, rather than assuming where the wall is.</li>
-    <li>Pull <b>historical free-reward tier distribution and dupe rate</b> to confirm or refute the eroding-value hypothesis behind idea 4.</li>
-    <li>Baseline <b>DAU/MAU, sessions per day and event participation</b> by segment — and pull retention around the <b>late-2025 team-mode change</b>.</li>
+    <li><b>The payer funnel by session index.</b> Install &rarr; session 1&hellip;7 &rarr; first store
+      impression &rarr; first purchase. Where does a first purchase happen today, how long does it take,
+      and at what price? <em>This is the query the whole case is asking for.</em></li>
+    <li><b>Price-point distribution of first purchases, and the SKU ladder a new account can actually
+      see.</b> Is there anything under $10 in front of a new player? What is the modal first-purchase
+      price? <em>This confirms or kills move 02.</em></li>
+    <li><b>D7 and D30 for payers vs non-payers, matched on session count.</b> The matching is the point —
+      unmatched, it only tells you that engaged players spend. Sizes the downstream retention line and
+      tests the asymmetry the whole priority order rests on.</li>
+    <li><b>Second-purchase rate and time-to-second, for first-time payers.</b> Sizes the compounding half
+      of the model, currently its softest input.</li>
   </ol>
+  <p class="note">
+    Down from six. The two dropped — faucet-vs-sink mapping and the dupe-rate history — belong to parked
+    work, and pulling them now would be answering questions nobody is about to act on. Support-ticket volume
+    against churn is folded into pull 4, because a support failure is a second-purchase failure.
+  </p>
+
+  <div class="callout">
+    <p><strong>The kill criterion, written before the work starts.</strong> If pull 2 shows a sub-$10 SKU
+    already visible to new players, <em>and</em> pull 1 shows ever-pay conversion at or above the 2%
+    benchmark, <strong>move 02 is wrong</strong>. The entry band is not empty, the premise fails, and this
+    collapses back to a retention case — in which event the parked list is the real portfolio and I would
+    say so. Better written down now than discovered in week three.</p>
+  </div>
 
   <h3>Then build, in this order</h3>
   <div class="scroll">
     <table>
       <thead><tr><th>Phase</th><th>What ships</th><th>Gate to pass first</th><th>Window</th></tr></thead>
       <tbody>
-        <tr><td><strong>0</strong></td><td>The six pulls above; re-run the Act 06 model on real inputs</td><td>—</td><td>Week 1–2</td></tr>
-        <tr class="lead"><td><strong>1</strong></td><td><strong>F1 · The Debut</strong> — guided first session</td><td>Funnel data confirms a session-1 drop</td><td>Week 3–10</td></tr>
-        <tr class="lead"><td><strong>2</strong></td><td><strong>F2 · Rookie Crew</strong> — social on-ramp</td><td>Faction-join confirmed as a top-2 retention correlate</td><td>Week 6–16</td></tr>
-        <tr><td><strong>3</strong></td><td>Catch-up track and dupe-protection, in whichever order the economy data supports</td><td>F1/F2 guardrails held; drop-rate data in hand</td><td>Week 17+</td></tr>
+        <tr><td><strong>0</strong></td><td>The four pulls above; re-run the Act 06 model on real inputs</td><td>&mdash;</td><td>Week 1&ndash;2</td></tr>
+        <tr class="lead"><td><strong>1</strong></td><td><strong>Move 01 &middot; Earn the ask</strong>, plus the published-odds half of move 03</td><td>Funnel shows the first ask landing before the first win</td><td>Week 3&ndash;8</td></tr>
+        <tr class="lead"><td><strong>2</strong></td><td><strong>Move 02 &middot; Build the rung</strong> &mdash; the three-rung ladder</td><td>Pull 2 confirms the entry band is empty</td><td>Week 5&ndash;12</td></tr>
+        <tr><td><strong>3</strong></td><td>Dupe-to-shard, then the parked list in whatever order the data supports</td><td>Top-decile ARPPU held flat through the move 02 test</td><td>Week 13+</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="note">F1 and F2 overlap deliberately — they touch different surfaces and can be split-tested independently on the same install cohort.</p>
+  <p class="note">
+    Published odds ships in phase 1 rather than with the rest of move 03 because it is largely configuration
+    and legal review &mdash; already table stakes in several markets &mdash; and it needs to be live before
+    the rungs are, not after. Phases 1 and 2 overlap deliberately: they touch different surfaces and can be
+    split-tested independently on the same install cohort.
+  </p>
 
   <h3>What I'd want to be wrong about</h3>
   <ul class="clean">
-    <li><b>That faction-join is the top retention correlate.</b> It's the load-bearing assumption under the highest-value idea, and I've inferred it rather than measured it.</li>
-    <li><b>That the late-2025 team-mode change hurt.</b> Two upvoted reviews are a signal, not a finding — the retention data around that change decides whether F2 is a restoration or a new build.</li>
-    <li><b>That the benchmark retention curve resembles yours.</b> If your curve is materially flatter, ideas 3 and 4 move up the list.</li>
+    <li><b>That the entry band is empty.</b> This entire case rests on one store shelf, on one account, at
+      League 2, on one day. Storefronts are routinely geo-tested and cohort-tested, and I saw one draw. If
+      that shelf is not representative, the premise goes with it. It is the first thing I would check and
+      the first thing I would expect someone to challenge.</li>
+    <li><b>That payer retention is causal rather than selection.</b> Payers retain better; payers were also
+      always the more engaged players. Pull 3 matches on session count to separate the two, and the
+      downstream retention line is deliberately the smallest of the three revenue components so the case
+      does not lean on it.</li>
+    <li><b>That a cheap rung doesn't cannibalise the whale ladder.</b> The guardrails &mdash; once per
+      account, time-boxed, no shared contents &mdash; are designed for exactly this, but designs fail.
+      Top-decile ARPPU is a kill metric on move 02 from day one of the test, not a post-hoc check.</li>
   </ul>
 </section>
 
@@ -1027,21 +1100,22 @@ a{color:var(--brass)}
     <div>
       <h2>The specs</h2>
       <p class="act-lede">
-        Two one-pagers, written to be handed to a pod. Each states the problem, the hypothesis, what
+        Three one-pagers, written to be handed to a pod. Each states the problem, the hypothesis, what
         ships, what doesn't, how it's measured, and what would make us kill it.
       </p>
     </div>
   </div>
 
-  <!-- ============ F1 ============ -->
-  <h3 style="margin-top:0">F1 · “The Debut” — a guided first session</h3>
+  <!-- ============ MOVE 01 ============ -->
+  <h3 style="margin-top:0">01 &middot; Earn the ask &mdash; no monetisation before a win</h3>
   <p class="body">
-    <strong>Ships first.</strong> Defer every economy surface until the player has a roster and a win.
-    Primary metric D1/D7 retention of new installs; guardrail D30 payer conversion and ARPDAU, both
-    non-inferior. Base case <strong id="sv-f1rev">—</strong> a year. <em>6–8 weeks, one pod.</em>
+    <strong>Ships first.</strong> Defer every economy surface until the player has a roster and a win, and
+    remove the cash-rescue prompt from the first session entirely. Primary metric ever-pay conversion within
+    7 days; guardrail D1/D7 retention and D30 ARPDAU, both non-inferior. Base case
+    <strong id="sv-m1rev">&mdash;</strong> a year. <em>6&ndash;8 weeks, one pod.</em>
   </p>
 
-  <details class="more"><summary>Full F1 spec — problem, flow, requirements, experiment, risks</summary>
+  <details class="more"><summary>Full spec &mdash; problem, flow, requirements, experiment, risks</summary>
   <div class="more-b">
 
   <div class="spec" style="border-top:0;padding-top:0"><div class="spec-h"><div class="spec-id">Problem</div><div class="spec-b">
@@ -1049,31 +1123,32 @@ a{color:var(--brass)}
     six gem stats, Trainer, Link &amp; Gear, Boss Breakers and injury timers. Within the first ten
     minutes they are offered a <strong>$99.99 pack as the only item on the League 2 store shelf</strong>,
     four subscription passes, and a padlocked Premium rewards column at zero points. The first losable
-    match ends in a <strong>“RESCUE your Superstar for 100 cash”</strong> prompt.</p>
-    <p>Monetisation surfaces arrive before the player has a team, a win, or a reason to care. Nothing in
-    the first session teaches the core loop cleanly, and several paths dead-end.</p>
+    match ends in a <strong>&ldquo;RESCUE your Superstar for 100 cash&rdquo;</strong> prompt.</p>
+    <p>So the first commercial proposition this game ever makes is <strong>a loss-tax, offered to someone
+    who has not yet won anything</strong>. Value is asked for before any has been delivered, and the only
+    thing on the shelf is priced for a player who does not exist yet.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Hypothesis</div><div class="spec-b">
-    <p>If we defer every economy surface until the player has a roster and a win, and reveal systems on
-    a schedule tied to readiness rather than dumping them at once, then <strong>time-to-first-reward
-    falls, session-1 completion rises, and D1/D7 retention improves</strong> — without touching the
-    economy's ceiling, because nothing about whale-facing content changes.</p>
+    <p>If the first monetisation surface a player sees arrives <em>after</em> a win and sells momentum
+    rather than relief, then <strong>the share of installs that go on to make a purchase rises</strong> —
+    because an entry purchase converts on aspiration, not on rescue. Retention improves as a side-effect
+    rather than as the goal, and nothing about whale-facing content changes.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Goal</div><div class="spec-b">
-    <p><strong>Primary:</strong> D1 and D7 retention of new installs.<br>
-    <strong>Secondary:</strong> tutorial completion rate, time-to-first-win, time-to-first-upgrade,
-    session-1 completion.<br>
-    <strong>Guardrail:</strong> D30 payer conversion and ARPDAU, both non-inferior.</p>
-    <p>Base-case model value: <strong>+2.3% of annual revenue</strong> at the Act 06 assumptions. The
-    honest read is that F1's value is mostly <em>enabling</em> — it feeds the cohort F2 then retains.</p>
+    <p><strong>Primary:</strong> ever-pay conversion within 7 days of install.<br>
+    <strong>Secondary:</strong> time-to-first-win, session-1 completion, share of new players who see a
+    store surface before their first win — <em>target zero</em>.<br>
+    <strong>Guardrail:</strong> D1/D7 retention and D30 ARPDAU, both non-inferior.</p>
+    <p>The honest read is that move 01's value is mostly <em>enabling</em>: it is what makes move 02's rung
+    land on someone with a reason to want it.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Non-goals</div><div class="spec-b">
     <p>Not touching drop rates, pack pricing, gacha odds, or any existing player's experience. Not a
     tutorial rewrite for players past League 3. Not a new-art project — this reuses existing screens and
-    changes what is <em>shown when</em>.</p>
+    changes what is <em>shown when</em>. Not building the entry offers themselves; that is move 02.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">The flow</div><div class="spec-b">
@@ -1083,10 +1158,14 @@ a{color:var(--brass)}
     <p><strong>Screen 2 — the first match.</strong> Match-3 plus one finisher. Boss Breakers, Link &amp;
     Gear and the six gem-crit stats are suppressed. A single coach line explains the finisher bar. The
     match <strong>cannot be lost</strong>: if the player's health would hit zero, the opponent's next
-    turn is scripted to miss. No rescue prompt exists in this session.</p>
+    turn is scripted to miss. <strong>No rescue prompt exists in this session.</strong></p>
     <p><strong>Screen 3 — the win, and one next action.</strong> Victory, XP, coins, and exactly one
     contextual CTA: <em>Level up The Rock</em>. Not six systems — one verb. Completing it fires the
     Level Up unlock and ends session 1 on a return hook.</p>
+    <p><strong>Screen 4 — the ask, earned.</strong> The first store surface the player ever sees opens
+    <em>after</em> the win, on a roster they now care about, and its first shelf item is move 02's rung 1.
+    Until move 02 ships, this screen shows the existing shelf and the experiment measures the sequencing
+    change alone.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Disclosure schedule</div><div class="spec-b">
@@ -1097,12 +1176,12 @@ a{color:var(--brass)}
       <thead><tr><th>Trigger</th><th>Reveals</th><th>Why there</th></tr></thead>
       <tbody>
         <tr><td><strong>Session 1</strong></td><td>Match-3 + finisher</td><td>The core loop, taught with one guaranteed win</td></tr>
-        <tr><td><strong>First win</strong></td><td>Level Up</td><td>First upgrade verb — cheap, instant, satisfying</td></tr>
-        <tr><td><strong>2nd match / 2★</strong></td><td>Enhance</td><td>Opens the colour-class ladder once one star exists</td></tr>
+        <tr><td><strong>First win</strong></td><td>Level Up &middot; <strong>the store, and rung 1</strong></td><td>First upgrade verb, and the first ask &mdash; both after value has landed</td></tr>
+        <tr><td><strong>2nd match / 2&#9733;</strong></td><td>Enhance</td><td>Opens the colour-class ladder once one star exists</td></tr>
         <tr><td><strong>Day-2 return</strong></td><td>2nd superstar + team</td><td>Rewards the return; introduces team-building</td></tr>
-        <tr><td><strong>League 3</strong></td><td>Fuse · daily missions</td><td>Depth once a habit is forming</td></tr>
-        <tr><td><strong>League 4</strong></td><td>Showdown · global chat</td><td>Competitive modes when a roster exists</td></tr>
-        <tr><td><strong>League 5+</strong></td><td>Evolve · Boss Breakers · Link &amp; Gear · crit stats</td><td>End-game complexity for engaged players only</td></tr>
+        <tr><td><strong>League 3</strong></td><td>Fuse &middot; daily missions</td><td>Depth once a habit is forming</td></tr>
+        <tr><td><strong>League 4</strong></td><td>Showdown &middot; global chat</td><td>Competitive modes when a roster exists</td></tr>
+        <tr><td><strong>League 5+</strong></td><td>Evolve &middot; Boss Breakers &middot; Link &amp; Gear &middot; crit stats</td><td>End-game complexity for engaged players only</td></tr>
       </tbody>
     </table>
   </div>
@@ -1111,11 +1190,11 @@ a{color:var(--brass)}
   <ul class="clean">
     <li><b>R1.</b> Guaranteed marquee pull fires on 100% of first sessions. No RNG on the debut pull.</li>
     <li><b>R2.</b> At most two systems visible in session 1; all others gated to the schedule above.</li>
-    <li><b>R3.</b> Store, Loot, offers and subscription surfaces are hidden until the Day-2 return.</li>
-    <li><b>R4.</b> The debut match cannot be lost, and no cash-rescue prompt can be reached in session 1.</li>
+    <li><b>R3.</b> Store, Loot, offers and subscription surfaces are unreachable until the first win.</li>
+    <li><b>R4.</b> The debut match cannot be lost, and <b>no cash-rescue prompt can be reached in session 1</b>.</li>
     <li><b>R5.</b> Every screen exposes exactly one primary CTA.</li>
     <li><b>R6.</b> Zero reachable dead-ends. Unavailable actions are hidden, never shown-then-blocked.</li>
-    <li><b>R7.</b> A skip path exists for reinstalls and veterans — never trap an experienced player.</li>
+    <li><b>R7.</b> A skip path exists for reinstalls and veterans &mdash; never trap an experienced player.</li>
   </ul>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Edge cases</div><div class="spec-b">
@@ -1127,148 +1206,241 @@ a{color:var(--brass)}
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Instrumentation</div><div class="spec-b">
-    <p><code>debut_start</code> · <code>marquee_claimed</code> · <code>first_match_win</code> (with
-    <code>time_to_win</code>) · <code>first_upgrade_tap</code> · <code>system_unlock_shown</code> and
-    <code>system_unlock_engaged</code> (per system, per trigger) · <code>dead_end_hit</code> —
-    <strong>must trend to zero against control</strong> · <code>session1_complete</code>.</p>
-    <p>All eight validated in the analytics pipeline <strong>before</strong> the experiment opens.</p>
+    <p><code>debut_start</code> &middot; <code>marquee_claimed</code> &middot; <code>first_match_win</code>
+    (with <code>time_to_win</code>) &middot; <code>first_store_impression</code> (with
+    <code>had_won_before</code> &mdash; <strong>must be 100% true against control's mixed rate</strong>)
+    &middot; <code>first_purchase</code> (with <code>price</code>, <code>sku</code>,
+    <code>session_index</code>) &middot; <code>rescue_prompt_shown</code> &mdash;
+    <strong>must be zero in session 1</strong> &middot; <code>dead_end_hit</code> &middot;
+    <code>session1_complete</code>.</p>
+    <p>All validated in the analytics pipeline <strong>before</strong> the experiment opens. Note that
+    <code>first_purchase</code> with price and session index is also data pull 1 — if it isn't already
+    instrumented, that is the first thing to fix regardless of whether this ships.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Experiment</div><div class="spec-b">
     <p><strong>Unit:</strong> new installs, 50/50 by device cohort. <strong>Control:</strong> current
-    onboarding. <strong>Variant:</strong> The Debut.</p>
-    <p><strong>Decision rule:</strong> ship if D7 retention clears the pre-registered MDE at p&lt;0.05
-    <em>and</em> both revenue guardrails are non-inferior. If activation rises but D30 monetisation
-    regresses, we bought retention by giving away the economy — hold and iterate. If guardrails hold but
-    the primary misses, the hypothesis was wrong; say so and move to F2.</p>
+    onboarding. <strong>Variant:</strong> the sequenced flow above.</p>
+    <p><strong>Decision rule:</strong> ship if 7-day ever-pay conversion clears the pre-registered MDE at
+    p&lt;0.05 <em>and</em> both retention guardrails are non-inferior. If conversion rises but D30 ARPDAU
+    regresses, we moved purchases later without adding any &mdash; hold and iterate. If retention rises but
+    conversion doesn't, we built a retention feature; say so plainly, and re-rank it against the parked
+    list rather than claiming the win.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Risks</div><div class="spec-b">
     <p><strong>Deferred monetisation costs early revenue.</strong> Some share of players do convert on a
-    day-1 offer. The guardrail catches it; if D30 conversion drops, we re-introduce offers earlier in the
-    variant rather than abandoning the build.</p>
+    day-1 offer, and the rescue prompt does convert somebody. The guardrail catches it; if D30 conversion
+    drops, we reintroduce the ask earlier in the variant rather than abandoning the build.</p>
     <p><strong>A scripted unlosable match may read as fake.</strong> Mitigation: the assist is invisible
-    (opponent misses), not a revive prompt. Watch qualitative feedback and session-2 return.</p>
+    (the opponent misses), not a revive prompt. Watch qualitative feedback and session-2 return.</p>
   </div></div></div>
 
   </div></details>
 
-  <!-- ============ F2 ============ -->
-  <h3>F2 · Rookie Crew — a social on-ramp before League 5</h3>
+  <!-- ============ MOVE 02 ============ -->
+  <h3>02 &middot; Build the rung &mdash; a three-rung deterministic starter ladder</h3>
   <p class="body">
-    <strong>Highest value in the portfolio.</strong> Auto-draft every new player into a small crew within
-    minutes of install, with a mentor and curated chat, graduating into a real faction at League 5.
-    Primary metric share of new players in an active social unit by D7; guardrail veteran feud
-    participation and moderation load. Base case <strong id="sv-f2rev">—</strong> a year.
-    <em>8–10 weeks, one pod plus moderation tooling.</em>
+    <strong>The load-bearing move.</strong> Add three entry-band offers below the lowest price point a new
+    player can currently see, each deterministic, once-per-account and time-boxed. Primary metric ever-pay
+    conversion; <strong>kill metric top-decile ARPPU</strong>. Base case
+    <strong id="sv-m2rev">&mdash;</strong> a year. <em>6&ndash;8 weeks, one pod plus economy.</em>
   </p>
 
-  <details class="more"><summary>Full F2 spec — problem, ladder, requirements, experiment, risks</summary>
+  <details class="more"><summary>Full spec &mdash; problem, the ladder, requirements, experiment, risks</summary>
   <div class="more-b">
 
   <div class="spec" style="border-top:0;padding-top:0"><div class="spec-h"><div class="spec-id">Problem</div><div class="spec-b">
-    <p>Faction unlocks at <strong>League 5</strong> and Showdown at League 4 — so the entire activation
-    window passes with no social tie. Meanwhile <strong>global chat is open on day one</strong> and is
-    wall-to-wall faction recruitment (one ad in my own session demanded “discord mandatory”) interleaved
-    with factions insulting each other. A player is shown the party they cannot join, in the least
-    welcoming room available, and there is <strong>no block or report tool</strong>.</p>
+    <p>At League 2 the featured shelf holds <strong>exactly one offer, at $99.99</strong>, and the
+    memberships tab lists four subscriptions. There is nothing between free and a hundred dollars.</p>
+    <p>Every conversion funnel needs a first rung the customer can reach without deciding they are now
+    A Person Who Spends Money On This. <strong>This one does not have a bottom.</strong> The corpus is
+    consistent with that reading: &ldquo;money&rdquo; is the most-used word across 2,945 reviews and the
+    most-reached complaint theme at 36%, and it skews +26.7 points negative &mdash; the vocabulary of people
+    who <em>would</em> transact, describing a transaction they find hostile.</p>
+    <p><strong>Stated as a limit:</strong> this rests on one shelf, one account, one day. Storefronts are
+    routinely geo- and cohort-tested. Data pull 2 confirms or kills it before anything is built.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Hypothesis</div><div class="spec-b">
-    <p>If a new player is placed in a small, low-stakes social unit within minutes of installing, given
-    one shared goal and one experienced person to ask, then <strong>the share who form a social tie
-    before they can churn rises, and D7/D30 retention rises with it</strong> — while the existing faction
-    system is protected, because crews graduate into it rather than competing with it.</p>
-    <p>This rests on faction-join being a top retention correlate. <strong>Pull 3 in Act 07 tests that
-    before we build.</strong></p>
+    <p>If a new player is offered a small, deterministic, roster-relevant purchase at the moment they hit
+    their first wall, then <strong>ever-pay conversion rises</strong> &mdash; and if a second and third rung
+    exist above it, a meaningful share climb rather than stopping at one. <strong>Without lowering the whale
+    ceiling</strong>, because the rungs sit below the existing ladder and share no contents with it, and
+    whales pay for relative advantage rather than absolute cost.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Goal</div><div class="spec-b">
-    <p><strong>Primary:</strong> share of new players in an active social unit by D7.<br>
-    <strong>Secondary:</strong> D30 retention of crew-joiners vs. non-joiners; faction-join rate by
-    League 5; crew-goal completion.<br>
-    <strong>Guardrail:</strong> veteran feud participation, chat-report rate, moderation load.</p>
-    <p>Base-case model value: <strong>+11.7% of annual revenue</strong> — the highest of the five, because
-    it moves late-curve retention.</p>
+    <p><strong>Primary:</strong> ever-pay conversion (share of installs making a first purchase within 30 days).<br>
+    <strong>Secondary:</strong> second-purchase rate within 7 days of the first; rung-to-rung climb rate;
+    time-to-first-purchase.<br>
+    <strong>Kill metric:</strong> <strong>top-decile ARPPU</strong>, monitored from day one of the test.
+    <strong>Guardrail:</strong> total revenue per install cohort, non-inferior.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Non-goals</div><div class="spec-b">
-    <p>Not replacing or re-balancing Faction Feud. Not building a new chat platform — this is a scoped
-    channel with moderation, not a social network. Not touching veteran-facing feud scoring or rewards.</p>
+    <p>Not changing any existing SKU's price, contents or availability. Not a sale, a discount or a
+    limited-time markdown on anything that already exists. Not a subscription. Not a battle pass. Not
+    touching gacha odds &mdash; the rungs contain no gacha at all.</p>
   </div></div></div>
 
-  <div class="spec"><div class="spec-h"><div class="spec-id">The flow</div><div class="spec-b">
-    <p><strong>Draft.</strong> Within five minutes of install, the player is auto-assigned to a crew of
-    four to eight, matched by install cohort and timezone so someone is actually online. Framed as being
-    drafted, not joining a queue.</p>
-    <p><strong>Crew home.</strong> One shared goal — a collective bar such as “win 20 matches together”
-    — with no dead-weight penalty and none of the feud's slot requirements. A curated chat channel sits
-    beneath it, with report and mute present from launch.</p>
-    <p><strong>Mentor.</strong> One opt-in veteran per crew, rewarded on the crew's D7 retention rather
-    than on their own play, so the incentive is to help rather than to farm.</p>
-    <p><strong>Graduation.</strong> At League 5 the crew is offered a real faction <em>together</em>,
-    carrying at least two crewmates where slots allow. The player arrives with people they know instead
-    of browsing anonymous factions cold.</p>
+  <div class="spec"><div class="spec-h"><div class="spec-id">The ladder</div><div class="spec-b">
+    <p>Prices below are the conventional entry ladder for the genre and are <strong>placeholders until
+    pull 2 returns the modal first-purchase price</strong>. The structure is the spec; the numbers are an
+    input.</p>
   </div></div></div>
-
-  <div class="spec"><div class="spec-h"><div class="spec-id">Social ladder</div><div class="spec-b"></div></div></div>
   <div class="scroll">
     <table>
-      <thead><tr><th>When</th><th>Surface</th><th>What it does</th><th>Today</th></tr></thead>
+      <thead><tr><th>Rung</th><th>Trigger</th><th>Contents</th><th>Why it converts</th></tr></thead>
       <tbody>
-        <tr><td><strong>Install +5 min</strong></td><td>Rookie Crew draft</td><td>Auto-assign to a cohort-matched crew</td><td>Nothing</td></tr>
-        <tr><td><strong>Day 1</strong></td><td>Mentor match</td><td>Opt-in veteran, rewarded on crew retention</td><td>Nothing</td></tr>
-        <tr><td><strong>Day 1–7</strong></td><td>Crew goal + curated chat</td><td>Shared bar; filtered, moderated conversation</td><td>Unfiltered global chat</td></tr>
-        <tr><td><strong>League 4</strong></td><td>Global chat unlocks</td><td>Full chat once the player can act on recruitment</td><td>Open from day 1</td></tr>
-        <tr><td><strong>League 5</strong></td><td>Graduate to Faction</td><td>Crew enters a real faction together</td><td>Cold, solo join</td></tr>
+        <tr class="lead"><td><strong>1 &middot; ~$2.99</strong></td><td>First wall &mdash; first match lost after the debut, or first energy gate</td><td>Deterministic: shards for a superstar <em>already on the roster</em>, plus enough coins for one visible upgrade</td><td>Solves the problem in front of them, at a price that isn't a decision</td></tr>
+        <tr class="lead"><td><strong>2 &middot; ~$6.99</strong></td><td>Within 72h of rung 1, once only</td><td>A named superstar the player has already fought <em>against</em>, granted outright</td><td>The second purchase is the one nothing is built for today. This is the whole P1&rarr;P2 bet.</td></tr>
+        <tr><td><strong>3 &middot; ~$14.99</strong></td><td>Gated on rung 2 &mdash; not shown otherwise</td><td>A star-up bundle for whichever superstar the player has invested in most</td><td>Establishes the habit, and hands off to the existing ladder at a price adjacent to it</td></tr>
       </tbody>
     </table>
   </div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Requirements</div><div class="spec-b"></div></div></div>
   <ul class="clean">
-    <li><b>R1.</b> Every new player is auto-assigned to a crew within 5 minutes of install.</li>
-    <li><b>R2.</b> Crew size 4–8, matched on install cohort and timezone for live overlap.</li>
-    <li><b>R3.</b> Curated new-player channel filters recruitment and abuse until League 4.</li>
-    <li><b>R4.</b> Report and mute ship <em>before</em> the channel opens — non-negotiable.</li>
-    <li><b>R5.</b> Mentor matching and reward loop live, and abuse-resistant (rewards on crew retention, capped per mentor).</li>
-    <li><b>R6.</b> Graduation carries ≥2 crewmates into the same faction where slots allow.</li>
-    <li><b>R7.</b> No crew mechanic may affect Faction Feud scoring.</li>
+    <li><b>R1.</b> Every rung is <b>deterministic</b>. The player sees the exact contents before purchase. No RNG anywhere in the entry band.</li>
+    <li><b>R2.</b> Every rung is <b>once per account, ever</b>. Not once per season, not once per event.</li>
+    <li><b>R3.</b> Rung contents are personalised to the player's actual roster &mdash; never a superstar they have no relationship with.</li>
+    <li><b>R4.</b> Rungs are time-boxed (72h visible) so they clear the shelf rather than becoming permanent cheap inventory.</li>
+    <li><b>R5.</b> <b>No rung shares contents with any SKU above $19.99.</b> Enforced as a content-catalogue constraint, checked in CI, not by convention.</li>
+    <li><b>R6.</b> Rung 3 is not rendered to a player who has not bought rung 2. No teasing an offer that cannot be taken.</li>
+    <li><b>R7.</b> No rung may appear before the player's first win (move 01's R3 covers the surface; this covers the offer).</li>
+    <li><b>R8.</b> Top-decile ARPPU is instrumented and dashboarded <em>before</em> the first rung goes live.</li>
   </ul>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Edge cases</div><div class="spec-b">
-    <p><strong>No mentor available:</strong> crew forms anyway; the slot fills asynchronously.
-    <strong>Crew goes inactive:</strong> auto-reshuffle stragglers into a fresh active crew rather than
-    stranding them. <strong>Toxicity inside a crew:</strong> report and mute in-channel, with graduated
-    enforcement. <strong>Player reaches L5 with a dissolved crew:</strong> fall back to normal faction
-    browse. <strong>Mentor churns:</strong> reassign; never leave a crew leaderless.</p>
+    <p><strong>Player never hits a wall:</strong> rung 1 falls back to a session-3 trigger rather than never
+    firing. <strong>Player buys an existing large pack first:</strong> the ladder is suppressed &mdash; they
+    are not the cohort. <strong>Reinstall with restored account:</strong> rungs already consumed stay
+    consumed. <strong>Regional pricing:</strong> rungs are defined by store price tier, not USD, so the
+    entry band is the local entry band. <strong>Refund on a rung:</strong> does not restore the offer;
+    monitored, because a refund on rung 1 is the clearest possible second-purchase signal.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Instrumentation</div><div class="spec-b">
-    <p><code>crew_assigned</code> (with match-reason attributes) · <code>crew_home_view</code> ·
-    <code>crew_contribution</code> · <code>mentor_matched</code> / <code>mentor_message</code> ·
-    <code>crew_chat_message</code> · <code>crew_goal_complete</code> ·
-    <code>graduation_to_faction</code> (with <code>faction_join_source</code>) ·
-    <code>chat_report</code> as a moderation-health signal.</p>
+    <p><code>rung_shown</code> and <code>rung_purchased</code> (per rung, with trigger reason and
+    time-since-install) &middot; <code>first_purchase</code> (price, sku, session index) &middot;
+    <code>second_purchase</code> (with <code>days_since_first</code>) &middot;
+    <code>rung_expired_unbought</code> &middot; <code>arppu_top_decile</code> as a daily series &middot;
+    <code>refund_on_entry_sku</code>.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Experiment</div><div class="spec-b">
-    <p><strong>Unit:</strong> new installs, 50/50. <strong>Control:</strong> faction at L5, global chat
-    from day 1. <strong>Variant:</strong> Rookie Crew plus curated chat.</p>
-    <p><strong>Decision rule:</strong> ship if D7 social-tie rate <em>and</em> D30 retention both lift at
-    p&lt;0.05 with veteran feud metrics non-inferior. <strong>The correlation that must hold:</strong>
-    crew-joiners retain measurably better than non-joiners. If that fails, the thesis is wrong and the
-    build stops regardless of the other numbers.</p>
+    <p><strong>Unit:</strong> new installs, 50/50, held for 30 days minimum &mdash; long enough to read the
+    second purchase, not just the first. <strong>Control:</strong> current shelf.
+    <strong>Variant:</strong> the three-rung ladder.</p>
+    <p><strong>Decision rule:</strong> ship if ever-pay conversion clears the pre-registered MDE at p&lt;0.05
+    <em>and</em> revenue per install cohort is non-inferior <em>and</em> top-decile ARPPU has not moved.
+    <strong>Stop immediately if top-decile ARPPU declines</strong> beyond the pre-agreed threshold &mdash;
+    that is cannibalisation and it is not worth any conversion gain.</p>
+    <p>The interesting failure mode to watch for: <strong>conversion up, revenue per cohort flat.</strong>
+    That means the rung captured purchases that would have happened anyway at a higher price. It is a real
+    outcome, it is not a win, and the ladder would need re-pricing rather than re-designing.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Risks</div><div class="spec-b">
-    <p><strong>Moderation load.</strong> A new chat surface for every new player is a real cost. Mitigated
-    by scoping the channel small, shipping tooling first, and tracking report rate as a guardrail.</p>
-    <p><strong>Crews could cannibalise factions.</strong> Mitigated by making graduation the only exit —
-    crews are temporary by design and cannot score in feuds.</p>
-    <p><strong>The late-2025 team-mode change.</strong> If team modes were deliberately reduced, this
-    build runs against a recent strategic decision. That conversation happens before the spec is
-    approved, not after.</p>
+    <p><strong>Cannibalisation of the existing ladder.</strong> The primary risk, addressed by R2, R4, R5
+    and the kill metric. Once-per-account and no-shared-contents are what make a cheap rung structurally
+    unable to substitute for a large pack.</p>
+    <p><strong>The premise is wrong and the entry band isn't empty.</strong> Pull 2, before any build.</p>
+    <p><strong>Anchoring damage.</strong> A $2.99 offer next to a $99.99 offer can make the latter look
+    worse rather than the former look reachable. Mitigated by the rungs being time-boxed and contextual
+    rather than permanently shelved beside the large packs.</p>
+  </div></div></div>
+
+  </div></details>
+
+  <!-- ============ MOVE 03 ============ -->
+  <h3>03 &middot; Make it safe to buy &mdash; published odds and dupe-to-shard</h3>
+  <p class="body">
+    <strong>Cheapest of the three, and it scores highest.</strong> Publish pull probabilities; convert
+    duplicates to shards toward a star the player chooses. Scoped to the entry band, so no existing drop
+    rate changes. Primary metric second-purchase rate; guardrail gacha revenue per payer. Base case
+    <strong id="sv-m3rev">&mdash;</strong> a year. <em>4&ndash;6 weeks, economy &mdash; published odds ships
+    inside phase 1.</em>
+  </p>
+
+  <details class="more"><summary>Full spec &mdash; problem, scope, requirements, experiment, risks</summary>
+  <div class="more-b">
+
+  <div class="spec" style="border-top:0;padding-top:0"><div class="spec-h"><div class="spec-id">Problem</div><div class="spec-b">
+    <p><strong>Trust &amp; odds is the lowest-rated theme in the entire corpus at 2.06&#9733;.</strong> A
+    first purchase in a gacha economy is an act of trust, and right now it is placed blind. Separately,
+    <strong>bugs &amp; support reaches 20% of reviews at 2.42&#9733;</strong> &mdash; the second-largest
+    theme &mdash; with &ldquo;support&rdquo;, &ldquo;scopely&rdquo; and &ldquo;customer&rdquo; all in the ten
+    most negative-skewing words, and &ldquo;fix&rdquo; used 252 times.</p>
+    <p>Under a retention thesis that was a side-finding. Under this one it is structural:
+    <strong>you do not buy twice from a shop that lost your last order.</strong> What decides whether a
+    first-time payer ever pays again is what happens when something goes wrong with the thing they bought.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Hypothesis</div><div class="spec-b">
+    <p>If a player can see what they are buying before they buy it, and cannot be made worse off by a
+    duplicate, then <strong>the second purchase becomes a decision rather than a gamble</strong> and repeat
+    rate rises. Published odds also removes the single loudest constructive complaint players make, at
+    close to zero engineering cost.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Goal</div><div class="spec-b">
+    <p><strong>Primary:</strong> second-purchase rate within 30 days of a first purchase.<br>
+    <strong>Secondary:</strong> ever-pay conversion; trust-theme sentiment in new reviews; refund rate on
+    entry SKUs.<br>
+    <strong>Guardrail:</strong> gacha revenue per payer, non-inferior &mdash; publishing odds must not
+    suppress pulls.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Scope, and what stays out</div><div class="spec-b">
+    <p><strong>Published odds &mdash; phase 1.</strong> Every pull surface displays its probability table,
+    per rarity and per featured item. This <em>describes</em> the current rates. It does not change them.
+    Largely configuration plus legal review; already regulatory table stakes in several markets.</p>
+    <p><strong>Dupe-to-shard &mdash; phase 3.</strong> A duplicate converts into shards toward a star the
+    player selects. Scoped initially to duplicates originating from entry-band and early-game sources, so
+    the exposure is bounded and readable before it goes wide.</p>
+    <p><strong>Out of scope:</strong> pity timers, changing any published rate, retroactive compensation for
+    historical duplicates, and anything touching the whale-facing pull economy. Each is a defensible piece
+    of work and each would make this move un-shippable in six weeks.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Requirements</div><div class="spec-b"></div></div></div>
+  <ul class="clean">
+    <li><b>R1.</b> Odds are displayed on the pull surface itself, not buried in a settings menu or a support article.</li>
+    <li><b>R2.</b> Published values are generated from the live drop tables at build time. <b>A hand-maintained odds table is worse than none</b> &mdash; it will drift, and drift here is a trust catastrophe.</li>
+    <li><b>R3.</b> Entry-band rungs are labelled explicitly as containing no random element.</li>
+    <li><b>R4.</b> Dupe-to-shard conversion rate is published alongside the odds.</li>
+    <li><b>R5.</b> The player chooses the shard target; the game never chooses for them.</li>
+    <li><b>R6.</b> Legal sign-off on the disclosure wording per market before rollout, not after.</li>
+  </ul>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Instrumentation</div><div class="spec-b">
+    <p><code>odds_panel_view</code> (with <code>surface</code> and <code>dwell_ms</code>) &middot;
+    <code>pull_after_odds_view</code> &middot; <code>dupe_converted</code> (with target star) &middot;
+    <code>second_purchase</code> &middot; <code>refund_on_entry_sku</code> &middot; gacha revenue per payer
+    as a daily series against control.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Experiment</div><div class="spec-b">
+    <p><strong>Published odds cannot be split-tested honestly</strong> &mdash; showing one cohort the
+    probabilities and hiding them from another is not a test anyone should want to defend, and in some
+    markets it is not legal. Ship it to everyone and read it as a before/after with a
+    <strong>pre-registered analysis window</strong> and the seasonal baseline stated in advance.</p>
+    <p><strong>Dupe-to-shard is split-testable</strong> and should be: 50/50 on new installs, 30-day hold,
+    decision rule on second-purchase rate at p&lt;0.05 with gacha revenue per payer non-inferior.</p>
+  </div></div></div>
+
+  <div class="spec"><div class="spec-h"><div class="spec-id">Risks</div><div class="spec-b">
+    <p><strong>The odds are bad and publishing them makes it worse.</strong> The most honest risk on this
+    page. If the true rates are indefensible, publishing is still the right call and the rates are the
+    thing to fix &mdash; but that is a different, larger conversation and it should happen before the
+    disclosure ships, not after a press cycle.</p>
+    <p><strong>The repeat-rate assumption is the softest input in the model</strong> and it is what puts
+    this move at the top of the per-move table. Data pull 4 sizes it before anyone commits.</p>
+    <p><strong>Support capacity.</strong> Dupe-to-shard creates a new class of &ldquo;where did my star
+    go&rdquo; ticket. Given that support is already the second-largest complaint theme, the tooling and the
+    runbook ship with the feature, not after it.</p>
   </div></div></div>
 
   </div></details>
@@ -1319,10 +1491,16 @@ a{color:var(--brass)}
         <tr><td>Screenshots</td><td>42 captured</td><td>Firsthand play session, League 1–2, July 2026. Captions re-checked against each image</td><td><span class="conf a">Verified</span></td></tr>
         <tr><td>Store screenshots</td><td>6 shown</td><td>iTunes Lookup API, <code>screenshotUrls</code></td><td><span class="conf a">Verified</span></td></tr>
         <tr><td>Monthly installs</td><td>~90,000</td><td><strong>Assumption.</strong> Third-party estimates seen in search results; the Sensor Tower pages behind them require a login and I could not open a primary source</td><td><span class="conf c">Assumption</span></td></tr>
-        <tr><td>Monthly revenue</td><td>~$800,000</td><td><strong>Assumption.</strong> Same limitation. Used only to derive ARPDAU; the Δ user-days column does not depend on it</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>Monthly revenue</td><td>~$800,000</td><td><strong>Assumption.</strong> Same limitation. With ARPDAU it sets the DAU denominator the whole model is measured against</td><td><span class="conf c">Assumption</span></td></tr>
         <tr><td>ARPDAU</td><td>$0.22</td><td><strong>Assumption.</strong> Back-solved from the two rows above, and inside the typical mid-core range of roughly $0.15–0.40</td><td><span class="conf c">Assumption</span></td></tr>
-        <tr><td>D1 / D7 retention</td><td>35% / 16%</td><td><strong>Assumption.</strong> Match-3 RPG genre benchmarks, not measured for this title. The single most important thing to replace</td><td><span class="conf c">Assumption</span></td></tr>
-        <tr><td>Per-idea lifts</td><td>see Act 06</td><td><strong>Assumption.</strong> My judgement, expressed as conservative / base / optimistic ranges rather than point estimates</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>Total DAU</td><td>~121,000</td><td><strong>Derived.</strong> Monthly revenue ÷ (ARPDAU × 30). Splits into ~37,400 attributable to new installs (installs × lifetime user-days ÷ 30) and ~83,800 legacy base. <strong>An earlier draft used the 37,400 figure as if it were total DAU</strong> — corrected here, because ARPDAU is measured against the total</td><td><span class="conf b">Reproducible</span></td></tr>
+        <tr><td>Ever-pay conversion</td><td>2.0% of installs</td><td><strong>Assumption.</strong> Mid-core RPG benchmark, not measured for this title. <strong>The single most important thing to replace</strong> — it is data pull 1</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>Marginal converter, 180d</td><td>$21</td><td><strong>Assumption.</strong> The 180-day value of a player who converts <em>because</em> an entry rung exists — deliberately set at a third of an incumbent converter's, since a cheap rung raises conversion and lowers average first-purchase value. Modelled, not measured, and it drives the headline more than any other input</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>Existing converter, 180d</td><td>$62</td><td><strong>Assumption.</strong> Today's converters skew high because the visible ladder does. Used only for the repeat-rate term</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>Second purchase in 30d</td><td>35%</td><td><strong>Assumption.</strong> Genre benchmark. Carries the compounding term, and is the softest input behind move 03's ranking — data pull 4</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>Daily payer rate</td><td>3.0% of DAU</td><td><strong>Assumption.</strong> Used only to derive the ARPPU readout ($7.33 per paying DAU-day). Nothing in the model's outputs depends on it</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>D1 / D7 retention</td><td>35% / 16%</td><td><strong>Assumption.</strong> Match-3 RPG genre benchmarks. Used only to split DAU and to price move 01's non-payer retention side-effect — no longer the headline driver it was in the retention-first draft</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>Per-move lifts</td><td>see Act 06</td><td><strong>Assumption.</strong> My judgement, expressed as conservative / base / optimistic ranges rather than point estimates. The combined base case is +1.00pp on ever-pay conversion — a +50% relative lift, which would be aggressive on a title that already had an entry rung. <strong>The premise is that it doesn't</strong>, and data pull 2 tests exactly that</td><td><span class="conf c">Assumption</span></td></tr>
         <tr><td>Revenue decline</td><td>withdrawn</td><td>An earlier draft claimed a ~60% decline from a 2021 peak. Could not be traced to a primary source, so it has been removed rather than caveated</td><td><span class="conf c">Withdrawn</span></td></tr>
       </tbody>
     </table>
@@ -1332,7 +1510,8 @@ a{color:var(--brass)}
   <p class="body">
     The derived datasets are in the repository: <code>data/review-analysis.json</code> holds the word
     frequencies, divergence scores, theme reach and population histogram;
-    <code>data/roi-model.json</code> holds the model inputs and per-idea outputs. The collection and
+    <code>data/roi-model.json</code> holds the payer-funnel inputs, the per-move outputs and the
+    portfolio comparison, and is regenerated by <code>scripts/build-model.py</code>. The collection and
     analysis scripts are in <code>scripts/</code>. Both feeds are public and unauthenticated, so the
     corpus can be re-pulled and the numbers re-derived independently.
   </p>
@@ -1882,68 +2061,129 @@ D.lex.slice().sort(function(a,b){return a.avg-b.avg}).forEach(function(d){
   r.title=d.name+' — '+d.pct+'% of reviews ('+f(d.reviews)+'), avg '+d.avg+'★';lw.appendChild(r);
 });
 
-/* ---------- interactive ROI model ---------- */
-var HORIZON=180, DEF={inst:90000,arp:0.22,d1:35,d7:16};
-var BETS=[
- {id:1,name:'"The Debut" — guided first session',eff:'6–8 wks · 1 pod',
-  lift:{low:[0.02,0.005],base:[0.04,0.015],high:[0.06,0.03]},say:'D1 +4pp · D7 +1.5pp'},
- {id:2,name:'Social on-ramp before League 5',eff:'8–10 wks · 1 pod + mod tooling',
-  lift:{low:[0,0.012],base:[0,0.028],high:[0,0.05]},say:'D7 +2.8pp'},
- {id:3,name:'Mid-game catch-up track',eff:'4–6 wks · live-ops',
-  lift:{low:[0,0.008],base:[0,0.018],high:[0,0.032]},say:'D30 +1.8pp'},
- {id:4,name:'Dupe-protection + published odds',eff:'5–7 wks · economy',
-  lift:{low:[0,0.006],base:[0,0.015],high:[0,0.028]},say:'D30 +1.5pp'},
- {id:5,name:'Tentpole win-back engine',eff:'3–4 wks · CRM',
-  lift:{low:[0,0.004],base:[0,0.010],high:[0,0.020]},say:'Reactivation +1pp'}
+/* ---------- interactive payer-funnel model ---------- */
+var HORIZON=180, D1B=0.35, D7B=0.16, PAYER_XDAYS=12, HAIRCUT=0.60, MARG=0.50;
+var DEF={inst:90000,arp:0.22,rev:800000,conv:2.0,ltvm:21,ltve:62,rep:35};
+/* scenario scaling for the marginal converter's 180-day value, relative to the base input */
+var LTVK={low:14/21,base:1,high:34/21};
+var MOVES=[
+ {id:'01',name:'Earn the ask',eff:'6–8 wks · 1 pod',say:'Ever-pay +0.25pp',
+  low:{c:0.0010,r:0,d1:0.010,d7:0.0040},
+  base:{c:0.0025,r:0,d1:0.020,d7:0.0080},
+  high:{c:0.0055,r:0,d1:0.030,d7:0.0120}},
+ {id:'02',name:'Build the rung',eff:'6–8 wks · 1 pod + economy',say:'Ever-pay +0.55pp',
+  low:{c:0.0022,r:0,d1:0,d7:0},
+  base:{c:0.0055,r:0,d1:0,d7:0},
+  high:{c:0.0110,r:0,d1:0,d7:0}},
+ {id:'03',name:'Make it safe to buy',eff:'4–6 wks · economy',say:'Ever-pay +0.20pp · repeat +7pp',
+  low:{c:0.0008,r:0.03,d1:0,d7:0},
+  base:{c:0.0020,r:0.07,d1:0,d7:0},
+  high:{c:0.0035,r:0.14,d1:0,d7:0}}
 ];
+/* the two lead bets of the previous, retention-first portfolio — DAU deltas from that model */
+var RETENTION_DDAU=2804+13939;
+
 function area(d1,k){return d1*(Math.pow(HORIZON,1-k)-1)/(1-k)}
+function fitk(d1,d7){return Math.log(d1/d7)/Math.log(7)}
 function el(id){return document.getElementById(id)}
 function val(id){return parseFloat(el(id).value)}
+function pc(x){return (x>=0?'+':'\u2212')+Math.abs(x).toFixed(1)+'%'}
+function cents(x){return (x>=0?'+':'−')+'$'+Math.abs(x).toFixed(4)}
 
 function recompute(){
-  var inst=val('i-inst'), arp=val('i-arp'), d1=val('i-d1')/100, d7=val('i-d7')/100;
-  if(!(inst>0&&arp>0&&d1>0&&d7>0&&d7<d1)){el('derived').innerHTML='<span style="color:var(--neg)">Check the inputs — D7 must be below D1 and all values above zero.</span>';return}
-  var k=Math.log(d1/d7)/Math.log(7), base=area(d1,k), dauBase=inst/30*base;
-  el('derived').innerHTML=
-    '<span>decay exponent k <b>'+k.toFixed(3)+'</b></span>'+
-    '<span>lifetime user-days / install <b>'+base.toFixed(1)+'</b></span>'+
-    '<span>steady-state DAU from new installs <b>'+f(Math.round(dauBase))+'</b></span>'+
-    '<span>implied annual revenue <b>'+money(dauBase*arp*365)+'</b></span>';
+  var inst=val('i-inst'), arp=val('i-arp'), rev=val('i-rev'),
+      conv=val('i-conv')/100, ltvm=val('i-ltvm'), ltve=val('i-ltve'), rep=val('i-rep')/100;
+  if(!(inst>0&&arp>0&&rev>0&&conv>0&&conv<1&&ltvm>0&&ltve>0&&rep>0&&rep<0.95)){
+    el('derived').innerHTML='<span style="color:var(--neg)">Check the inputs — all values above zero, conversion under 100%, repeat rate under 95%.</span>';return}
 
-  var tb=el('roitab');tb.innerHTML='';var T={low:0,base:0,high:0},R={};
-  BETS.forEach(function(b,idx){
+  var k=fitk(D1B,D7B), userDays=area(D1B,k);
+  var dauNew=inst/30*userDays, dauTotal=rev/(arp*30), dauLegacy=dauTotal-dauNew;
+  var payersMo=inst*conv, purchBase=1/(1-rep);
+
+  el('derived').innerHTML=
+    '<span>total DAU <b>'+f(Math.round(dauTotal))+'</b></span>'+
+    '<span>from new installs <b>'+f(Math.round(dauNew))+'</b></span>'+
+    '<span>legacy base <b>'+f(Math.round(dauLegacy))+'</b></span>'+
+    '<span>new payers / mo <b>'+f(Math.round(payersMo))+'</b></span>'+
+    '<span>ARPPU per paying DAU-day <b>$'+(arp/0.03).toFixed(2)+'</b></span>'+
+    '<span>lifetime user-days / install <b>'+userDays.toFixed(1)+'</b></span>';
+
+  function ev(m,sc,margFactor){
+    var d=m[sc], lm=ltvm*LTVK[sc], added=inst*d.c;
+    var a=added*lm*12;
+    var b=0;
+    if(d.r){ b=payersMo*ltve*((1/(1-(rep+d.r)))/purchBase-1)*HAIRCUT*12 }
+    var dauP=added*PAYER_XDAYS/30, c=dauP*arp*365;
+    var dauR=0,e=0;
+    if(d.d1){ var nk=fitk(D1B+d.d1,D7B+d.d7); dauR=inst/30*(area(D1B+d.d1,nk)-userDays); e=dauR*arp*margFactor*365 }
+    return {added:added, rev:a+b+c+e, ddau:dauP+dauR};
+  }
+  function arpdauAfter(dRev,dDau){ return (rev+dRev/12)/((dauTotal+dDau)*30) }
+
+  var tb=el('roitab'); tb.innerHTML='';
+  var T={low:0,base:0,high:0}, TD=0, TP=0, R={};
+  MOVES.forEach(function(m,idx){
     var out={};
-    ['low','base','high'].forEach(function(sc){
-      var nd1=d1+b.lift[sc][0], nd7=d7+b.lift[sc][1];
-      var nk=Math.log(nd1/nd7)/Math.log(7), na=area(nd1,nk);
-      var dDau=inst/30*(na-base);
-      out[sc]={rev:dDau*arp*365, pct:(na/base-1)*100};
-      T[sc]+=out[sc].rev;
-    });
-    var tr=document.createElement('tr'); if(idx<2)tr.className='lead';
-    tr.innerHTML='<td><strong>'+b.id+'. '+b.name+'</strong></td><td>'+b.say+'</td><td>'+b.eff+'</td>'+
-      '<td class="n">+'+out.base.pct.toFixed(1)+'%</td>'+
+    ['low','base','high'].forEach(function(sc){ out[sc]=ev(m,sc,MARG); T[sc]+=out[sc].rev });
+    TD+=out.base.ddau; TP+=out.base.added;
+    var tr=document.createElement('tr'); tr.className='lead';
+    tr.innerHTML='<td><strong>'+m.id+' · '+m.name+'</strong></td><td>'+m.say+'</td><td>'+m.eff+'</td>'+
+      '<td class="n">+'+f(Math.round(out.base.added))+'</td>'+
       '<td class="n">'+money(out.low.rev)+'</td>'+
       '<td class="hero">'+money(out.base.rev)+'</td>'+
       '<td class="n">'+money(out.high.rev)+'</td>';
     tb.appendChild(tr);
-    /* the per-idea "base-case value" fields in Act 05 */
-    var v=el('v'+b.id); if(v) v.innerHTML=money(out.base.rev)+' / yr<br><span style="color:var(--ink-3);font-weight:400">+'+out.base.pct.toFixed(1)+'% user-days</span>';
-    R[b.id]=out.base;
+    var v=el('v'+(idx+1));
+    if(v) v.innerHTML=money(out.base.rev)+' / yr<br><span style="color:var(--ink-3);font-weight:400">+'+f(Math.round(out.base.added))+' payers / mo</span>';
+    R[m.id]=out.base;
   });
-  el('tl').textContent=money(T.low);el('tb').textContent=money(T.base);el('th').textContent=money(T.high);
+  el('tp').textContent='+'+f(Math.round(TP));
+  el('tl').textContent=money(T.low); el('tb').textContent=money(T.base); el('th').textContent=money(T.high);
 
-  /* the headline numbers in the answer spine and the spec summaries */
-  set('sv-f2pct','+'+R[2].pct.toFixed(0)+'%');
-  set('sv-ratio',(R[2].pct/R[1].pct).toFixed(1).replace(/\.0$/,'')+'×');
-  set('sv-lead',money(R[1].rev+R[2].rev));
-  set('sv-f1rev',money(R[1].rev));
-  set('sv-f2rev',money(R[2].rev));
+  /* --- the comparison: programme vs the previous retention portfolio --- */
+  var progA=arpdauAfter(T.base,TD), progD=progA-arp;
+  var retRev=RETENTION_DDAU*arp*MARG*365, retA=arpdauAfter(retRev,RETENTION_DDAU), retD=retA-arp;
+  var retRevRaw=RETENTION_DDAU*arp*365, retARaw=arpdauAfter(retRevRaw,RETENTION_DDAU), retDRaw=retARaw-arp;
+
+  /* the programme re-scored the previous model's way, for the robustness line */
+  var progRawRev=0, progRawD=0;
+  MOVES.forEach(function(m){ var o=ev(m,'base',1); progRawRev+=o.rev; progRawD+=o.ddau });
+
+  var ct=el('cmptab');
+  if(ct){
+    ct.innerHTML=
+      '<tr><td><strong>Retention leads</strong><br>Debut + Rookie Crew, as previously ranked</td>'+
+      '<td class="n">'+money(retRev)+'</td><td class="n">+'+f(RETENTION_DDAU)+'</td>'+
+      '<td class="n" style="color:var(--neg);font-weight:650">'+cents(retD)+'<br>'+pc(retD/arp*100)+'</td>'+
+      '<td>The denominator</td></tr>'+
+      '<tr class="lead"><td><strong>The First Dollar</strong><br>moves 01 + 02 + 03</td>'+
+      '<td class="n">'+money(T.base)+'</td><td class="n">+'+f(Math.round(TD))+'</td>'+
+      '<td class="n" style="color:var(--brass);font-weight:650">'+cents(progD)+'<br>'+pc(progD/arp*100)+'</td>'+
+      '<td>The numerator</td></tr>';
+  }
+
+  /* --- headline numbers wherever they appear --- */
+  set('sv-prog',money(T.base));
+  set('sv-conv',(conv*100+ (MOVES.reduce(function(a,m){return a+m.base.c},0)*100)).toFixed(2)+'%');
+  set('sv-arpdau',pc(progD/arp*100));
+  set('sv-retrev',money(retRev));
+  set('sv-retarp',pc(retD/arp*100));
+  set('sv-retrev-raw',money(retRevRaw));
+  set('sv-retarp-raw',pc(retDRaw/arp*100));
+  set('sv-retrev-raw2',money(retRevRaw));
+  set('sv-retarp-raw2',pc(retDRaw/arp*100));
+  set('sv-m1rev',money(R['01'].rev));
+  set('sv-m2rev',money(R['02'].rev));
+  set('sv-m3rev',money(R['03'].rev));
 }
 function set(id,txt){var e=el(id); if(e) e.textContent=txt}
-['i-inst','i-arp','i-d1','i-d7'].forEach(function(id){el(id).addEventListener('input',recompute)});
+['i-inst','i-arp','i-rev','i-conv','i-ltvm','i-ltve','i-rep'].forEach(function(id){
+  var e=el(id); if(e) e.addEventListener('input',recompute);
+});
 el('reset').addEventListener('click',function(){
-  el('i-inst').value=DEF.inst;el('i-arp').value=DEF.arp;el('i-d1').value=DEF.d1;el('i-d7').value=DEF.d7;recompute();
+  el('i-inst').value=DEF.inst; el('i-arp').value=DEF.arp; el('i-rev').value=DEF.rev;
+  el('i-conv').value=DEF.conv; el('i-ltvm').value=DEF.ltvm; el('i-ltve').value=DEF.ltve;
+  el('i-rep').value=DEF.rep; recompute();
 });
 recompute();
 
