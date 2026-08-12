@@ -2,6 +2,7 @@
 
 Date: 2026-08-06
 Status: approved, in build
+Amended: 2026-08-08 — see "Correction" at the foot of this document
 
 ## Why this rewrite exists
 
@@ -214,3 +215,53 @@ Phase 2 move 02, the rung ladder (wk 5–12) → Phase 3 the parked list.
 
 Prototype (`prototype/index.html`) is out of scope for this pass. Its "after" flow ends at
 the day-two return; under this thesis it should eventually carry the first-purchase moment.
+
+
+---
+
+## Correction — 2026-08-08
+
+Found while rebuilding the prototype, by re-reading the source screenshot this case rests on.
+
+**What was wrong.** The case stated that the League 2 featured shelf held *exactly one offer, at
+$99.99*, and that the entry price band was empty. `IMG_0821` also shows a **2-Star Gold Andre Starter
+Pack at $14.99**, marked "One Time Offer", on a **05h 42m countdown**, beneath the $99.99 League
+Essentials pack.
+
+**What follows from it.**
+
+- The floor is **$14.99**, not $99.99. The gap move 02 fills is $0–$14.99.
+- Move 02 adds two rungs beneath an existing pack rather than building a ladder from nothing, so its
+  modelled lift drops from **+0.55pp to +0.35pp**. Moves 01 and 03 are unaffected.
+- Programme base case falls from $418k to **$366,673/yr**, and ARPDAU from +2.7% to **+2.2%**.
+  Combined lift is now +0.80pp (+40% relative), down from +1.00pp (+50%).
+- Move 02 becomes the **smallest of the three by value** while remaining the one the other two depend
+  on. Both facts are stated on the page rather than reconciled away.
+- The existing $14.99 pack becomes the **handoff** at the top of the entry ladder, and its six-hour
+  countdown is removed — a clock on a stranger's first purchase is pressure, which is what move 03
+  exists to take out.
+
+**What survives, and is better sourced than the claim it replaces.** Nothing sits between free and
+$14.99 — three to five times the conventional entry price for the genre — and the cheapest way into the
+game is sold against a six-hour timer.
+
+**Kill criterion.** Unchanged and technically survived, since $14.99 is not sub-$10. That is stated
+explicitly on the page rather than left to look like a dodge; pull 2 answers it properly.
+
+### Two further caption errors, same pass
+
+- `IMG_0829` was captioned as an "Insufficient Currency" dead-end. It is the **Manager's League
+  rewards screen** — a subscription SIGN UP and a padlocked Premium column shown to a player on 0
+  reward points. (The deck's separate "padlocked Premium column at zero points" line was already
+  accurate to this image.)
+- `IMG_0841` was said to expose Boss Breakers, Link & Gear and crit stats. Those appear on the
+  **Trainer panel** (`IMG_0818`). The match screen shows a padlocked AUTO, an X2, an unexplained 0/3
+  counter and uninstructed move slots — still a "too much unexplained UI" point, but not the one
+  claimed. The "rescue for 100 cash" prompt is `IMG_0844`, which is not in `prototype/shots/`.
+
+### Prototype direction change, same pass
+
+Rebuilt as **low-fidelity wireframes** rather than game-skinned high-fidelity screens. Before views stay
+real screenshots, shown whole rather than cropped — a crop had been hiding the very $14.99 pack the
+correction is about. Annotation pins now anchor to elements via `data-pin` instead of hard-coded pixel
+offsets, which is what let them drift onto the text when the screens changed.

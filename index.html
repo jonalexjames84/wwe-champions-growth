@@ -301,6 +301,22 @@ a{color:var(--brass)}
   </p>
 </header>
 
+<div class="callout" style="border-left:2px solid var(--neg);margin-bottom:22px">
+  <p style="font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--neg);margin:0 0 11px">A correction &middot; 8 August</p>
+  <p>An earlier version of this analysis said the League 2 featured shelf held <strong>exactly one offer,
+  at $99.99</strong>, and that the entry price band was empty. Re-reading my own source screenshot
+  (<code>IMG_0821</code>) to rebuild the prototype, that is wrong. Beneath the $99.99 League Essentials
+  pack, the same screen carries a <strong>2-Star Gold Andre Starter Pack at $14.99</strong>, marked
+  &ldquo;One Time Offer&rdquo;, on a <strong>05h 42m countdown</strong>.</p>
+  <p><strong>What changed:</strong> move 02 now adds two rungs beneath an existing pack rather than
+  building a ladder from nothing; its modelled lift drops from +0.55pp to +0.35pp, and the programme's
+  base case falls from $418k to <strong>$367k a year and +2.2% ARPDAU</strong>.
+  <strong>What didn't:</strong> nothing sits between free and $14.99 &mdash; three to five times the
+  conventional entry price for the genre &mdash; and the cheapest way into the game is a countdown timer
+  aimed at somebody who installed this afternoon. Two prototype captions were wrong too, and are fixed;
+  both are listed in Act 09.</p>
+</div>
+
 <!-- ============== THE ARGUMENT — answer spine ============== -->
 <section class="answers" id="answers">
   <div class="answers-h">
@@ -335,8 +351,9 @@ a{color:var(--brass)}
         <strong>P0&rarr;P1</strong> is two to five sessions in with a roster they care about and a wall in
         front of them. <strong>P1&rarr;P2</strong> has bought once and is the highest-propensity group in
         the game. <strong>P2&rarr;P3</strong> is where the habit either forms or lapses. All three are
-        blocked by the same thing: <strong>at League 2 the featured shelf holds one offer, at $99.99</strong>,
-        and the first losable match ends in a <em>&ldquo;rescue your Superstar for 100 cash&rdquo;</em> prompt.</p>
+        blocked by the same thing: <strong>the cheapest item on the League 2 shelf is a $14.99 starter pack on a
+        six-hour countdown</strong>, under a $99.99 headline pack &mdash; and the first losable match ends in
+        a <em>&ldquo;rescue your Superstar for 100 cash&rdquo;</em> prompt.</p>
     </div>
   </div>
 
@@ -387,8 +404,8 @@ a{color:var(--brass)}
       <p class="a">One programme, three moves. Not a menu.</p>
       <p class="sup"><strong>01 &middot; Earn the ask</strong> &mdash; no monetisation surface before a win, so
         the first thing the game asks you to buy stops being a rescue from a defeat.
-        <strong>02 &middot; Build the rung</strong> &mdash; a three-rung deterministic starter ladder in the
-        entry band, which is currently empty. <strong>03 &middot; Make it safe to buy</strong> &mdash;
+        <strong>02 &middot; Build the rung</strong> &mdash; two deterministic rungs beneath the existing
+        $14.99 starter pack, which becomes the top of the entry ladder rather than its floor. <strong>03 &middot; Make it safe to buy</strong> &mdash;
         published odds and dupe-to-shard, scoped to the entry band so no existing drop rate moves.
         <strong>Each one unblocks the next, and none works alone.</strong></p>
     </div>
@@ -400,7 +417,7 @@ a{color:var(--brass)}
         <ul class="clean">
           <li><b>02 without 01.</b> A great offer in front of someone who hasn't won yet.</li>
           <li><b>02 without 03.</b> They convert once and never twice.</li>
-          <li><b>01 + 03 without 02.</b> A clean shop with nothing on the shelf at their price.</li>
+          <li><b>01 + 03 without 02.</b> A clean shop whose cheapest item is still $14.99.</li>
         </ul>
         <p><strong>Parked, with the condition each is waiting on.</strong> <b>Rookie Crew</b> &mdash; a good
           D30 play, but it retains rather than converts, so it builds the denominator; ships once a payer
@@ -443,8 +460,9 @@ a{color:var(--brass)}
         <span class="num" id="sv-retarp">&mdash;</span> &mdash; because they grow the denominator.
         The programme is worth <em>less money</em> and moves the metric <em>up</em>.
         <strong>That trade is the recommendation</strong>, and it turns on one query: does a new player
-        currently see anything under $10? If pull 2 says yes, move 02 is wrong and this collapses back to a
-        retention case.</p>
+        currently see anything under $10? The cheapest thing I could find is <strong>$14.99 on a six-hour
+        countdown</strong>. If pull 2 finds something below that, move 02 is wrong and this collapses back
+        to a retention case.</p>
     </div>
   </div>
 
@@ -857,13 +875,13 @@ a{color:var(--brass)}
     <div>
       <p class="slot">Numerator &middot; P0&rarr;P1&rarr;P2</p>
       <h4>Build the rung</h4>
-      <p>A three-rung starter ladder in the entry band. Every rung <strong>deterministic</strong> &mdash; the player sees exactly what they get &mdash; and built around a superstar they have already used. Rung 1 at the first wall, rung 2 within 72 hours of rung 1, rung 3 gated on rung 2. Once per account, time-boxed, no contents shared with a whale SKU.</p>
-      <p class="ev"><b>Mechanism.</b> The load-bearing move. Right now there is nothing to convert <em>on</em>: the featured shelf at League 2 holds one offer, at $99.99. A rung is not a discount &mdash; it is the missing bottom of a ladder that currently starts above almost everyone's head.</p>
+      <p>Two rungs <em>beneath</em> the existing $14.99 starter pack, which becomes the top of the entry ladder rather than its floor. Both <strong>deterministic</strong> &mdash; the player sees exactly what they get &mdash; and built around a superstar they have already used. Rung 1 at the first wall, rung 2 within 72 hours of rung 1. Once per account, no contents shared with a whale SKU, and the six-hour countdown goes.</p>
+      <p class="ev"><b>Mechanism.</b> The chain depends on this move and it is still the <em>smallest</em> of the three by value, because a $14.99 rung already exists &mdash; so this deepens a ladder rather than creating one. Structurally load-bearing and financially third; both are true, and the sequencing argument is what justifies building it anyway.</p>
     </div>
     <dl class="side">
       <div class="val"><dt>Base-case value</dt><dd id="v2"></dd></div>
-      <div><dt>Moves</dt><dd>Ever-pay +0.55pp</dd></div>
-      <div><dt>Effort</dt><dd>6&ndash;8 wks &middot; 1 pod + economy</dd></div>
+      <div><dt>Moves</dt><dd>Ever-pay +0.35pp</dd></div>
+      <div><dt>Effort</dt><dd>5&ndash;7 wks &middot; 1 pod + economy</dd></div>
       <div class="grd"><dt>Guardrail</dt><dd>Top-decile ARPPU &mdash; kill metric</dd></div>
     </dl>
   </div>
@@ -887,8 +905,8 @@ a{color:var(--brass)}
   <div class="callout">
     <p><strong>Why in this order &mdash; each necessary, none sufficient.</strong> <b>02 without 01</b> puts a
     great offer in front of someone who hasn't won yet. <b>02 without 03</b> converts them once and never
-    twice. <b>01 and 03 without 02</b> is a clean, honest, well-sequenced shop with nothing on the shelf at
-    their price.</p>
+    twice. <b>01 and 03 without 02</b> is a clean, honest, well-sequenced shop whose cheapest item is still
+    $14.99.</p>
   </div>
 
   <h3>Parked, and the condition each one is waiting on</h3>
@@ -1053,9 +1071,11 @@ a{color:var(--brass)}
   <div class="callout">
     <p><strong>The kill criterion, written before the work starts.</strong> If pull 2 shows a sub-$10 SKU
     already visible to new players, <em>and</em> pull 1 shows ever-pay conversion at or above the 2%
-    benchmark, <strong>move 02 is wrong</strong>. The entry band is not empty, the premise fails, and this
+    benchmark, <strong>move 02 is wrong</strong>. The floor is not $14.99, the premise fails, and this
     collapses back to a retention case — in which event the parked list is the real portfolio and I would
-    say so. Better written down now than discovered in week three.</p>
+    say so. Better written down now than discovered in week three. And plainly: <strong>$14.99 is not
+    sub-$10, so this criterion technically survived the 8 August correction</strong> — I do not want the
+    threshold doing work the evidence should be doing.</p>
   </div>
 
   <h3>Then build, in this order</h3>
@@ -1065,7 +1085,7 @@ a{color:var(--brass)}
       <tbody>
         <tr><td><strong>0</strong></td><td>The four pulls above; re-run the Act 06 model on real inputs</td><td>&mdash;</td><td>Week 1&ndash;2</td></tr>
         <tr class="lead"><td><strong>1</strong></td><td><strong>Move 01 &middot; Earn the ask</strong>, plus the published-odds half of move 03</td><td>Funnel shows the first ask landing before the first win</td><td>Week 3&ndash;8</td></tr>
-        <tr class="lead"><td><strong>2</strong></td><td><strong>Move 02 &middot; Build the rung</strong> &mdash; the three-rung ladder</td><td>Pull 2 confirms the entry band is empty</td><td>Week 5&ndash;12</td></tr>
+        <tr class="lead"><td><strong>2</strong></td><td><strong>Move 02 &middot; Build the rung</strong> &mdash; the three-rung ladder</td><td>Pull 2 confirms nothing sits below $14.99</td><td>Week 5&ndash;12</td></tr>
         <tr><td><strong>3</strong></td><td>Dupe-to-shard, then the parked list in whatever order the data supports</td><td>Top-decile ARPPU held flat through the move 02 test</td><td>Week 13+</td></tr>
       </tbody>
     </table>
@@ -1079,10 +1099,10 @@ a{color:var(--brass)}
 
   <h3>What I'd want to be wrong about</h3>
   <ul class="clean">
-    <li><b>That the entry band is empty.</b> This entire case rests on one store shelf, on one account, at
-      League 2, on one day. Storefronts are routinely geo-tested and cohort-tested, and I saw one draw. If
-      that shelf is not representative, the premise goes with it. It is the first thing I would check and
-      the first thing I would expect someone to challenge.</li>
+    <li><b>That nothing sits below $14.99.</b> I have already been wrong here once — I read this shelf as
+      a single $99.99 offer and missed the starter pack beneath it. That is corrected at the top of this
+      page, and it is the reason to trust the pull rather than the screenshot: the case rests on one shelf,
+      one account, League 2, one day, and storefronts are routinely geo- and cohort-tested.</li>
     <li><b>That payer retention is causal rather than selection.</b> Payers retain better; payers were also
       always the more engaged players. Pull 3 matches on session count to separate the two, and the
       downstream retention line is deliberately the smallest of the three revenue components so the case
@@ -1239,35 +1259,42 @@ a{color:var(--brass)}
   </div></details>
 
   <!-- ============ MOVE 02 ============ -->
-  <h3>02 &middot; Build the rung &mdash; a three-rung deterministic starter ladder</h3>
+  <h3>02 &middot; Build the rung &mdash; two deterministic rungs below the $14.99 floor</h3>
   <p class="body">
-    <strong>The load-bearing move.</strong> Add three entry-band offers below the lowest price point a new
-    player can currently see, each deterministic, once-per-account and time-boxed. Primary metric ever-pay
-    conversion; <strong>kill metric top-decile ARPPU</strong>. Base case
-    <strong id="sv-m2rev">&mdash;</strong> a year. <em>6&ndash;8 weeks, one pod plus economy.</em>
+    <strong>Structurally load-bearing, financially the smallest of the three.</strong> Add two entry-band
+    offers beneath the $14.99 starter pack a new player can already see, both deterministic and
+    once-per-account. Primary metric ever-pay conversion; <strong>kill metric top-decile ARPPU</strong>.
+    Base case <strong id="sv-m2rev">&mdash;</strong> a year. <em>5&ndash;7 weeks, one pod plus economy.</em>
   </p>
 
   <details class="more"><summary>Full spec &mdash; problem, the ladder, requirements, experiment, risks</summary>
   <div class="more-b">
 
   <div class="spec" style="border-top:0;padding-top:0"><div class="spec-h"><div class="spec-id">Problem</div><div class="spec-b">
-    <p>At League 2 the featured shelf holds <strong>exactly one offer, at $99.99</strong>, and the
-    memberships tab lists four subscriptions. There is nothing between free and a hundred dollars.</p>
+    <p>The League 2 featured tab carries a <strong>$99.99 League Essentials pack</strong> in the headline
+    slot and, beneath it, a <strong>2-Star Gold Andre Starter Pack at $14.99</strong> marked &ldquo;One Time
+    Offer&rdquo; on a <strong>05h 42m countdown</strong>. The memberships tab lists four subscriptions.
+    So a first rung does exist &mdash; priced at $14.99 and sold against a six-hour clock.</p>
     <p>Every conversion funnel needs a first rung the customer can reach without deciding they are now
-    A Person Who Spends Money On This. <strong>This one does not have a bottom.</strong> The corpus is
-    consistent with that reading: &ldquo;money&rdquo; is the most-used word across 2,945 reviews and the
-    most-reached complaint theme at 36%, and it skews +26.7 points negative &mdash; the vocabulary of people
-    who <em>would</em> transact, describing a transaction they find hostile.</p>
-    <p><strong>Stated as a limit:</strong> this rests on one shelf, one account, one day. Storefronts are
-    routinely geo- and cohort-tested. Data pull 2 confirms or kills it before anything is built.</p>
+    A Person Who Spends Money On This. <strong>$14.99 is three to five times the conventional entry price
+    for this genre</strong>, and there is nothing beneath it. The corpus is consistent with that reading:
+    &ldquo;money&rdquo; is the most-used word across 2,945 reviews and the most-reached complaint theme at
+    36%, skewing +26.7 points negative &mdash; the vocabulary of people who <em>would</em> transact,
+    describing a transaction they find hostile.</p>
+    <p><strong>Stated as a limit, and as a correction:</strong> an earlier version of this spec said the
+    shelf held only the $99.99 pack. That was a misreading of my own screenshot. It rests on one shelf, one
+    account, one day, and storefronts are routinely geo- and cohort-tested. Data pull 2 confirms or kills
+    it before anything is built.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Hypothesis</div><div class="spec-b">
     <p>If a new player is offered a small, deterministic, roster-relevant purchase at the moment they hit
-    their first wall, then <strong>ever-pay conversion rises</strong> &mdash; and if a second and third rung
-    exist above it, a meaningful share climb rather than stopping at one. <strong>Without lowering the whale
-    ceiling</strong>, because the rungs sit below the existing ladder and share no contents with it, and
-    whales pay for relative advantage rather than absolute cost.</p>
+    their first wall, then <strong>ever-pay conversion rises</strong> &mdash; and if a second rung sits
+    between it and the existing $14.99 pack, a meaningful share climb rather than stopping at one.
+    <strong>Without lowering the whale ceiling</strong>, because the new rungs sit below the existing ladder
+    and share no contents with it, and whales pay for relative advantage rather than absolute cost.</p>
+    <p>The modelled lift was cut from +0.55pp to +0.35pp once the $14.99 pack was identified: two rungs
+    beneath an existing floor are worth less than a ladder built from nothing.</p>
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">Goal</div><div class="spec-b">
@@ -1285,17 +1312,18 @@ a{color:var(--brass)}
   </div></div></div>
 
   <div class="spec"><div class="spec-h"><div class="spec-id">The ladder</div><div class="spec-b">
-    <p>Prices below are the conventional entry ladder for the genre and are <strong>placeholders until
-    pull 2 returns the modal first-purchase price</strong>. The structure is the spec; the numbers are an
-    input.</p>
+    <p>Prices for the two new rungs are the conventional entry ladder for the genre and are
+    <strong>placeholders until pull 2 returns the modal first-purchase price</strong>. The structure is the
+    spec; the numbers are an input. The $14.99 row is not a proposal &mdash; it is what is on the shelf
+    today, shown so the handoff is legible.</p>
   </div></div></div>
   <div class="scroll">
     <table>
       <thead><tr><th>Rung</th><th>Trigger</th><th>Contents</th><th>Why it converts</th></tr></thead>
       <tbody>
-        <tr class="lead"><td><strong>1 &middot; ~$2.99</strong></td><td>First wall &mdash; first match lost after the debut, or first energy gate</td><td>Deterministic: shards for a superstar <em>already on the roster</em>, plus enough coins for one visible upgrade</td><td>Solves the problem in front of them, at a price that isn't a decision</td></tr>
-        <tr class="lead"><td><strong>2 &middot; ~$6.99</strong></td><td>Within 72h of rung 1, once only</td><td>A named superstar the player has already fought <em>against</em>, granted outright</td><td>The second purchase is the one nothing is built for today. This is the whole P1&rarr;P2 bet.</td></tr>
-        <tr><td><strong>3 &middot; ~$14.99</strong></td><td>Gated on rung 2 &mdash; not shown otherwise</td><td>A star-up bundle for whichever superstar the player has invested in most</td><td>Establishes the habit, and hands off to the existing ladder at a price adjacent to it</td></tr>
+        <tr class="lead"><td><strong>1 &middot; ~$2.99</strong><br><em>new</em></td><td>First wall &mdash; first match lost after the debut, or first energy gate</td><td>Deterministic: shards for a superstar <em>already on the roster</em>, plus enough coins for one visible upgrade</td><td>Solves the problem in front of them, at a price that isn't a decision</td></tr>
+        <tr class="lead"><td><strong>2 &middot; ~$6.99</strong><br><em>new</em></td><td>Within 72h of rung 1, once only</td><td>A named superstar the player has already fought <em>against</em>, granted outright</td><td>The second purchase is the one nothing is built for today. This is the whole P1&rarr;P2 bet.</td></tr>
+        <tr><td><strong>$14.99</strong><br><em>already exists</em></td><td>Currently on a 05h 42m countdown from first sight</td><td>2-Star Gold Andre Starter Pack &mdash; unchanged</td><td>Becomes the <strong>handoff</strong> at the top of the entry ladder instead of its floor. <strong>Drop the countdown</strong>: a six-hour clock on a stranger's first purchase is pressure, and move 03 exists to remove exactly that.</td></tr>
       </tbody>
     </table>
   </div>
@@ -1305,9 +1333,9 @@ a{color:var(--brass)}
     <li><b>R1.</b> Every rung is <b>deterministic</b>. The player sees the exact contents before purchase. No RNG anywhere in the entry band.</li>
     <li><b>R2.</b> Every rung is <b>once per account, ever</b>. Not once per season, not once per event.</li>
     <li><b>R3.</b> Rung contents are personalised to the player's actual roster &mdash; never a superstar they have no relationship with.</li>
-    <li><b>R4.</b> Rungs are time-boxed (72h visible) so they clear the shelf rather than becoming permanent cheap inventory.</li>
+    <li><b>R4.</b> New rungs are visible for 72h so they clear the shelf rather than becoming permanent cheap inventory &mdash; but <b>no countdown timer appears on a player's first-ever offer</b>. The existing $14.99 pack loses its 05h 42m clock.</li>
     <li><b>R5.</b> <b>No rung shares contents with any SKU above $19.99.</b> Enforced as a content-catalogue constraint, checked in CI, not by convention.</li>
-    <li><b>R6.</b> Rung 3 is not rendered to a player who has not bought rung 2. No teasing an offer that cannot be taken.</li>
+    <li><b>R6.</b> Rung 2 is not rendered to a player who has not bought rung 1. No teasing an offer that cannot be taken.</li>
     <li><b>R7.</b> No rung may appear before the player's first win (move 01's R3 covers the surface; this covers the offer).</li>
     <li><b>R8.</b> Top-decile ARPPU is instrumented and dashboarded <em>before</em> the first rung goes live.</li>
   </ul>
@@ -1346,7 +1374,7 @@ a{color:var(--brass)}
     <p><strong>Cannibalisation of the existing ladder.</strong> The primary risk, addressed by R2, R4, R5
     and the kill metric. Once-per-account and no-shared-contents are what make a cheap rung structurally
     unable to substitute for a large pack.</p>
-    <p><strong>The premise is wrong and the entry band isn't empty.</strong> Pull 2, before any build.</p>
+    <p><strong>The premise is wrong and something already sits below $14.99.</strong> I have been wrong on this shelf once already &mdash; see the correction at the top of this page. Pull 2, before any build.</p>
     <p><strong>Anchoring damage.</strong> A $2.99 offer next to a $99.99 offer can make the latter look
     worse rather than the former look reachable. Mitigated by the rungs being time-boxed and contextual
     rather than permanently shelved beside the large packs.</p>
@@ -1465,6 +1493,15 @@ a{color:var(--brass)}
     could not trace to a primary source is either labelled an assumption and made editable, or removed.</p>
     <p>The revenue decline is the one I got wrong first time round — it read well and I could not source
     it. <strong>It's better to lose the headline than to defend a number I can't show you.</strong></p>
+    <p><strong>Corrections log.</strong> <em>8 Aug</em> — I said the League 2 featured shelf held only a
+    $99.99 pack. It also carries a <strong>$14.99 2-Star Gold Andre Starter Pack on a 05h 42m
+    countdown</strong>. Found by re-reading my own screenshot; move 02's lift was cut from +0.55pp to
+    +0.35pp as a result. <em>8 Aug</em> — the prototype captioned <code>IMG_0829</code> as an
+    &ldquo;Insufficient Currency&rdquo; dead-end; it is the Manager's League rewards screen with a
+    subscription CTA and a locked Premium column. <em>8 Aug</em> — the prototype claimed the match screen
+    <code>IMG_0841</code> exposes Boss Breakers, Link &amp; Gear and crit stats; those appear on the Trainer
+    panel <code>IMG_0818</code>. All three are fixed. <em>Earlier</em> — a claimed ~60% revenue decline was
+    withdrawn as unsourceable.</p>
   </div>
 
   <details class="more"><summary>Every number in this document, and where it came from</summary>
@@ -1489,6 +1526,7 @@ a{color:var(--brass)}
         <tr><td>Theme reach &amp; sentiment</td><td>e.g. trust 9%, 2.06★</td><td>Keyword families over the same corpus; a review can match several. Averages are of matching reviews</td><td><span class="conf b">Reproducible, sample-biased</span></td></tr>
         <tr><td>All verbatim quotes</td><td>—</td><td>Copied exactly from the two review feeds, with handle, rating, date and upvote count as returned by the API</td><td><span class="conf a">Verified</span></td></tr>
         <tr><td>Screenshots</td><td>42 captured</td><td>Firsthand play session, League 1–2, July 2026. Captions re-checked against each image</td><td><span class="conf a">Verified</span></td></tr>
+        <tr><td>League 2 store shelf</td><td>$99.99 headline pack; <strong>$14.99 starter pack, 05h 42m timer</strong>; 4 subscriptions</td><td>Firsthand session, <code>IMG_0821</code>, League 2 featured tab. <strong>Corrected 8 Aug</strong> — an earlier reading recorded only the $99.99 pack</td><td><span class="conf a">Verified</span></td></tr>
         <tr><td>Store screenshots</td><td>6 shown</td><td>iTunes Lookup API, <code>screenshotUrls</code></td><td><span class="conf a">Verified</span></td></tr>
         <tr><td>Monthly installs</td><td>~90,000</td><td><strong>Assumption.</strong> Third-party estimates seen in search results; the Sensor Tower pages behind them require a login and I could not open a primary source</td><td><span class="conf c">Assumption</span></td></tr>
         <tr><td>Monthly revenue</td><td>~$800,000</td><td><strong>Assumption.</strong> Same limitation. With ARPDAU it sets the DAU denominator the whole model is measured against</td><td><span class="conf c">Assumption</span></td></tr>
@@ -1500,7 +1538,7 @@ a{color:var(--brass)}
         <tr><td>Second purchase in 30d</td><td>35%</td><td><strong>Assumption.</strong> Genre benchmark. Carries the compounding term, and is the softest input behind move 03's ranking — data pull 4</td><td><span class="conf c">Assumption</span></td></tr>
         <tr><td>Daily payer rate</td><td>3.0% of DAU</td><td><strong>Assumption.</strong> Used only to derive the ARPPU readout ($7.33 per paying DAU-day). Nothing in the model's outputs depends on it</td><td><span class="conf c">Assumption</span></td></tr>
         <tr><td>D1 / D7 retention</td><td>35% / 16%</td><td><strong>Assumption.</strong> Match-3 RPG genre benchmarks. Used only to split DAU and to price move 01's non-payer retention side-effect — no longer the headline driver it was in the retention-first draft</td><td><span class="conf c">Assumption</span></td></tr>
-        <tr><td>Per-move lifts</td><td>see Act 06</td><td><strong>Assumption.</strong> My judgement, expressed as conservative / base / optimistic ranges rather than point estimates. The combined base case is +1.00pp on ever-pay conversion — a +50% relative lift, which would be aggressive on a title that already had an entry rung. <strong>The premise is that it doesn't</strong>, and data pull 2 tests exactly that</td><td><span class="conf c">Assumption</span></td></tr>
+        <tr><td>Per-move lifts</td><td>see Act 06</td><td><strong>Assumption.</strong> My judgement, expressed as conservative / base / optimistic ranges rather than point estimates. The combined base case is +0.80pp on ever-pay conversion — a +40% relative lift, cut from +50% on 8 Aug once the $14.99 starter pack was identified, since two rungs beneath an existing floor are worth less than a ladder built from nothing. <strong>The surviving premise is that nothing sits below $14.99</strong>, and data pull 2 tests exactly that</td><td><span class="conf c">Assumption</span></td></tr>
         <tr><td>Revenue decline</td><td>withdrawn</td><td>An earlier draft claimed a ~60% decline from a 2021 peak. Could not be traced to a primary source, so it has been removed rather than caveated</td><td><span class="conf c">Withdrawn</span></td></tr>
       </tbody>
     </table>
@@ -2071,10 +2109,12 @@ var MOVES=[
   low:{c:0.0010,r:0,d1:0.010,d7:0.0040},
   base:{c:0.0025,r:0,d1:0.020,d7:0.0080},
   high:{c:0.0055,r:0,d1:0.030,d7:0.0120}},
- {id:'02',name:'Build the rung',eff:'6–8 wks · 1 pod + economy',say:'Ever-pay +0.55pp',
-  low:{c:0.0022,r:0,d1:0,d7:0},
-  base:{c:0.0055,r:0,d1:0,d7:0},
-  high:{c:0.0110,r:0,d1:0,d7:0}},
+ /* lift cut from 0.55pp base on 8 Aug: a $14.99 starter pack already exists on the
+    League 2 shelf, so this adds two rungs BELOW a floor rather than building a ladder */
+ {id:'02',name:'Build the rung',eff:'5–7 wks · 1 pod + economy',say:'Ever-pay +0.35pp',
+  low:{c:0.0014,r:0,d1:0,d7:0},
+  base:{c:0.0035,r:0,d1:0,d7:0},
+  high:{c:0.0070,r:0,d1:0,d7:0}},
  {id:'03',name:'Make it safe to buy',eff:'4–6 wks · economy',say:'Ever-pay +0.20pp · repeat +7pp',
   low:{c:0.0008,r:0.03,d1:0,d7:0},
   base:{c:0.0020,r:0.07,d1:0,d7:0},

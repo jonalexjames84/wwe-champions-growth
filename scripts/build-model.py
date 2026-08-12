@@ -59,12 +59,15 @@ MOVES = [
         "high": {"conv": 0.0055, "repeat": 0.0, "d1": 0.03, "d7": 0.012},
     },
     {
+        # Lift cut from 0.55pp base after re-reading IMG_0821: a $14.99 starter pack
+        # already exists on the League 2 shelf, so this adds two rungs BELOW an
+        # existing floor rather than creating the ladder from nothing.
         "id": 2, "name": "Build the rung",
-        "sub": "a three-rung deterministic starter ladder",
-        "effort": "6-8 wks · 1 pod + economy",
-        "low":  {"conv": 0.0022, "repeat": 0.0, "d1": 0, "d7": 0},
-        "base": {"conv": 0.0055, "repeat": 0.0, "d1": 0, "d7": 0},
-        "high": {"conv": 0.0110, "repeat": 0.0, "d1": 0, "d7": 0},
+        "sub": "two deterministic rungs below the existing $14.99 floor",
+        "effort": "5-7 wks · 1 pod + economy",
+        "low":  {"conv": 0.0014, "repeat": 0.0, "d1": 0, "d7": 0},
+        "base": {"conv": 0.0035, "repeat": 0.0, "d1": 0, "d7": 0},
+        "high": {"conv": 0.0070, "repeat": 0.0, "d1": 0, "d7": 0},
     },
     {
         "id": 3, "name": "Make it safe to buy",

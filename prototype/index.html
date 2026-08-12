@@ -3,824 +3,703 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>WWE Champions — Growth Prototype</title>
+<title>WWE Champions — The First Dollar, wireframed</title>
 <style>
   :root{
-    --bg-a:#14161d;--bg-b:#0b0c10;--panel:#181B22;--panel-2:#1F232C;--line:#2A2F3A;
-    --ink:#E7E4DC;--ink-strong:#FBFAF6;--muted:#98A0AE;--faint:#6E7684;
-    --gold:#EDB93E;--gold-deep:#C9922A;--red:#D23A50;--green:#2FBF6B;--blue:#3E7BC8;
-    --display:"Arial Black","Helvetica Neue",Helvetica,Arial,sans-serif;
-    --body:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    --paper:#EFEEE9;        /* workspace */
+    --sheet:#FFFFFF;        /* the mockup surface */
+    --ink:#2E2D2A;
+    --ink-2:#5C5A55;
+    --faint:#8E8B84;
+    --line:#3A3936;         /* strong sketch line */
+    --line-soft:#C2BFB8;
+    --fill:#F2F1EC;
+    --accent:#1B75BB;       /* balsamiq blue */
+    --warn:#B5382C;
+    --ok:#2E7D50;
+    --hand:"Comic Sans MS","Chalkboard SE","Comic Neue","Segoe Print",cursive;
+    --ui:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
     --mono:"SF Mono","JetBrains Mono","Roboto Mono",ui-monospace,Menlo,Consolas,monospace;
+    --gap:14px;
   }
+  @media (prefers-color-scheme:dark){ :root{ --paper:#26251F; } }  /* sheet stays paper-white either way */
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html,body{margin:0;min-height:100%;}
   body{
-    font-family:var(--body);color:var(--ink);
-    background:
-      radial-gradient(1000px 600px at 82% -10%,rgba(237,185,62,.10),transparent 60%),
-      radial-gradient(800px 500px at 0% 4%,rgba(210,58,80,.09),transparent 55%),
-      linear-gradient(180deg,var(--bg-a),var(--bg-b) 72%);
-    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:18px 16px 44px;gap:14px;
+    font-family:var(--ui);color:var(--ink);background:var(--paper);
+    background-image:linear-gradient(var(--line-soft) 1px,transparent 1px),linear-gradient(90deg,var(--line-soft) 1px,transparent 1px);
+    background-size:24px 24px;
+    min-height:100vh;padding:16px;
   }
+  @media (max-width:640px){ body{padding:12px;} }
 
-  .masthead{width:100%;max-width:980px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-  .brand{font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;letter-spacing:-.02em;color:var(--ink-strong);font-size:1rem;display:inline-flex;gap:8px;align-items:baseline;}
-  .brand b{color:var(--gold);}
-  .controls{display:flex;gap:8px;flex-wrap:wrap;}
-  .btn{font-family:var(--mono);font-size:.64rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:8px 12px;cursor:pointer;transition:.15s;}
-  .btn:hover{color:var(--ink-strong);border-color:var(--gold-deep);}
-  .btn.on{color:var(--gold);border-color:color-mix(in oklab,var(--gold) 55%,var(--line));background:color-mix(in oklab,var(--gold) 10%,transparent);}
-  .btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  /* ============ chrome ============ */
+  .wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:14px;}
+  .masthead{
+    background:var(--sheet);border:2px solid var(--line);border-radius:5px;
+    padding:11px 14px;display:flex;align-items:center;justify-content:space-between;gap:12px 18px;flex-wrap:wrap;
+  }
+  .brand{font-family:var(--hand);font-size:1rem;font-weight:700;line-height:1.3;}
+  .brand small{display:block;font-family:var(--ui);font-size:.68rem;font-weight:400;color:var(--faint);margin-top:3px;}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+  .btn{
+    font-family:var(--ui);font-size:.72rem;color:var(--ink-2);background:var(--sheet);
+    border:1.5px solid var(--line-soft);border-radius:4px;padding:7px 11px;cursor:pointer;
+    transition:.12s;text-decoration:none;display:inline-flex;align-items:center;gap:5px;white-space:nowrap;
+  }
+  .btn:hover{border-color:var(--line);color:var(--ink);}
+  .btn.on{border-color:var(--accent);color:var(--accent);background:#EAF3FA;}
 
-  .frameline{width:100%;max-width:980px;text-align:center;font-family:var(--mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);}
-  .frameline b{color:var(--gold);}
+  .frameline{
+    background:var(--sheet);border:1.5px dashed var(--line-soft);border-radius:5px;
+    padding:10px 14px;font-size:.78rem;color:var(--ink-2);line-height:1.55;
+  }
+  .frameline b{color:var(--ink);}
 
-  /* two-column: phone + context rail */
-  .app{display:grid;grid-template-columns:auto minmax(0,320px);gap:26px;align-items:start;justify-items:center;}
-  @media (max-width:880px){ .app{grid-template-columns:1fr;} }
+  /* ============ layout ============ */
+  .app{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:20px;align-items:start;}
+  @media (max-width:900px){ .app{grid-template-columns:1fr;justify-items:center;} }
+  .stage{display:flex;flex-direction:column;align-items:center;gap:10px;min-width:0;}
 
-  .stage{display:flex;flex-direction:column;align-items:center;gap:12px;}
-  .dots{display:flex;gap:8px;align-items:center;height:18px;}
-  .dot{width:9px;height:9px;border-radius:50%;background:var(--line);border:1px solid #333;cursor:pointer;transition:.2s;padding:0;}
-  .dot.on{background:var(--gold);border-color:var(--gold);box-shadow:0 0 0 3px rgba(237,185,62,.22);}
-  .dot.done{background:color-mix(in oklab,var(--gold) 45%,var(--line));}
+  .modeswitch{display:inline-flex;border:1.5px solid var(--line-soft);border-radius:5px;background:var(--sheet);padding:3px;gap:3px;}
+  .modeswitch button{
+    font-family:var(--ui);font-size:.72rem;border:1.5px solid transparent;border-radius:3px;
+    padding:6px 13px;cursor:pointer;color:var(--faint);background:transparent;transition:.12s;white-space:nowrap;
+  }
+  .modeswitch button:not(:disabled):hover{color:var(--ink);}
+  .modeswitch button:disabled{opacity:.4;cursor:default;}
+  .modeswitch button.on[data-m="before"]{background:#FBEDEB;color:var(--warn);border-color:var(--warn);}
+  .modeswitch button.on[data-m="after"]{background:#EAF3FA;color:var(--accent);border-color:var(--accent);}
 
-  /* phone */
-  .phone{position:relative;width:min(348px,88vw);aspect-ratio:1206/2622;border-radius:36px;border:1px solid var(--line);background:#0a0b0e;overflow:hidden;box-shadow:0 26px 64px rgba(0,0,0,.6),0 0 0 8px #050609;}
-  .phone.shake{animation:shake .42s cubic-bezier(.36,.07,.19,.97);}
-  @keyframes shake{10%,90%{transform:translateX(-2px);}20%,80%{transform:translateX(4px);}30%,50%,70%{transform:translateX(-7px);}40%,60%{transform:translateX(7px);}}
-  .notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:100px;height:21px;background:#050609;border-radius:0 0 14px 14px;z-index:30;}
-  .g-status{height:26px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;color:#e9e9ee;font-size:10px;font-family:var(--mono);background:#0a0b0e;position:relative;z-index:5;}
-  .g-top{display:flex;align-items:center;gap:6px;padding:7px 10px;background:linear-gradient(180deg,#20232b,#15171d);border-bottom:1px solid #000;position:relative;z-index:5;}
-  .g-back{width:22px;height:22px;border-radius:6px;border:1px solid #3a3f49;background:#22262e;color:#cbd2dc;font-size:13px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
-  .g-hex{font-family:var(--display);font-style:italic;font-weight:900;font-size:12px;color:#fff;background:#33373f;border:1px solid #4a4f59;border-radius:4px;padding:2px 9px;}
-  .g-chip{display:flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;color:#f0e6cf;background:#12141a;border:1px solid #2b2f38;border-radius:999px;padding:2px 9px;}
-  .g-chip .c{width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#f3d270,#c98f22);}
-  .g-chip.cash .c{background:linear-gradient(#8fd06a,#3f8f2f);border-radius:2px;}
+  .dots{display:flex;gap:7px;align-items:center;min-height:16px;}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--sheet);border:1.5px solid var(--line-soft);cursor:pointer;padding:0;transition:.15s;}
+  .dot.done{background:var(--line-soft);border-color:var(--line-soft);}
+  .dot.on{background:var(--accent);border-color:var(--accent);}
 
-  .g-screen{position:absolute;top:26px;bottom:50px;left:0;right:0;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#241017 0%,#0c0d11 55%);}
-  .g-screen .layer{position:absolute;inset:0 0 16px 0;overflow-y:auto;}
-  .layer.in-fwd{animation:slideR .32s ease;}
-  .layer.in-back{animation:slideL .32s ease;}
-  @keyframes slideR{from{transform:translateX(28px);opacity:0;}to{transform:translateX(0);opacity:1;}}
-  @keyframes slideL{from{transform:translateX(-28px);opacity:0;}to{transform:translateX(0);opacity:1;}}
+  /* ============ the mockup sheet ============ */
+  .sheet{
+    position:relative;width:min(360px,92vw);height:clamp(560px,calc(100vh - 210px),780px);background:var(--sheet);
+    border:2.5px solid var(--line);border-radius:7px;overflow:hidden;display:flex;flex-direction:column;
+  }
+  .sheet-label{
+    font-family:var(--mono);font-size:.56rem;letter-spacing:.13em;text-transform:uppercase;
+    padding:6px 11px;border-bottom:1.5px dashed var(--line-soft);color:var(--faint);
+    display:flex;justify-content:space-between;gap:8px;flex-shrink:0;
+  }
+  .sheet-label.before{color:var(--warn);border-bottom-color:var(--warn);background:#FBEDEB;}
+  .sheet-label.after{color:var(--accent);border-bottom-color:var(--accent);background:#EAF3FA;}
 
-  /* scrolling chat ticker like the real game */
-  .g-ticker{position:absolute;left:0;right:0;bottom:50px;height:16px;background:#0c0d11;border-top:1px solid #1c1f26;overflow:hidden;z-index:12;display:flex;align-items:center;}
-  .g-ticker .track{white-space:nowrap;font-family:var(--mono);font-size:8.5px;color:#8a92a0;padding-left:100%;animation:mar 16s linear infinite;}
-  .g-ticker .track b{color:#c9a24a;}
-  @keyframes mar{to{transform:translateX(-100%);}}
+  .wf-status{display:flex;justify-content:space-between;padding:5px 12px;font-family:var(--mono);font-size:.56rem;color:var(--faint);border-bottom:1px solid var(--line-soft);flex-shrink:0;}
+  .wf-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1.5px solid var(--line);font-family:var(--mono);font-size:.62rem;color:var(--ink-2);flex-shrink:0;}
+  .wf-bar .back{border:1.5px solid var(--line-soft);border-radius:3px;padding:1px 8px;cursor:pointer;color:var(--ink-2);background:var(--sheet);}
+  .wf-bar .chip{border:1.5px solid var(--line-soft);border-radius:3px;padding:2px 8px;}
 
-  .g-nav{position:absolute;bottom:0;left:0;right:0;height:50px;display:grid;grid-template-columns:repeat(5,1fr);background:linear-gradient(180deg,#181b22,#0d0e12);border-top:1px solid #000;z-index:15;}
-  .g-nav div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-family:var(--mono);font-size:7.5px;letter-spacing:.04em;color:#8b93a1;text-transform:uppercase;}
-  .g-nav div .ic{width:17px;height:13px;border:1.4px solid #6b7280;border-radius:3px;}
-  .g-nav div.lock .ic{border-color:#5a5040;background:repeating-linear-gradient(45deg,#3a3320 0 3px,transparent 3px 6px);}
-  .g-nav div.lock{color:#6a6250;}
-  .g-nav div.active{color:var(--gold);}
-  .g-nav div.active .ic{border-color:var(--gold);}
-  .g-nav div.pop .ic{animation:navpop .5s ease;}
-  @keyframes navpop{0%{transform:scale(1);}40%{transform:scale(1.4);border-color:var(--gold);}100%{transform:scale(1);}}
+  .wf-body{flex:1;min-height:0;overflow-y:auto;padding:var(--gap);display:flex;flex-direction:column;gap:11px;}
+  .wf-body::-webkit-scrollbar{width:6px;} .wf-body::-webkit-scrollbar-thumb{background:var(--line-soft);border-radius:3px;}
 
-  .g-pad{padding:14px;display:flex;flex-direction:column;gap:11px;min-height:100%;}
-  .g-banner{font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;color:#fff;font-size:17px;text-align:center;letter-spacing:-.01em;text-shadow:0 2px 8px rgba(0,0,0,.6);}
-  .g-sub{font-size:11px;color:#c9c2b5;text-align:center;line-height:1.45;}
-  .g-card{border-radius:11px;border:1px solid #3a2130;background:linear-gradient(180deg,#2a1220,#170a12);padding:11px;text-align:center;position:relative;box-shadow:inset 0 0 26px rgba(210,58,80,.18);overflow:hidden;}
-  .g-card.shine::after{content:"";position:absolute;top:-60%;left:-30%;width:40%;height:220%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:rotate(18deg);animation:shine 3.2s ease-in-out infinite;}
-  @keyframes shine{0%{left:-40%;}55%,100%{left:130%;}}
-  .g-portrait{height:112px;border-radius:9px;background:radial-gradient(60% 50% at 50% 30%,rgba(237,185,62,.4),transparent 70%),linear-gradient(180deg,#3b2b1a,#241a12);border:1px solid #574126;display:flex;align-items:flex-end;justify-content:center;position:relative;}
-  .g-portrait .who{font-family:var(--display);font-style:italic;font-weight:900;font-size:13px;color:#fff;padding-bottom:9px;text-shadow:0 1px 4px #000;z-index:2;}
-  .g-star{display:inline-flex;align-items:center;gap:4px;font-family:var(--mono);font-size:10px;color:#f3d270;}
-  .g-star::before{content:"★";color:#f3d270;font-size:12px;}
-  .g-guar{font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:#9be3b5;background:rgba(47,191,107,.16);border:1px solid rgba(47,191,107,.5);border-radius:999px;padding:3px 9px;display:inline-block;margin-top:7px;}
-  .g-board{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
-  .g-gem{aspect-ratio:1;border-radius:4px;border:none;padding:0;cursor:pointer;transition:transform .08s;}
-  .g-gem:active{transform:scale(.86);}
-  .g-gem.pop{animation:gempop .32s ease;}
-  @keyframes gempop{0%{transform:scale(1);}40%{transform:scale(1.35);filter:brightness(1.6);}100%{transform:scale(1);}}
-  .g-gem.sel{outline:2px solid #fff;outline-offset:-2px;box-shadow:0 0 0 2px #f3d270,0 0 12px #f3d270;z-index:3;}
-  .g-gem.clearing{animation:clr .2s ease forwards;}
-  @keyframes clr{to{transform:scale(.12);opacity:0;}}
-  .g-gem.drop{animation:drop .24s ease;}
-  @keyframes drop{from{transform:translateY(-18px);opacity:.3;}to{transform:translateY(0);opacity:1;}}
-  .g-gem.bad{animation:badwig .3s ease;}
-  @keyframes badwig{20%{transform:translateX(-4px);}60%{transform:translateX(4px);}100%{transform:translateX(0);}}
+  .wf-nav{display:grid;grid-template-columns:repeat(5,1fr);border-top:1.5px solid var(--line);flex-shrink:0;}
+  .wf-nav div{padding:9px 2px;text-align:center;font-family:var(--mono);font-size:.5rem;letter-spacing:.05em;text-transform:uppercase;color:var(--faint);border-left:1px solid var(--line-soft);}
+  .wf-nav div:first-child{border-left:0;}
+  .wf-nav div.active{color:var(--accent);font-weight:700;background:#EAF3FA;}
+  .wf-nav div.lock{color:var(--line-soft);}
+  .wf-nav div.lock::after{content:" ⌧";}
 
-  /* before/after mode switch */
-  .modeswitch{display:inline-flex;border:1px solid var(--line);border-radius:999px;background:var(--panel);padding:3px;gap:3px;}
-  .modeswitch button{font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;border:0;border-radius:999px;padding:7px 15px;cursor:pointer;color:var(--muted);background:transparent;transition:.15s;}
-  .modeswitch button.on[data-m="before"]{background:color-mix(in oklab,var(--red) 22%,var(--panel));color:#ff9a9a;box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--red) 55%,transparent);}
-  .modeswitch button.on[data-m="after"]{background:color-mix(in oklab,var(--green) 22%,var(--panel));color:#9be3b5;box-shadow:inset 0 0 0 1px color-mix(in oklab,var(--green) 55%,transparent);}
+  /* ---- wireframe primitives ---- */
+  .wf-h{font-family:var(--hand);font-size:1.05rem;font-weight:700;line-height:1.3;}
+  .wf-sub{font-size:.76rem;color:var(--ink-2);line-height:1.55;}
+  .wf-box{border:1.5px solid var(--line);border-radius:4px;padding:10px;}
+  .wf-note{border:1.5px dashed var(--line-soft);border-radius:4px;padding:9px 10px;font-size:.7rem;color:var(--ink-2);line-height:1.5;}
+  .wf-note.warn{border-color:var(--warn);color:var(--warn);background:#FBEDEB;}
+  .wf-note.ok{border-color:var(--ok);color:var(--ok);background:#EDF6F0;}
+  .wf-tag{display:inline-block;border:1.5px solid var(--line-soft);border-radius:999px;padding:3px 9px;font-family:var(--mono);font-size:.54rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-2);}
+  .wf-tag.ok{border-color:var(--ok);color:var(--ok);}
+  .wf-tag.warn{border-color:var(--warn);color:var(--warn);}
 
-  /* status ribbon inside the phone */
-  .g-ribbon{position:absolute;top:0;left:0;right:0;z-index:14;text-align:center;font-family:var(--mono);font-size:8.5px;letter-spacing:.16em;text-transform:uppercase;padding:4px;}
-  .g-ribbon.before{background:linear-gradient(180deg,rgba(210,58,80,.95),rgba(160,30,55,.9));color:#fff;}
-  .g-ribbon.after{background:linear-gradient(180deg,rgba(47,150,90,.9),rgba(30,110,65,.85));color:#eafff0;}
-  .before-fix{margin-top:auto;font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;font-size:13px;color:#eafff0;background:linear-gradient(180deg,#2f9a53,#1c6a39);border:1px solid #47c07a;border-radius:9px;padding:11px;text-align:center;cursor:pointer;box-shadow:0 4px 0 #14522c;}
-  .before-fix:active{transform:translateY(2px);box-shadow:0 2px 0 #14522c;}
-  .g-prob{border:1px solid #5a2030;background:rgba(210,58,80,.1);border-radius:9px;padding:9px 10px;font-size:9.5px;color:#ffbfc7;line-height:1.45;}
-  .g-prob b{color:#ff8a97;}
-  .g-tab{display:flex;gap:4px;}
-  .g-tab .t{flex:1;text-align:center;font-family:var(--mono);font-size:7px;letter-spacing:.05em;text-transform:uppercase;padding:5px 2px;border-radius:5px;border:1px solid #3a2130;color:#c99;background:#1a0e15;}
-  .g-crumb{display:flex;flex-wrap:wrap;gap:4px;}
-  .g-crumb span{font-family:var(--mono);font-size:8px;color:#c9a24a;border:1px solid #4a3a20;border-radius:5px;padding:3px 6px;background:#161208;}
+  .wf-img{position:relative;border:1.5px solid var(--line);border-radius:4px;height:96px;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+  .wf-img::before,.wf-img::after{content:"";position:absolute;inset:0;pointer-events:none;}
+  .wf-img::before{background:linear-gradient(to top right,transparent calc(50% - .8px),var(--line-soft) 50%,transparent calc(50% + .8px));}
+  .wf-img::after{background:linear-gradient(to bottom right,transparent calc(50% - .8px),var(--line-soft) 50%,transparent calc(50% + .8px));}
+  .wf-img span{position:relative;z-index:2;background:var(--sheet);padding:4px 10px;font-family:var(--hand);font-size:.82rem;font-weight:700;border:1.5px solid var(--line-soft);border-radius:3px;}
 
-  /* embedded real screenshot (Before view) */
-  .g-shotwrap{position:absolute;top:22px;left:0;right:0;bottom:0;display:flex;flex-direction:column;}
-  .g-shot{flex:1;width:100%;min-height:0;object-fit:cover;object-position:top center;cursor:zoom-in;background:#000;}
-  .g-shot-band{background:rgba(150,26,44,.94);color:#fff;font-size:9.5px;line-height:1.4;padding:8px 11px;}
-  .g-shot-band b{color:#ffd0d6;}
-  .g-shot-band .shotref{display:block;margin-top:4px;font-family:var(--mono);font-size:7.5px;letter-spacing:.06em;color:#ffb3bd;text-transform:uppercase;}
-  .g-shotwrap .before-fix{margin-top:0;border-radius:0;}
+  .wf-btn{
+    border:2px solid var(--line);border-radius:5px;padding:11px;text-align:center;cursor:pointer;
+    font-family:var(--hand);font-size:.88rem;font-weight:700;color:var(--ink);background:var(--fill);
+    margin-top:auto;user-select:none;line-height:1.3;
+  }
+  .wf-btn:hover{background:#E7E6E0;}
+  .wf-btn:active{transform:translateY(1px);}
+  .wf-btn.primary{border-color:var(--accent);color:var(--accent);background:#EAF3FA;}
+  .wf-btn.dim{opacity:.5;cursor:default;}
+  .wf-btn.fix{border-color:var(--ok);color:var(--ok);background:#EDF6F0;}
+  .shotwrap .wf-btn.fix{margin:0;border-radius:0;border-left:0;border-right:0;border-bottom:0;}
 
-  /* rail thumbnail */
-  .rc-shot{margin-top:9px;display:block;width:100%;border:1px solid var(--line);border-radius:8px;overflow:hidden;cursor:zoom-in;position:relative;background:#000;}
-  .rc-shot img{display:block;width:100%;height:120px;object-fit:cover;object-position:top center;}
-  .rc-shot .tag{position:absolute;left:6px;bottom:6px;font-family:var(--mono);font-size:.54rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(150,26,44,.9);padding:2px 6px;border-radius:4px;}
-  .rc-shot .zoom{position:absolute;right:6px;top:6px;font-size:.6rem;color:#fff;background:rgba(0,0,0,.55);border-radius:4px;padding:2px 5px;}
+  .wf-offer{border:1.5px solid var(--line);border-radius:4px;padding:10px;}
+  .wf-offer .oh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-bottom:1px dashed var(--line-soft);padding-bottom:7px;margin-bottom:7px;}
+  .wf-offer .on{font-family:var(--hand);font-weight:700;font-size:.86rem;line-height:1.25;}
+  .wf-offer .op{font-family:var(--mono);font-size:1rem;font-weight:700;white-space:nowrap;}
+  .wf-offer .oc{font-size:.72rem;color:var(--ink-2);line-height:1.5;margin-bottom:8px;}
 
-  /* lightbox */
-  #lightbox{position:fixed;inset:0;background:rgba(5,6,9,.9);display:none;align-items:center;justify-content:center;z-index:100;padding:24px;cursor:zoom-out;flex-direction:column;gap:12px;}
-  #lightbox.on{display:flex;}
-  #lightbox img{max-width:100%;max-height:88vh;border-radius:12px;box-shadow:0 24px 70px rgba(0,0,0,.7);border:1px solid #333;}
-  #lightbox .lb-cap{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:#c9a24a;}
-  .rG{background:linear-gradient(180deg,#ff5a5a,#c0263a);}.bG{background:linear-gradient(180deg,#4aa8ff,#1f5fc0);}
-  .gG{background:linear-gradient(180deg,#5fd06a,#2f8f3a);}.yG{background:linear-gradient(180deg,#ffd24a,#c98f22);}
-  .pG{background:linear-gradient(180deg,#b06aff,#6a2fc0);}.kG{background:linear-gradient(180deg,#3a3550,#211d33);}
-  .g-vs{display:flex;align-items:center;justify-content:space-between;font-family:var(--mono);font-size:9px;color:#cbb;}
-  .g-hp{height:8px;border-radius:4px;background:#3a1420;border:1px solid #5a2030;overflow:hidden;flex:1;margin:0 6px;}
-  .g-hp span{display:block;height:100%;background:linear-gradient(90deg,#7fe06a,#3f9a2f);transition:width .5s ease;}
-  .g-hp.foe span{background:linear-gradient(90deg,#ff6a6a,#c0263a);}
-  .g-fin{background:#12141a;border:1px solid #2b2f38;border-radius:8px;padding:8px;}
-  .g-fin .t{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;color:#f0d68a;margin-bottom:5px;display:flex;justify-content:space-between;}
-  .g-finbar{height:11px;border-radius:6px;background:#0c0d11;border:1px solid #3a3320;overflow:hidden;}
-  .g-finbar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#f3cf6a,#ff5a5a);transition:width .28s ease;}
-  .g-coach{border:1px dashed rgba(237,185,62,.55);background:rgba(237,185,62,.08);border-radius:9px;padding:9px 10px;font-size:10px;color:#f0e2c0;line-height:1.45;}
-  .g-coach b{color:#f3d270;}
-  .g-note{font-family:var(--mono);font-size:8.5px;letter-spacing:.05em;color:#7f8895;text-align:center;text-transform:uppercase;border:1px solid #262b34;border-radius:7px;padding:6px;background:#0e1015;}
-  .g-victory{font-family:var(--display);font-style:italic;font-weight:900;font-size:32px;text-transform:uppercase;text-align:center;color:#f3d270;text-shadow:0 2px 12px rgba(237,185,62,.5);letter-spacing:-.02em;animation:vpop .5s ease;}
-  @keyframes vpop{0%{transform:scale(.6);opacity:0;}60%{transform:scale(1.12);}100%{transform:scale(1);opacity:1;}}
-  .g-stars{text-align:center;font-size:18px;letter-spacing:5px;}
-  .g-stars b{color:#f3d270;display:inline-block;animation:starpop .4s backwards;}
-  .g-stars b:nth-child(1){animation-delay:.2s;}.g-stars b:nth-child(2){animation-delay:.4s;color:#5a5040;}.g-stars b:nth-child(3){animation-delay:.6s;color:#5a5040;}
-  @keyframes starpop{0%{transform:scale(0) rotate(-40deg);}70%{transform:scale(1.4);}100%{transform:scale(1);}}
-  .g-reward{display:flex;justify-content:center;gap:16px;}
-  .g-reward div{text-align:center;font-family:var(--mono);font-size:9px;color:#cfc;}
-  .g-reward .ic{width:34px;height:34px;border-radius:7px;margin:0 auto 4px;background:linear-gradient(180deg,#33373f,#1a1c22);border:1px solid #4a4f59;}
-  .g-list{display:flex;flex-direction:column;gap:6px;}
-  .g-row{display:flex;align-items:center;gap:8px;background:#14161d;border:1px solid #262b34;border-radius:8px;padding:7px 8px;font-size:10px;color:#dfd8cb;}
-  .g-av{width:24px;height:24px;border-radius:6px;background:linear-gradient(180deg,#3b2b1a,#241a12);border:1px solid #574126;flex:0 0 auto;}
-  .g-av.mentor{background:linear-gradient(180deg,#f3cf6a,#c98f22);border-color:#a8791c;}
-  .g-badge{margin-left:auto;font-family:var(--mono);font-size:7.5px;letter-spacing:.08em;text-transform:uppercase;color:#9be3b5;border:1px solid rgba(47,191,107,.5);border-radius:999px;padding:2px 7px;}
-  .g-badge.m{color:#f3d270;border-color:rgba(237,185,62,.5);}
-  .g-goal{background:#12141a;border:1px solid #2b2f38;border-radius:9px;padding:9px;}
-  .g-goal .t{font-size:9.5px;color:#c9c2b5;margin-bottom:6px;}
-  .g-bar{height:10px;border-radius:6px;background:#0c0d11;border:1px solid #2b2f38;overflow:hidden;}
-  .g-bar span{display:block;height:100%;background:linear-gradient(90deg,#f3cf6a,#d29a26);}
-  .g-missionbars{display:flex;gap:6px;}
-  .g-mb{flex:1;background:#0e1015;border:1px solid #262b34;border-radius:6px;padding:5px 6px;}
-  .g-mb .l{font-family:var(--mono);font-size:6.5px;letter-spacing:.1em;text-transform:uppercase;color:#8b93a1;}
-  .g-mb .b{height:6px;margin-top:3px;border-radius:4px;background:#000;overflow:hidden;}
-  .g-mb .b span{display:block;height:100%;background:linear-gradient(90deg,#f3cf6a,#d29a26);}
-  .g-leaguebadge{width:52px;height:56px;margin:0 auto;border-radius:8px;background:linear-gradient(180deg,#2b4a8a,#16233f);border:1px solid #3e6bb0;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-style:italic;font-weight:900;font-size:22px;color:#fff;position:relative;box-shadow:0 0 16px rgba(62,123,200,.4);}
+  .wf-list{display:flex;flex-direction:column;gap:6px;}
+  .wf-row{display:flex;align-items:center;gap:9px;border:1.5px solid var(--line-soft);border-radius:4px;padding:8px 9px;font-size:.72rem;color:var(--ink-2);}
+  .wf-row .av{width:22px;height:22px;border:1.5px solid var(--line-soft);border-radius:3px;flex:0 0 auto;}
+  .wf-row .rt{margin-left:auto;font-family:var(--mono);font-size:.52rem;letter-spacing:.07em;text-transform:uppercase;color:var(--faint);white-space:nowrap;}
+  .wf-row.pick{border-color:var(--accent);background:#EAF3FA;} .wf-row.pick .rt{color:var(--accent);}
+  .wf-row.bad{border-color:var(--warn);} .wf-row.bad .rt{color:var(--warn);}
 
-  .g-cta{margin-top:auto;font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;font-size:14px;color:#132a10;background:linear-gradient(180deg,#7fe06a,#3f9a2f);border:1px solid #2f7a22;border-radius:9px;padding:12px;text-align:center;box-shadow:0 4px 0 #275f18;cursor:pointer;user-select:none;position:relative;overflow:hidden;animation:pulse 2s infinite;}
-  .g-cta.gold{color:#241a06;background:linear-gradient(180deg,#f3cf6a,#d29a26);border-color:#a8791c;box-shadow:0 4px 0 #8a6114;}
-  .g-cta.dim{filter:grayscale(.7) brightness(.6);animation:none;cursor:default;}
-  .g-cta:active{transform:translateY(2px);box-shadow:0 2px 0 #275f18;}
-  .g-cta.gold:active{box-shadow:0 2px 0 #8a6114;}
-  @keyframes pulse{0%,100%{filter:brightness(1);}50%{filter:brightness(1.15);}}
-  @media (prefers-reduced-motion:reduce){.g-cta,.g-card.shine::after,.g-ticker .track{animation:none;}}
-  .ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);transform:scale(0);animation:rip .5s ease-out;pointer-events:none;}
-  @keyframes rip{to{transform:scale(4);opacity:0;}}
+  .wf-ladder{display:flex;flex-direction:column;gap:5px;}
+  .wf-rung{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line-soft);border-radius:4px;padding:8px 9px;}
+  .wf-rung .p{font-family:var(--mono);font-size:.74rem;font-weight:700;min-width:68px;flex:0 0 auto;}
+  .wf-rung .l{font-size:.68rem;color:var(--ink-2);line-height:1.4;}
+  .wf-rung.done{border-color:var(--ok);background:#EDF6F0;} .wf-rung.done .p{color:var(--ok);}
+  .wf-rung.now{border-color:var(--accent);background:#EAF3FA;} .wf-rung.now .p{color:var(--accent);}
+  .wf-rung.gap{border-style:dashed;border-color:var(--warn);background:#FBEDEB;} .wf-rung.gap .p{color:var(--warn);}
+  .wf-rung.far{opacity:.6;}
 
-  /* floating damage number */
-  .dmg{position:absolute;left:50%;top:44%;transform:translateX(-50%);font-family:var(--display);font-style:italic;font-weight:900;font-size:26px;color:#ff5a5a;text-shadow:0 2px 8px #000;z-index:20;pointer-events:none;animation:dmgfloat 1s ease forwards;}
-  @keyframes dmgfloat{0%{transform:translate(-50%,10px) scale(.6);opacity:0;}25%{opacity:1;transform:translate(-50%,-8px) scale(1.15);}100%{transform:translate(-50%,-48px) scale(1);opacity:0;}}
-  #confetti{position:absolute;inset:0;z-index:18;pointer-events:none;}
+  .wf-meter{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.62rem;color:var(--ink-2);}
+  .wf-meter .lb{min-width:32px;flex:0 0 auto;}
+  .wf-meter .tr{flex:1;height:11px;border:1.5px solid var(--line);border-radius:3px;overflow:hidden;}
+  .wf-meter .tr span{display:block;height:100%;background:repeating-linear-gradient(45deg,var(--line-soft) 0 4px,transparent 4px 8px);transition:width .35s ease;}
+  .wf-meter .vv{min-width:44px;text-align:right;flex:0 0 auto;}
+  .wf-meter.fin .tr span{background:repeating-linear-gradient(45deg,var(--accent) 0 4px,#9CC6E6 4px 8px);}
 
-  /* annotation caps */
-  .cap{position:absolute;z-index:20;width:20px;height:20px;border-radius:50%;background:var(--gold);color:#241a06;font-family:var(--mono);font-weight:700;font-size:10px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px rgba(237,185,62,.25),0 2px 6px rgba(0,0,0,.5);}
-  body:not(.show-ann) .cap{display:none;}
+  .wf-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+  .wf-gem{
+    aspect-ratio:1;border:1.5px solid var(--line-soft);border-radius:3px;background:var(--sheet);
+    font-family:var(--mono);font-size:.66rem;font-weight:700;color:var(--ink-2);cursor:pointer;padding:0;transition:.08s;
+  }
+  .wf-gem:hover{border-color:var(--line);}
+  .wf-gem.sel{border-color:var(--accent);border-width:2.5px;background:#EAF3FA;color:var(--accent);}
+  .wf-gem.clearing{opacity:.15;}
+  .wf-gem.bad{border-color:var(--warn);color:var(--warn);}
+
+  /* real screenshot — shown whole. a crop can hide the very thing a caption points at. */
+  .shotwrap{flex:1;min-height:0;display:flex;flex-direction:column;}
+  .shot{flex:1;width:100%;min-height:0;object-fit:contain;object-position:center;cursor:zoom-in;background:#111;display:block;}
+  .shot-band{border-top:1.5px solid var(--warn);background:#FBEDEB;font-size:.72rem;line-height:1.55;padding:10px 12px;flex-shrink:0;}
+  .shot-band b{color:var(--warn);}
+  .shot-band .ref{display:block;margin-top:5px;font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;text-transform:uppercase;color:var(--faint);}
+
+  /* annotation pins anchor to elements, never to hard-coded coordinates */
+  .pin{
+    position:absolute;z-index:20;width:19px;height:19px;border-radius:50%;
+    background:var(--warn);color:#fff;font-family:var(--mono);font-weight:700;font-size:.6rem;
+    display:flex;align-items:center;justify-content:center;pointer-events:none;box-shadow:0 0 0 2.5px var(--sheet);
+  }
+  body:not(.show-ann) .pin{display:none;}
+
+  .caption{width:min(360px,92vw);text-align:center;}
+  .caption .ct{font-family:var(--hand);font-weight:700;font-size:.86rem;line-height:1.35;}
+  .caption .cd{font-size:.74rem;color:var(--ink-2);margin-top:4px;line-height:1.5;}
+
+  /* ============ context rail ============ */
+  .rail{display:flex;flex-direction:column;gap:12px;min-width:0;width:100%;max-width:420px;}
+  @media (min-width:901px){ .rail{position:sticky;top:16px;max-width:none;} }
+  .card{background:var(--sheet);border:2px solid var(--line);border-radius:5px;overflow:hidden;}
+  .card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 14px;border-bottom:1.5px dashed var(--line-soft);flex-wrap:wrap;}
+  .card-top .who{font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);line-height:1.7;}
+  .card-top .who i{display:block;font-style:normal;color:var(--faint);}
+  .val{text-align:center;border:1.5px solid var(--line-soft);border-radius:4px;padding:5px 11px;flex-shrink:0;}
+  .val .l{font-family:var(--mono);font-size:.48rem;letter-spacing:.11em;text-transform:uppercase;color:var(--faint);}
+  .val .v{font-family:var(--mono);font-weight:700;font-size:1rem;line-height:1.2;}
+  .card-body{padding:14px;display:flex;flex-direction:column;gap:12px;}
+  .card-body h3{font-family:var(--hand);font-size:1.05rem;margin:0;line-height:1.3;}
+  .card-body p{margin:0;font-size:.82rem;line-height:1.6;color:var(--ink-2);}
+  .today{border:1.5px dashed var(--warn);border-radius:4px;padding:10px 12px;font-size:.78rem;line-height:1.55;color:var(--ink-2);background:#FDF6F5;}
+  .today .h{display:block;font-family:var(--mono);font-size:.52rem;letter-spacing:.11em;text-transform:uppercase;color:var(--warn);margin-bottom:6px;}
+  .today code{font-family:var(--mono);font-size:.72rem;background:var(--fill);border:1px solid var(--line-soft);border-radius:3px;padding:0 4px;}
+  .metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .metrics .m{border:1.5px solid var(--line-soft);border-radius:4px;padding:9px 11px;}
+  .metrics .l{font-family:var(--mono);font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);}
+  .metrics .v{font-size:.76rem;margin-top:4px;line-height:1.45;}
+  .metrics .v.g{color:var(--ok);} .metrics .v.r{color:var(--warn);}
+  .thumb{margin-top:10px;display:block;width:100%;border:1.5px solid var(--line-soft);border-radius:4px;overflow:hidden;cursor:zoom-in;position:relative;background:#111;}
+  .thumb img{display:block;width:100%;height:240px;object-fit:contain;object-position:center;}
+  .thumb .zz{position:absolute;right:6px;top:6px;font-family:var(--mono);font-size:.5rem;color:#fff;background:rgba(0,0,0,.6);padding:2px 6px;border-radius:3px;}
+  .thumb .tg{position:absolute;left:6px;bottom:6px;font-family:var(--mono);font-size:.5rem;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(181,56,44,.92);padding:2px 6px;border-radius:3px;}
 
   /* hub */
-  .hub{display:flex;flex-direction:column;min-height:100%;padding:16px 14px;gap:10px;justify-content:center;background:radial-gradient(120% 70% at 50% 0%,#2a1720,#0b0c10 60%);}
-  .hub .kick{font-family:var(--mono);font-size:8.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);text-align:center;}
-  .hub h1{font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;font-size:21px;color:#fff;text-align:center;margin:0;line-height:1;letter-spacing:-.02em;}
-  .hub p{font-size:10px;color:#b9b3a6;text-align:center;margin:0 0 4px;line-height:1.45;}
-  .flowbtn{border-radius:11px;border:1px solid #3a3f49;background:linear-gradient(180deg,#20242d,#14161c);padding:12px;cursor:pointer;text-align:left;display:flex;gap:11px;align-items:center;transition:.15s;}
-  .flowbtn:hover{border-color:var(--gold-deep);transform:translateY(-1px);}
-  .flowbtn .fn{font-family:var(--display);font-style:italic;font-weight:900;font-size:22px;color:var(--gold);width:24px;}
-  .flowbtn .ft{font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;font-size:12px;color:#fff;letter-spacing:-.01em;}
-  .flowbtn .fd{font-size:8.5px;color:#9a9488;margin-top:2px;}
-  .flowbtn .ice{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:15px;color:var(--green);}
+  .hub{display:flex;flex-direction:column;gap:11px;padding:var(--gap);flex:1;justify-content:center;}
+  .hub .kick{font-family:var(--mono);font-size:.56rem;letter-spacing:.15em;text-transform:uppercase;color:var(--accent);}
+  .hub h1{font-family:var(--hand);font-size:1.45rem;margin:0;line-height:1.2;}
+  .hub p{font-size:.78rem;color:var(--ink-2);margin:0 0 4px;line-height:1.55;}
+  .flowbtn{
+    border:1.5px solid var(--line);border-radius:4px;background:var(--sheet);padding:11px 12px;cursor:pointer;
+    text-align:left;display:flex;gap:11px;align-items:center;transition:.12s;width:100%;
+  }
+  .flowbtn:hover{background:var(--fill);}
+  .flowbtn .n{font-family:var(--hand);font-weight:700;font-size:1.15rem;color:var(--accent);flex:0 0 auto;width:18px;}
+  .flowbtn .t{display:block;font-family:var(--hand);font-weight:700;font-size:.88rem;line-height:1.25;}
+  .flowbtn .d{display:block;font-size:.66rem;color:var(--faint);margin-top:3px;line-height:1.4;}
+  .flowbtn .v{margin-left:auto;font-family:var(--mono);font-size:.76rem;font-weight:700;color:var(--ink-2);flex:0 0 auto;}
 
-  .caption{width:min(348px,88vw);text-align:center;min-height:38px;}
-  .caption .ct{font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;font-size:.84rem;color:var(--ink-strong);letter-spacing:-.01em;}
-  .caption .cd{font-size:.78rem;color:var(--muted);margin-top:3px;line-height:1.4;}
+  .footer{font-size:.72rem;color:var(--faint);text-align:center;line-height:1.7;}
+  .footer a{color:var(--accent);}
 
-  /* context rail */
-  .rail{width:100%;max-width:320px;position:sticky;top:16px;display:flex;flex-direction:column;gap:12px;}
-  @media (max-width:880px){ .rail{position:static;max-width:min(348px,88vw);} }
-  .railcard{border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,var(--panel-2),var(--panel));box-shadow:0 10px 30px rgba(0,0,0,.4);overflow:hidden;}
-  .railcard .rc-top{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 15px;border-bottom:1px solid var(--line);}
-  .railcard .rc-stage{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);}
-  .rc-ice{text-align:center;border-radius:8px;padding:4px 10px;background:linear-gradient(180deg,color-mix(in oklab,var(--green) 24%,var(--panel)),var(--panel));border:1px solid color-mix(in oklab,var(--green) 50%,var(--line));}
-  .rc-ice .l{font-family:var(--mono);font-size:.46rem;letter-spacing:.14em;text-transform:uppercase;color:color-mix(in oklab,var(--green) 70%,var(--muted));}
-  .rc-ice .v{font-family:var(--mono);font-weight:700;font-size:1.1rem;line-height:1;color:color-mix(in oklab,var(--green) 60%,var(--ink-strong));}
-  .rc-body{padding:14px 15px;display:flex;flex-direction:column;gap:13px;}
-  .rc-title{font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;letter-spacing:-.01em;font-size:1.02rem;color:var(--ink-strong);}
-  .rc-why{font-size:.86rem;color:var(--ink);line-height:1.5;}
-  .rc-block{border-radius:9px;padding:10px 12px;font-size:.8rem;line-height:1.45;}
-  .rc-today{border:1px dashed color-mix(in oklab,var(--red) 42%,var(--line));background:color-mix(in oklab,var(--red) 8%,transparent);}
-  .rc-today .h{font-family:var(--mono);font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:4px;}
-  .rc-today code{font-family:var(--mono);font-size:.72rem;color:var(--gold);background:color-mix(in oklab,var(--gold) 12%,transparent);padding:1px 5px;border-radius:4px;}
-  .rc-metrics{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:9px;overflow:hidden;}
-  .rc-metrics .m{background:var(--panel);padding:9px 11px;}
-  .rc-metrics .l{font-family:var(--mono);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);}
-  .rc-metrics .v{font-size:.78rem;margin-top:3px;line-height:1.35;}
-  .rc-metrics .v.g{color:color-mix(in oklab,var(--green) 62%,var(--ink));}
-  .rc-metrics .v.r{color:color-mix(in oklab,var(--red) 70%,var(--ink));}
-  .rc-hint{font-family:var(--mono);font-size:.62rem;letter-spacing:.05em;color:var(--faint);text-align:center;}
+  #lightbox{position:fixed;inset:0;background:rgba(20,19,16,.93);display:none;align-items:center;justify-content:center;z-index:100;padding:24px;cursor:zoom-out;flex-direction:column;gap:14px;}
+  #lightbox.on{display:flex;}
+  #lightbox img{max-width:100%;max-height:84vh;border:2px solid #fff;border-radius:4px;}
+  #lightbox .cap{font-size:.78rem;color:#EFEEE9;text-align:center;max-width:64ch;line-height:1.6;}
 
-  .footer{font-family:var(--mono);font-size:.64rem;color:var(--faint);letter-spacing:.05em;text-align:center;margin-top:2px;}
-  .footer b{color:var(--gold);}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
 </style>
 </head>
 <body class="show-ann">
+<div class="wrap">
 
   <div class="masthead">
-    <span class="brand">WWE&nbsp;<b>CHAMPIONS</b> · GROWTH PROTOTYPE</span>
+    <span class="brand">WWE Champions — “The First Dollar”
+      <small>Low-fidelity wireframes · three moves · before &amp; after</small></span>
     <div class="controls">
-      <button class="btn" id="homeBtn">⌂ Flow picker</button>
-      <button class="btn" id="restartBtn">↺ Restart</button>
-      <button class="btn on" id="annBtn">◉ Annotations</button>
-      <button class="btn on" id="soundBtn">♪ Sound</button>
-      <a class="btn" href="/" style="text-decoration:none;display:inline-flex;align-items:center">📊 Evidence &amp; data</a>
+      <button class="btn" id="homeBtn">⌂ All moves</button>
+      <button class="btn" id="restartBtn">↺ Restart move</button>
+      <button class="btn on" id="annBtn">① Annotations</button>
+      <a class="btn" href="/case">Read the case →</a>
+      <a class="btn" href="/">Evidence &amp; data →</a>
     </div>
   </div>
-  <div class="frameline">You're playing the <b>first 10 minutes</b> of a brand-new WWE Champions account — the exact activation window these bets target</div>
+
+  <div class="frameline">
+    Wireframes, deliberately — these are <b>layout and sequence proposals, not visual design</b>.
+    The <b>Before</b> views are real screenshots from a firsthand session, shown whole and uncropped.
+  </div>
 
   <div class="app">
     <div class="stage">
       <div class="modeswitch" id="modeswitch" style="display:none">
         <button data-m="before">◂ Before · live game</button>
-        <button data-m="after" class="on">After · proposed ▸</button>
+        <button data-m="after">After · proposed ▸</button>
       </div>
       <div class="dots" id="dots"></div>
-      <div class="phone" id="phone">
-        <div class="notch"></div>
-        <div class="g-status"><span id="clock">9:41</span><span>▮▮▮ ᯤ 98</span></div>
-        <div class="g-top" id="topbar"></div>
-        <div class="g-screen"><div class="g-ribbon" id="ribbon" style="display:none"></div><div class="layer" id="screen"></div><canvas id="confetti"></canvas></div>
-        <div class="g-ticker" id="ticker"><div class="track"></div></div>
-        <div class="g-nav" id="nav"></div>
-      </div>
+      <div class="sheet" id="sheet"></div>
       <div class="caption" id="caption"></div>
     </div>
-
     <div class="rail" id="rail"></div>
   </div>
 
-  <div class="footer">Interactive prototype · proposed screens are illustrative · <b>Before views are real screenshots — tap to enlarge</b></div>
+  <div class="footer">
+    Proposed screens are wireframes and illustrative · Before views are real screenshots — click to enlarge ·
+    <a href="/case">The growth case →</a>
+  </div>
+</div>
 
-  <div id="lightbox"><img id="lbimg" alt="Live game screenshot"><div class="lb-cap" id="lbcap"></div></div>
+<div id="lightbox"><img id="lbimg" alt="Live game screenshot"><div class="cap" id="lbcap"></div></div>
 
 <script>
-/* ---------- audio (synth, no assets) ---------- */
-let AC=null, soundOn=true;
-function beep(type){
-  if(!soundOn) return;
-  try{
-    AC = AC || new (window.AudioContext||window.webkitAudioContext)();
-    const t=AC.currentTime;
-    const specs = type==='win' ? [[523,0],[659,.08],[784,.16],[1046,.24]]
-                : type==='hit' ? [[180,0]]
-                : type==='unleash' ? [[110,0],[90,.05]]
-                : [[440,0]];
-    specs.forEach(([f,d])=>{
-      const o=AC.createOscillator(), g=AC.createGain();
-      o.type = type==='hit'||type==='unleash' ? 'sawtooth':'triangle';
-      o.frequency.value=f;
-      o.connect(g); g.connect(AC.destination);
-      const s=t+d;
-      g.gain.setValueAtTime(.0001,s);
-      g.gain.exponentialRampToValueAtTime(type==='tap'?.14:.2,s+.01);
-      g.gain.exponentialRampToValueAtTime(.0001,s+(type==='win'?.18:.14));
-      o.start(s); o.stop(s+.2);
-    });
-  }catch(e){}
-}
+/* ============================================================
+   THE FIRST DOLLAR — three moves, wireframed.
+   Screens are data. Annotation pins anchor to elements via
+   data-pin, so they can never drift out of sync with content.
+   ============================================================ */
 
-/* ---------- fragments ---------- */
-const navBase=(active,unlock,labels)=>labels.map((l,i)=>{
-  const isA=active===i, locked=!unlock.includes(i);
-  return `<div class="${isA?'active':''} ${locked?'lock':''}" data-nav="${i}"><span class="ic"></span>${l}</div>`;
-}).join('');
-const NAVB=(a,u)=>navBase(a,u,['Career','Roster','Faction','Store','Loot']);
-const NAVC=(a,u)=>navBase(a,u,['Career','Roster','Crew','Store','Loot']);
+const nav = (active, unlocked) => ['Career','Roster','Faction','Store','Loot']
+  .map((l,i)=>`<div class="${active===i?'active':''} ${unlocked.includes(i)?'':'lock'}">${l}</div>`).join('');
 
-const GEMS=['pG','kG','kG','pG','gG','rG','yG','gG','bG','yG','yG','kG','kG','yG','kG','gG','gG','rG','pG','kG','pG','gG','pG','rG','kG','bG','pG','gG','bG','bG','rG','rG','bG','pG','gG'];
-const board = ()=>`<div class="g-board" id="board">${GEMS.map((g,i)=>`<button class="g-gem ${g}" data-idx="${i}" aria-label="gem"></button>`).join('')}</div>`;
-
-const TICK = {
-  debut:`<b>rocky2284968:</b> welcome to the game! &nbsp;•&nbsp; <b>Coach:</b> match 3 to attack &nbsp;•&nbsp; <b>NXT:</b> new tour live now &nbsp;•&nbsp; <b>Daily:</b> claim your free bag &nbsp;•&nbsp;`,
-  social:`<b>Thug mafia:</b> Just learning and wanting to grow — join us be active &nbsp;•&nbsp; <b>mathmike4:</b> twf is embarrassing &nbsp;•&nbsp; <b>Captain 8merica:</b> maybe if you try hard enough they'll let you in &nbsp;•&nbsp;`
-};
-
-/* ---------- flows ---------- */
 const FLOWS = {
-  debut:{ name:'The Debut', ice:60, stage:'Stage 02 · Activate',
+  earn:{ move:'Move 01', name:'Earn the ask', axis:'Numerator · P0→P1', value:'$129k',
     screens:[
-      { type:'card', top:{hex:'1',coin:'0',cash:'0'}, nav:NAVB(0,[0]),
-        title:'Guaranteed marquee pull',
-        why:'A named star — The Rock — handed over in the first 30 seconds. The emotional hook of "play as your favorite" with zero gacha anxiety.',
-        today:'In the live game a new player owns 3 random C-tier stars and is shown a <code>$99.99</code> offer at League&nbsp;2 before any win.',
-        kpi:'D1 retention', guard:'D30 monetization flat',
-        caps:[{n:1,x:'62%',t:'62px'},{n:2,x:'8%',b:'116px'}],
-        cta:{label:'Claim your star ▶',gold:true},
-        body:`<div class="g-pad">
-          <div class="g-banner">Welcome to the Road</div>
-          <div class="g-sub">Every champion has a debut.<br>Here's yours — on the house.</div>
-          <div class="g-card shine"><div class="g-portrait"><span class="who">THE ROCK</span></div>
-            <div style="margin-top:7px;"><span class="g-star">2★ · C Tier</span></div>
-            <span class="g-guar">Guaranteed pull</span></div>
-          {{CTA}}
-        </div>` },
-      { type:'match', top:{hex:'1',coin:'2.5k',cash:'0'}, nav:NAVB(0,[0]),
-        title:'First match — core loop only',
-        why:'Only match-3 and one finisher. Boss Breakers, Link & Gear and the six gem-crit stats stay hidden this session. Learn one verb, win.',
-        today:'The live match screen exposes Boss Breakers, gear slots and crit stats immediately <code>IMG_0841</code> — and can dead-end in "rescue for 100 cash" <code>IMG_0844</code>.',
-        kpi:'Time-to-first-win', guard:'Debut match can\'t be lost',
-        caps:[{n:3,x:'6%',t:'138px'},{n:4,x:'40%',b:'118px'}],
-        cta:{label:'Swap gems to make a match',match:true},
-        body:`<div class="g-pad">
-          <div class="g-vs"><span>YOU</span><span class="g-hp"><span style="width:82%"></span></span><span>7838</span></div>
-          <div class="g-vs"><span>FOE</span><span class="g-hp foe"><span id="foehp" style="width:100%"></span></span><span id="foenum">4200</span></div>
-          <div class="g-coach"><b>Swap two touching gems</b> to line up 3+ of a color. Matches attack &amp; charge your <b>finisher</b>.</div>
-          <div class="g-fin"><div class="t"><span>Finisher</span><span id="fintxt">0%</span></div><div class="g-finbar"><span id="finbar"></span></div></div>
-          <div class="g-board" id="board"></div>
-          <div class="g-note">No Boss Breakers · no Link &amp; Gear · no crit stats — yet</div>
-          {{CTA}}
-        </div>` },
-      { type:'victory', top:{hex:'1',coin:'12.5k',cash:'0'}, nav:NAVB(0,[0,1]),
-        title:'Win → one clear next step',
-        why:'Exactly one next action, contextual to what just happened. No six-systems dump, no dead-ends — the loop, one verb at a time.',
-        today:'Live, a new player is dropped onto a 4-layer upgrade ladder + Boss Breakers all at once <code>IMG_0817–0824</code>, and taps can hit "Insufficient Currency" <code>IMG_0829</code>.',
-        kpi:'Time-to-first-upgrade', guard:'No cash-rescue prompt',
-        caps:[{n:5,x:'44%',t:'196px'},{n:6,x:'8%',b:'118px'}],
-        cta:{label:'Next: Level up The Rock ▶'},
-        body:`<div class="g-pad">
-          <div class="g-victory">Victory</div>
-          <div class="g-stars"><b>★</b><b>★</b><b>★</b></div>
-          <div class="g-reward">
-            <div><div class="ic"></div>+<span data-count="71">0</span> XP</div>
-            <div><div class="ic"></div><span data-count="10000">0</span> Coins</div>
-            <div><div class="ic"></div>The Rock ↑</div>
+      { top:'L1 · 0 coins · 0 cash', nav:nav(0,[0]),
+        title:'Debut pull — store hidden',
+        why:'A named star handed over in the first 30 seconds, and no monetisation surface anywhere on screen. Store and Loot are hidden rather than greyed: nothing to want yet, so nothing to sell.',
+        today:'Live, a new player can open a Trainer panel exposing six gem colours plus crit chance, crit damage and dodge — every one of them 0% — on a roster they did not choose <code>IMG_0818</code>.',
+        kpi:'Store impressions before first win — target 0', guard:'D1 retention non-inferior',
+        cta:{label:'Claim your star ▶', primary:true},
+        body:`
+          <div class="wf-h" data-pin="1">Welcome to the Road</div>
+          <div class="wf-sub">Every champion has a debut. Here's yours — on the house.</div>
+          <div class="wf-img"><span>THE ROCK · 2★</span></div>
+          <div><span class="wf-tag ok">Granted — no pull, no odds, no cost</span></div>
+          <div class="wf-note" data-pin="2">Store &amp; Loot hidden. Nothing is for sale on this screen.</div>
+        ` },
+
+      { type:'match', top:'L1 · 2.5k coins · 0 cash', nav:nav(0,[0]),
+        title:'First match — one verb, cannot be lost',
+        why:'Match-3 and one finisher, nothing else. If the player\'s health would reach zero the opponent misses — the assist is invisible, so there is never a moment where a rescue can be sold to them.',
+        today:'The live match screen carries a padlocked AUTO, an X2 multiplier, an unexplained 0/3 counter and several move slots, none of them introduced <code>IMG_0841</code>.',
+        kpi:'Time-to-first-win', guard:'No rescue prompt reachable in session 1',
+        cta:{label:'Swap two touching gems to match 3', match:true},
+        body:`
+          <div class="wf-meter"><span class="lb">YOU</span><span class="tr"><span style="width:82%"></span></span><span class="vv">7838</span></div>
+          <div class="wf-meter"><span class="lb">FOE</span><span class="tr"><span id="foehp" style="width:100%"></span></span><span class="vv" id="foenum">4200</span></div>
+          <div class="wf-note" data-pin="3">Swap two touching gems to line up three or more of a letter. Matches attack and charge the finisher.</div>
+          <div class="wf-meter fin"><span class="lb">FIN</span><span class="tr"><span id="finbar" style="width:0"></span></span><span class="vv" id="fintxt">0%</span></div>
+          <div class="wf-grid" id="grid"></div>
+          <div class="wf-note ok" data-pin="4">No AUTO, no X2, no unexplained counters — and this match cannot be lost.</div>
+        ` },
+
+      { type:'victory', top:'L1 · 12.5k coins · 0 cash', nav:nav(0,[0,1]),
+        title:'The win — and one next verb',
+        why:'Value delivered before value is asked for. Exactly one next action, contextual to what just happened. Still no store.',
+        today:'Live, the Manager\'s League screen sells a subscription and shows a padlocked Premium reward column to a player sitting on 0 reward points <code>IMG_0829</code>.',
+        kpi:'Session-1 completion', guard:'D30 ARPDAU non-inferior',
+        cta:{label:'Next: level up The Rock ▶'},
+        body:`
+          <div class="wf-h" style="text-align:center" data-pin="5">VICTORY</div>
+          <div style="text-align:center;font-size:1.1rem;letter-spacing:6px">★★★</div>
+          <div style="display:flex;gap:8px">
+            <div class="wf-box" style="flex:1;text-align:center;font-size:.7rem;line-height:1.5">+71<br>XP</div>
+            <div class="wf-box" style="flex:1;text-align:center;font-size:.7rem;line-height:1.5">+10,000<br>coins</div>
+            <div class="wf-box" style="flex:1;text-align:center;font-size:.7rem;line-height:1.5">The Rock<br>↑ ready</div>
           </div>
-          <div class="g-coach">Nice — <b>The Rock</b> is ready to get stronger. One tap and he levels up. Everything else can wait.</div>
-          <div class="g-note">✓ every tap leads somewhere — no dead-end walls</div>
-          {{CTA}}
-        </div>` },
-      { type:'card', top:{hex:'1',coin:'2.5k',cash:'0'}, nav:NAVB(1,[0,1]),
-        title:'Systems drip on a schedule',
-        why:'A new system (Enhance) is revealed only once the player is ready — one unlock at a time, queued to readiness rather than dumped Day 1.',
-        today:'Live, all upgrade systems are visible from the first minute regardless of whether the player understands them.',
-        kpi:'System-unlock engagement', guard:'≤1 unlock per session',
-        caps:[{n:7,x:'40%',t:'108px'}],
-        cta:{label:'✓ Debut complete — replay',gold:true,end:true},
-        body:`<div class="g-pad">
-          <div class="g-banner" style="font-size:15px;">New: Enhance</div>
-          <div class="g-sub">Your star hit 2★. You've unlocked <b>Enhance</b> — raise a color class for bigger hits.</div>
-          <div class="g-card shine" style="box-shadow:inset 0 0 24px rgba(237,185,62,.16);border-color:#574126;background:linear-gradient(180deg,#2a2214,#17130a);">
-            <div class="g-portrait" style="height:82px;"><span class="who">THE ROCK · 2★</span></div>
-            <div class="g-star" style="margin-top:7px;">Enhance unlocked</div></div>
-          <div class="g-note">One unlock at a time · queued to readiness</div>
-          {{CTA}}
-        </div>` }
-    ]
-  },
-  social:{ name:'Social On-ramp', ice:60, stage:'Stage 03 · Engage',
+          <div class="wf-note">The Rock is ready to get stronger. One tap levels him up. Everything else can wait.</div>
+          <div class="wf-note ok" data-pin="6">No subscription pitch. No padlocked reward column.</div>
+        ` },
+
+      { top:'L1 · 2.5k coins · 0 cash', nav:nav(3,[0,1,3]),
+        title:'The ask, earned',
+        why:'The first store the player ever sees opens after a win, on a roster they now care about — and the first thing on the shelf is priced for a first purchase rather than for somebody who has already decided to spend.',
+        today:'Live, the League 2 shelf leads with a <code>$99.99</code> pack, and its cheapest item is a <code>$14.99</code> starter pack on a <b>05h 42m countdown</b> <code>IMG_0821</code>.',
+        kpi:'Ever-pay conversion within 7 days', guard:'Top-decile ARPPU flat',
+        cta:{label:'▶ Continue to move 02', primary:true, next:'rung'},
+        body:`
+          <div class="wf-h" data-pin="7">Store unlocked</div>
+          <div class="wf-sub">You won. There's a roster worth arming — and something on the shelf you can actually reach.</div>
+          <div class="wf-offer">
+            <div class="oh"><span class="on">Debut Boost</span><span class="op">$2.99</span></div>
+            <div class="oc">The Rock shards ×40 · 5,000 coins</div>
+            <span class="wf-tag ok">You get exactly this — no random pull</span>
+          </div>
+          <div class="wf-note ok" data-pin="8">No $99.99 headline. No subscriptions. No countdown.</div>
+        ` }
+    ]},
+
+  rung:{ move:'Move 02', name:'Build the rung', axis:'Numerator · P0→P1→P2', value:'$89k',
     screens:[
-      { type:'card', top:{hex:'2',coin:'12.5k',cash:'0'}, nav:NAVC(2,[0,1,2,4]),
-        title:'Rookie Crew draft — Day 1',
-        why:'Auto-drafted within minutes of install — no League 5 gate. A shared, low-stakes goal creates a social tie before the player can churn.',
-        today:'Live, <code>Faction unlocks at League 5</code> and Showdown at League 4 <code>IMG_0832</code> — the strongest retention system is walled off for the whole activation window.',
-        kpi:'% in a social unit by D7', guard:'Veteran feud participation',
-        caps:[{n:1,x:'62%',t:'60px'},{n:2,x:'8%',b:'150px'}],
-        cta:{label:'Meet your crew ▶',gold:true},
-        body:`<div class="g-pad">
-          <div class="g-banner">You've been drafted</div>
-          <div class="g-sub">Meet your <b>Rookie Crew</b> — other new champions and a veteran to show you the ropes.</div>
-          <div class="g-goal"><div class="t">Crew goal · Win 20 matches together</div>
-            <div class="g-bar"><span style="width:30%"></span></div>
-            <div class="t" style="margin:6px 0 0;text-align:right;">6 / 20</div></div>
-          <div class="g-list">
-            <div class="g-row"><span class="g-av mentor"></span> RailJockey <span class="g-badge m">Mentor</span></div>
-            <div class="g-row"><span class="g-av"></span> Champion2555707 <span class="g-badge">You</span></div>
-            <div class="g-row"><span class="g-av"></span> rookie_kofi88 <span class="g-badge">New</span></div>
+      { top:'L2 · 1.2k coins · 0 cash', nav:nav(3,[0,1,3]),
+        title:'Rung 1 — at the first wall',
+        why:'Offered at the moment the player hits something they cannot beat, built from the roster they already have, and priced so that buying is not a decision about identity.',
+        today:'The cheapest thing on the live League 2 shelf is <code>$14.99</code> — three to five times the conventional entry price for the genre — and there is nothing beneath it <code>IMG_0821</code>.',
+        kpi:'Ever-pay conversion', guard:'Top-decile ARPPU — kill metric',
+        cta:{label:'Take the Debut Boost ▶', primary:true},
+        body:`
+          <div class="wf-note warn" data-pin="1">Tour node 2-4 needs a red-class star at 3★. The Rock is 2★ — you are 40 shards short.</div>
+          <div class="wf-offer">
+            <div class="oh"><span class="on">Rung 1 · Debut Boost</span><span class="op">$2.99</span></div>
+            <div class="oc">The Rock shards ×40 · 5,000 coins</div>
+            <span class="wf-tag ok">Deterministic · once per account</span>
           </div>
-          {{CTA}}
-        </div>` },
-      { type:'card', top:{hex:'2',coin:'13k',cash:'0'}, nav:NAVC(2,[0,1,2,4]),
-        title:'Crew home + curated chat',
-        why:'A veteran mentor guides instead of gatekeeps; recruitment spam and global toxicity are filtered until League 4. A safe first place to talk.',
-        today:'The live global chat a "Just learning" player sees is 100% recruit spam and open toxicity <code>IMG_0836</code> — the scrolling ticker below is real.',
-        kpi:'Crew chat engagement', guard:'Chat-report rate / mod load',
-        caps:[{n:3,x:'6%',t:'138px'},{n:4,x:'40%',b:'118px'}],
-        cta:{label:'Contribute to crew goal ▶'},
-        body:`<div class="g-pad">
-          <div class="g-banner" style="font-size:14px;">Rookie Crew · Chat</div>
-          <div class="g-list" style="gap:6px;">
-            <div class="g-row" style="background:rgba(237,185,62,.08);border-color:rgba(237,185,62,.4);"><span class="g-av mentor"></span><span><b style="color:#f3d270;">RailJockey</b> · Stuck on a tour node? Bring a red-class star 👊</span></div>
-            <div class="g-row"><span class="g-av"></span><span>rookie_kofi88 · ty!! that worked</span></div>
-            <div class="g-row"><span class="g-av"></span><span>you · what do I level first?</span></div>
-            <div class="g-row" style="background:rgba(237,185,62,.08);border-color:rgba(237,185,62,.4);"><span class="g-av mentor"></span><span><b style="color:#f3d270;">RailJockey</b> · your Rock. one star at a time.</span></div>
+          <div class="wf-note" data-pin="2">Contents are built from the roster the player already has — never a superstar they have no relationship with.</div>
+        ` },
+
+      { top:'L2 · 6.2k coins · 0 cash', nav:nav(3,[0,1,3]),
+        title:'Rung 2 — the second purchase',
+        why:'The purchase nothing is built for today. It appears within 72 hours of rung 1, only to a player who took rung 1, and it grants a superstar outright rather than a chance at one.',
+        today:'Live, a player who has just made their first purchase has no obvious second step: the next visible price point above the $14.99 starter pack is <code>$99.99</code>.',
+        kpi:'Second purchase within 7 days', guard:'Revenue per install cohort',
+        cta:{label:'Take rung 2 ▶', primary:true},
+        body:`
+          <div class="wf-h" data-pin="1">The second rung</div>
+          <div class="wf-sub">You beat <b>Kofi Kingston</b> in your debut. Now sign him.</div>
+          <div class="wf-offer">
+            <div class="oh"><span class="on">Rung 2 · Signing Bonus</span><span class="op">$6.99</span></div>
+            <div class="oc">Kofi Kingston 3★ — granted outright, not pulled</div>
+            <span class="wf-tag ok">Deterministic · shown only after rung 1</span>
           </div>
-          <div class="g-note">🛡 Recruit spam &amp; global toxicity filtered until League 4</div>
-          {{CTA}}
-        </div>` },
-      { type:'card', top:{hex:'5',coin:'18k',cash:'2'}, nav:NAVB(2,[0,1,2,3,4]),
-        title:'Graduation → Faction handoff',
-        why:'At League 5 the crew graduates as a group into a real Faction — a warm handoff with people you already know, not a cold anonymous join.',
-        today:'Live, the player finally reaches Factions at L5 and must browse anonymous groups solo — a cold start after a long gap.',
-        kpi:'Faction-join rate by L5', guard:'Existing faction health',
-        caps:[{n:5,x:'62%',t:'116px'},{n:6,x:'8%',b:'118px'}],
-        cta:{label:'✓ Social flow complete — replay',gold:true,end:true},
-        body:`<div class="g-pad">
-          <div class="g-banner">Your crew graduates</div>
-          <div class="g-sub">You've hit <b>League 5</b>. Take your crew into a full <b>Faction</b> — together.</div>
-          <div class="g-card shine" style="box-shadow:inset 0 0 24px rgba(237,185,62,.16);border-color:#574126;background:linear-gradient(180deg,#2a2214,#17130a);">
-            <div class="g-portrait" style="height:76px;"><span class="who">THE JUDGMENT DAY</span></div>
-            <div class="g-star" style="margin-top:7px;">Faction · 4 slots open</div></div>
-          <div class="g-list">
-            <div class="g-row"><span class="g-av mentor"></span> RailJockey <span class="g-badge m">Joining</span></div>
-            <div class="g-row"><span class="g-av"></span> rookie_kofi88 <span class="g-badge">Joining</span></div>
+          <div class="wf-note" data-pin="2">Never rendered to a player who has not bought rung 1 — no teasing an offer that cannot be taken.</div>
+        ` },
+
+      { top:'L3 · 9k coins · 0 cash', nav:nav(3,[0,1,3]),
+        title:'Handoff — the pack that already exists',
+        why:'The $14.99 starter pack stops being the floor and becomes the handoff at the top of the entry ladder. Its price and contents do not change. Its six-hour countdown does.',
+        today:'Live, that same pack is a player\'s <em>first</em> option rather than their third, and it is sold against a <b>05h 42m</b> clock <code>IMG_0821</code>.',
+        kpi:'Rung-to-rung climb rate', guard:'No contents shared above $19.99',
+        cta:{label:'▶ Continue to move 03', primary:true, next:'safe'},
+        body:`
+          <div class="wf-ladder" data-pin="1">
+            <div class="wf-rung done"><span class="p">$2.99</span><span class="l">Rung 1 — bought</span></div>
+            <div class="wf-rung done"><span class="p">$6.99</span><span class="l">Rung 2 — bought</span></div>
+            <div class="wf-rung now"><span class="p">$14.99</span><span class="l">Andre Starter Pack — already exists, unchanged</span></div>
+            <div class="wf-rung far"><span class="p">$99.99</span><span class="l">League Essentials — unchanged</span></div>
           </div>
-          {{CTA}}
-        </div>` }
-    ]
-  }
+          <div class="wf-note ok" data-pin="2">Countdown removed. Nothing at or above $14.99 changed in price or contents.</div>
+        ` }
+    ]},
+
+  safe:{ move:'Move 03', name:'Make it safe to buy', axis:'Numerator · P1→P2→P3', value:'$148k',
+    screens:[
+      { top:'L3 · 9k coins · 2 cash', nav:nav(4,[0,1,3,4]),
+        title:'Published odds',
+        why:'A first purchase in a gacha economy is an act of trust. Odds sit on the pull surface itself and generate from the live drop tables at build time — a hand-maintained table drifts, and drift here is worse than no table at all.',
+        today:'Trust &amp; odds is the lowest-rated theme in the whole review corpus at <b>2.06★</b>, and probabilities are not shown at the point of purchase.',
+        kpi:'Trust-theme sentiment', guard:'Gacha revenue per payer non-inferior',
+        cta:{label:'Next: duplicates ▶', primary:true},
+        body:`
+          <div class="wf-h" data-pin="1">Silver League Loot</div>
+          <div class="wf-sub">Before you pull — here is exactly what the odds are.</div>
+          <div class="wf-box">
+            <div class="wf-meter"><span class="lb">5★</span><span class="tr"><span style="width:2%"></span></span><span class="vv">1.0%</span></div>
+            <div class="wf-meter" style="margin-top:7px"><span class="lb">4★</span><span class="tr"><span style="width:13%"></span></span><span class="vv">6.5%</span></div>
+            <div class="wf-meter" style="margin-top:7px"><span class="lb">3★</span><span class="tr"><span style="width:44%"></span></span><span class="vv">22.0%</span></div>
+            <div class="wf-meter" style="margin-top:7px"><span class="lb">2★</span><span class="tr"><span style="width:100%"></span></span><span class="vv">70.5%</span></div>
+          </div>
+          <div class="wf-note" data-pin="2">Illustrative figures. Real values generate from the live drop tables at build time.</div>
+        ` },
+
+      { top:'L3 · 9k coins · 2 cash', nav:nav(4,[0,1,3,4]),
+        title:'A duplicate is never wasted',
+        why:'The second purchase dies when the first one felt wasted. A duplicate converts into shards toward a star the player picks — the game never picks for them.',
+        today:'Live, a duplicate is simply a duplicate. “Support”, “scopely” and “customer” all rank in the ten most negative-skewing words in the corpus.',
+        kpi:'Second-purchase rate', guard:'Refund rate on entry SKUs',
+        cta:{label:'✓ Programme complete — back to all moves', primary:true, end:true},
+        body:`
+          <div class="wf-h" data-pin="1">You already own The Rock</div>
+          <div class="wf-sub">So this pull becomes <b>40 shards</b> — toward whoever you choose.</div>
+          <div class="wf-list">
+            <div class="wf-row pick"><span class="av"></span> The Rock → 3★ <span class="rt">Chosen</span></div>
+            <div class="wf-row"><span class="av"></span> Kofi Kingston → 4★ <span class="rt">Pick</span></div>
+            <div class="wf-row"><span class="av"></span> Roman Reigns → 3★ <span class="rt">Pick</span></div>
+          </div>
+          <div class="wf-note ok" data-pin="2">The player chooses the target. Never the game.</div>
+        ` }
+    ]}
 };
 
-/* ---------- BEFORE mocks: the live game today ---------- */
-const staticGems=(n=42)=>`<div class="g-board" style="opacity:.5;pointer-events:none;">${GEMS.concat(GEMS).slice(0,n).map(g=>`<button class="g-gem ${g}"></button>`).join('')}</div>`;
-const BEFORE = {
-  debut:[
-    `<div class="g-pad">
-      <div class="g-prob"><b>The problem:</b> a brand-new player is met with a <b>$99.99 offer</b> and 3 random C-tier stars — money asked before a single win. <span class="g-crumb"><span>IMG_0821</span></span></div>
-      <div class="g-card" style="border-color:#4a3b6a;background:linear-gradient(180deg,#241a3a,#140f22);box-shadow:inset 0 0 24px rgba(120,80,220,.25);">
-        <div class="g-sub" style="color:#e0b0ff;font-weight:700;margin:0 0 6px;">DiBiase's Double Cash Pack!</div>
-        <div class="g-portrait" style="height:62px;background:linear-gradient(180deg,#3a2e5a,#1c1630);border-color:#5a4a8a;"><span class="who">$99.99</span></div>
-        <span class="g-guar" style="color:#ffb0b0;border-color:rgba(210,58,80,.5);background:rgba(210,58,80,.15);">One-time offer · League 2</span>
-      </div>
-      <div class="g-list">
-        <div class="g-row"><span class="g-av"></span> Random C-tier star <span class="g-badge" style="color:#8b93a1;border-color:#333;">no choice</span></div>
-        <div class="g-row"><span class="g-av"></span> Random C-tier star <span class="g-badge" style="color:#8b93a1;border-color:#333;">no choice</span></div>
-      </div>
-      <div class="before-fix" data-fix>▶ See how we fixed it</div>
-    </div>`,
-    `<div class="g-pad">
-      <div class="g-prob"><b>The problem:</b> the first match already exposes Boss Breakers, gear &amp; crit stats — and can dead-end in "rescue for 100 cash". <span class="g-crumb"><span>IMG_0841</span><span>IMG_0844</span></span></div>
-      <div class="g-vs"><span style="color:#ff6a6a;">DANGER</span><span class="g-hp"><span style="width:22%"></span></span><span>you</span></div>
-      <div class="g-tab"><div class="t">Boss Breaker</div><div class="t">Link &amp; Gear</div><div class="t">3 Moves</div><div class="t">Crit ×6</div></div>
-      ${staticGems(35)}
-      <div class="g-prob" style="border-color:#7a3020;"><b>You're about to lose!</b> Rescue your Superstar for 💵 100 cash?</div>
-      <div class="before-fix" data-fix>▶ See how we fixed it</div>
-    </div>`,
-    `<div class="g-pad">
-      <div class="g-prob"><b>The problem:</b> after one match the player faces a 4-layer upgrade ladder at once — and taps hit dead-end "Insufficient Currency" popups. <span class="g-crumb"><span>IMG_0817–24</span><span>IMG_0829</span></span></div>
-      <div class="g-tab"><div class="t">Level Up</div><div class="t">Enhance</div><div class="t">Fuse</div><div class="t">Evolve</div></div>
-      <div class="g-tab"><div class="t">Boss Breaker</div><div class="t">Link &amp; Gear</div><div class="t">Trainer</div><div class="t">Talents</div></div>
-      <div class="g-card" style="border-color:#4a3f6a;background:linear-gradient(180deg,#1a1c2a,#101018);box-shadow:none;">
-        <div class="g-banner" style="font-size:13px;color:#cbd2ff;">Insufficient Currency</div>
-        <div class="g-sub" style="margin-top:5px;">This currency is not available right now. Check back later!</div>
-      </div>
-      <div class="before-fix" data-fix>▶ See how we fixed it</div>
-    </div>`,
-    `<div class="g-pad">
-      <div class="g-prob"><b>The problem:</b> every system is visible from minute one — 5+ currencies, 8+ systems, no pacing, no clear next step.</div>
-      <div class="g-tab"><div class="t">Level</div><div class="t">Enhance</div><div class="t">Fuse</div><div class="t">Evolve</div></div>
-      <div class="g-tab"><div class="t">6★ Tokens</div><div class="t">Shards</div><div class="t">Evo Tokens</div><div class="t">Gems ×6</div></div>
-      <div class="g-tab"><div class="t">Boss Breaker</div><div class="t">Gear</div><div class="t">Trainer</div><div class="t">Factions</div></div>
-      <div class="g-note" style="color:#ff9a9a;border-color:#5a2030;">⚠ Everything, all on day one</div>
-      <div class="before-fix" data-fix>▶ See how we fixed it</div>
-    </div>`
-  ],
-  social:[
-    `<div class="g-pad">
-      <div class="g-prob"><b>The problem:</b> the strongest retention system is locked away — no social tie during the entire activation window. <span class="g-crumb"><span>IMG_0832</span></span></div>
-      <div class="g-card" style="border-color:#3a3f49;background:linear-gradient(180deg,#1a1c22,#101015);box-shadow:none;">
-        <div class="g-portrait" style="height:70px;background:repeating-linear-gradient(45deg,#2a2320 0 8px,#1a1712 8px 16px);border-color:#5a5040;"><span class="who">🔒</span></div>
-        <div class="g-banner" style="font-size:14px;margin-top:8px;">Unlock Faction at League 5</div>
-      </div>
-      <div class="g-note" style="color:#ff9a9a;border-color:#5a2030;">Showdown locked until League 4 · Faction until League 5</div>
-      <div class="before-fix" data-fix>▶ See how we fixed it</div>
-    </div>`,
-    `<div class="g-pad">
-      <div class="g-prob"><b>The problem:</b> a "Just learning" newcomer's first social touch is toxic recruit spam. <span class="g-crumb"><span>IMG_0836</span></span></div>
-      <div class="g-list" style="gap:6px;">
-        <div class="g-row"><span class="g-av"></span><span>rocky2284968 · twf warrior 6*</span></div>
-        <div class="g-row" style="border-color:#5a2030;"><span class="g-av"></span><span>mathmike4 · twf is embarrassing. Quit pathetically trying to make people donate to billionaires</span></div>
-        <div class="g-row" style="border-color:#5a2030;"><span class="g-av"></span><span>Captain 8merica · Maybe if you try hard enough they'll let you in</span></div>
-        <div class="g-row"><span class="g-av"></span><span>Thug mafia · join us · discord mandatory</span></div>
-      </div>
-      <div class="g-note" style="color:#ff9a9a;border-color:#5a2030;">⚠ Real messages from the new-player global chat</div>
-      <div class="before-fix" data-fix>▶ See how we fixed it</div>
-    </div>`,
-    `<div class="g-pad">
-      <div class="g-prob"><b>The problem:</b> at League 5 the player finally reaches Factions — and must browse anonymous groups alone, from a cold start.</div>
-      <div class="g-list">
-        <div class="g-row"><span class="g-av"></span> Thug mafia <span class="g-badge" style="color:#8b93a1;border-color:#333;">join?</span></div>
-        <div class="g-row"><span class="g-av"></span> nWo Elite <span class="g-badge" style="color:#8b93a1;border-color:#333;">join?</span></div>
-        <div class="g-row"><span class="g-av"></span> DX Army <span class="g-badge" style="color:#8b93a1;border-color:#333;">join?</span></div>
-      </div>
-      <div class="g-note" style="color:#ff9a9a;border-color:#5a2030;">No relationships carried over · start from zero</div>
-      <div class="before-fix" data-fix>▶ See how we fixed it</div>
-    </div>`
-  ]
-};
-
-/* real screenshots that back each "before" moment (null = no live screenshot exists) */
+/* ---------- BEFORE: the live game today ----------
+   A real screenshot wherever one exists; a wireframe of the live behaviour otherwise. */
 const SHOTS = {
-  debut:['IMG_0821.PNG','IMG_0841.PNG','IMG_0829.PNG','IMG_0818.PNG'],
-  social:['IMG_0832.PNG','IMG_0836.PNG',null]
+  earn:['IMG_0818.PNG','IMG_0841.PNG','IMG_0829.PNG','IMG_0821.PNG'],
+  rung:['IMG_0821.PNG',null,null],
+  safe:[null,null]
 };
 const PROB = {
-  debut:[
-    'a $99.99 offer at League 2, and a roster of random C-tier stars — money asked before a single win.',
-    'the very first match already exposes Boss Breakers, gear and crit stats — and can dead-end in "rescue for 100 cash".',
-    'tapping loot hits a dead-end "Insufficient Currency — check back later" wall, on top of a 4-layer upgrade ladder.',
-    'a wall of stats and systems — 6 gem colors, crit chance / damage / dodge — surfaced on a brand-new roster.'
+  earn:[
+    'a Trainer panel exposing six gem colours plus crit chance, crit damage and dodge — every one of them 0% — on a roster the player did not choose.',
+    'the first match carries a padlocked AUTO, an X2 multiplier, an unexplained 0/3 counter and several move slots, none of them introduced.',
+    'the Manager\'s League screen sells a subscription and shows a padlocked Premium reward column to a player sitting on 0 reward points.',
+    'the League 2 shelf leads with a $99.99 pack, and its cheapest item is a $14.99 starter pack on a 05h 42m countdown. Nothing sits below it.'
   ],
-  social:[
-    '"Unlock Faction at League 5" — the strongest retention system is locked away for the whole activation window.',
-    'the new-player global chat is recruit spam and open toxicity aimed at someone "just learning".',
-    ''
-  ]
+  rung:['the cheapest way into this game is $14.99 — three to five times the conventional entry price for the genre — and there is nothing beneath it.','',''],
+  safe:['','']
 };
-function beforeBody(){
-  const shot=SHOTS[flowKey] && SHOTS[flowKey][idx];
-  if(shot){
-    const ref=shot.replace('.PNG','');
-    return `<div class="g-shotwrap">
-      <img class="g-shot" src="shots/${shot}" alt="Live game screenshot ${ref}" data-shot="${shot}" data-ref="${ref}">
-      <div class="g-shot-band"><b>The problem:</b> ${PROB[flowKey][idx]}<span class="shotref">${ref} · real screenshot — tap to enlarge</span></div>
-      <div class="before-fix" data-fix>▶ See how we fixed it</div>
-    </div>`;
-  }
-  return BEFORE[flowKey][idx];   // fallback mock (no live screenshot exists)
-}
-function openLightbox(src,cap){ $('#lbimg').src=src; $('#lbcap').textContent=cap||''; $('#lightbox').classList.add('on'); }
+const MOCK = {
+  earn:[null,null,null,null],
+  rung:[null,
+    `<div class="wf-note warn">There is no second rung. A player who has just made their first purchase sees nothing between the $14.99 starter pack and the $99.99 headline pack.</div>
+     <div class="wf-ladder">
+       <div class="wf-rung gap"><span class="p">$0–14.99</span><span class="l">nothing here</span></div>
+       <div class="wf-rung far"><span class="p">$14.99</span><span class="l">Andre Starter Pack · 05h 42m</span></div>
+       <div class="wf-rung gap"><span class="p">$15–99</span><span class="l">nothing here either</span></div>
+       <div class="wf-rung far"><span class="p">$99.99</span><span class="l">League Essentials</span></div>
+     </div>
+     <div class="wf-note warn">Two rungs, eighty-five dollars apart.</div>`,
+    `<div class="wf-note warn">The cheapest way into this game is sold against a six-hour countdown — pressure applied to somebody who installed this afternoon.</div>
+     <div class="wf-offer" style="border-color:var(--warn)">
+       <div class="oh"><span class="on">2-Star Gold Andre Starter Pack</span><span class="op">$14.99</span></div>
+       <div class="oc">“One Time Offer!”</div>
+       <span class="wf-tag warn">⏱ 05h 42m remaining</span>
+     </div>
+     <div class="wf-note warn">A clock on a stranger's first purchase.</div>`],
+  safe:[
+    `<div class="wf-note warn">Pull probabilities are not shown at the point of purchase, so a first purchase is a bet rather than a purchase. Trust &amp; odds is the lowest-rated theme in the corpus at 2.06★.</div>
+     <div class="wf-img" style="height:120px"><span>PULL ×1 — contents unknown</span></div>
+     <div class="wf-note warn">No odds anywhere on this surface.</div>`,
+    `<div class="wf-note warn">A duplicate is just a duplicate. The moment that decides whether a first-time payer ever pays again is what happens when the thing they bought disappoints them.</div>
+     <div class="wf-list">
+       <div class="wf-row bad"><span class="av"></span> The Rock <span class="rt">Duplicate</span></div>
+       <div class="wf-row bad"><span class="av"></span> The Rock <span class="rt">Duplicate</span></div>
+     </div>
+     <div class="wf-note warn">“support”, “scopely” and “customer” all rank in the ten most negative-skewing words in the corpus.</div>`]
+};
 
 /* ---------- state ---------- */
-let flowKey=null, flow=null, idx=0, dir='fwd', mode='after';
+let key=null, flow=null, idx=0, mode='after';
 const $=s=>document.querySelector(s);
-const screenEl=$('#screen'),topEl=$('#topbar'),navEl=$('#nav'),dotsEl=$('#dots'),capEl=$('#caption'),railEl=$('#rail'),tickEl=$('#ticker').firstElementChild,phoneEl=$('#phone');
+const sheetEl=$('#sheet'), dotsEl=$('#dots'), capEl=$('#caption'), railEl=$('#rail'), msEl=$('#modeswitch');
 
+const hasBefore = () => !!((SHOTS[key]&&SHOTS[key][idx]) || (MOCK[key]&&MOCK[key][idx]));
+function lightbox(src,cap){ $('#lbimg').src=src; $('#lbcap').textContent=cap||''; $('#lightbox').classList.add('on'); }
+
+/* ---------- hub ---------- */
 function renderHub(){
-  flowKey=null;flow=null;mode='after';
-  $('#modeswitch').style.display='none';$('#ribbon').style.display='none';
-  dotsEl.innerHTML='';tickEl.innerHTML=TICK.debut;
-  screenEl.style.paddingTop='0';
-  topEl.innerHTML=`<div class="g-back" style="opacity:.25">‹</div><span class="g-hex">✦</span><span class="g-chip"><span class="c"></span>—</span>`;
-  navEl.innerHTML=NAVB(-1,[]);
-  screenEl.className='layer';
-  screenEl.innerHTML=`<div class="hub">
-    <div class="kick">Growth · Activation bets</div>
-    <h1>Pick a flow<br>to play</h1>
-    <p>Walk a real new-player experience. Tap the glowing button — or match gems — to advance.</p>
-    <button class="flowbtn" data-flow="debut"><span class="fn">1</span><span><span class="ft">The Debut</span><span class="fd">Guided first session · deferred systems</span></span><span class="ice">60</span></button>
-    <button class="flowbtn" data-flow="social"><span class="fn">2</span><span><span class="ft">Social On-ramp</span><span class="fd">Rookie Crew before League 5</span></span><span class="ice">60</span></button>
-  </div>`;
-  capEl.innerHTML=`<div class="ct">Flow picker</div><div class="cd">Two main-event activation bets — choose one to walk through.</div>`;
-  railEl.innerHTML=`<div class="railcard"><div class="rc-body">
-    <div class="rc-title">What am I looking at?</div>
-    <div class="rc-why">A clickable, game-skinned walkthrough of the two highest-ICE activation bets from the growth deck. Each screen pairs the <b>proposed UX</b> with the <b>live-game problem</b> it fixes, the primary KPI, and the revenue guardrail — so it doubles as the talking track for the room.</div>
-    <div class="rc-block rc-today"><span class="h">How to present</span>Play a flow end-to-end, then use the ◉ Annotations toggle to reveal the numbered design rationale on each screen.</div>
-    <div class="rc-hint">Pick a flow to begin →</div>
+  key=null; flow=null; mode='after';
+  msEl.style.display='none'; dotsEl.innerHTML='';
+  sheetEl.innerHTML=`
+    <div class="sheet-label"><span>All moves</span><span>The First Dollar</span></div>
+    <div class="hub">
+      <div class="kick">The First Dollar · three moves</div>
+      <h1>Walk the first purchase</h1>
+      <p>Each move unblocks the next. Start at 01 and it runs straight through, or jump in anywhere.</p>
+      ${Object.entries(FLOWS).map(([k,f],i)=>`
+        <button class="flowbtn" data-flow="${k}">
+          <span class="n">${i+1}</span>
+          <span><span class="t">${f.name}</span><span class="d">${f.axis.replace('Numerator · ','')} · ${f.screens.length} screens</span></span>
+          <span class="v">${f.value}</span>
+        </button>`).join('')}
+    </div>`;
+  capEl.innerHTML=`<div class="ct">The programme</div><div class="cd">Three sequenced moves aimed at one number — the share of players who ever pay.</div>`;
+  railEl.innerHTML=`<div class="card"><div class="card-body">
+    <h3>What am I looking at?</h3>
+    <p>A wireframe walkthrough of <b>The First Dollar</b>, the three-move programme from the growth case.
+       Each screen pairs the <b>proposed layout</b> with the <b>live-game problem</b> it addresses, the
+       primary KPI and the guardrail — so it doubles as the talking track for the room.</p>
+    <p>Deliberately low-fidelity: these are sequence and layout proposals, not visual design. The
+       <b>Before</b> views are real screenshots, shown whole rather than cropped.</p>
+    <div class="today"><span class="h">Corrected 8 Aug</span>An earlier build said the League 2 shelf held
+      only a $99.99 pack. It also carries a <b>$14.99 starter pack on a 05h 42m countdown</b>. Move 02 now
+      adds two rungs <i>beneath</i> that pack rather than building a ladder from nothing, and two
+      screenshot captions that were wrong have been fixed.</div>
   </div></div>`;
-  screenEl.querySelectorAll('[data-flow]').forEach(b=>b.onclick=()=>{beep('tap');startFlow(b.dataset.flow);});
+  sheetEl.querySelectorAll('[data-flow]').forEach(b=>b.onclick=()=>start(b.dataset.flow));
 }
 
-function startFlow(k){flowKey=k;flow=FLOWS[k];idx=0;dir='fwd';mode='after';tickEl.innerHTML=TICK[k];render();}
+function start(k){ key=k; flow=FLOWS[k]; idx=0; mode='after'; render(); }
 
+/* ---------- a screen ---------- */
 function render(){
   const s=flow.screens[idx];
-  const hasBefore=!!(BEFORE[flowKey] && BEFORE[flowKey][idx]);
-  const showBefore=hasBefore && mode==='before';
+  const before = hasBefore() && mode==='before';
+  const shot = SHOTS[key] && SHOTS[key][idx];
 
-  topEl.innerHTML=`<div class="g-back" id="gback">‹</div>
-    <span class="g-hex">${s.top.hex}</span>
-    <span class="g-chip"><span class="c"></span>${s.top.coin}</span>
-    <span class="g-chip cash"><span class="c"></span>${s.top.cash}</span>`;
-  navEl.innerHTML=s.nav;
-  $('#gback').onclick=()=>{beep('tap'); if(showBefore){mode='after';render();return;} if(idx>0){dir='back';mode='after';idx--;render();} else renderHub();};
+  msEl.style.display='inline-flex';
+  const bB=msEl.querySelector('[data-m="before"]'), aB=msEl.querySelector('[data-m="after"]');
+  bB.disabled=!hasBefore(); bB.classList.toggle('on',before); aB.classList.toggle('on',!before);
 
-  // mode switch + in-phone ribbon
-  const ms=$('#modeswitch'); ms.style.display='inline-flex';
-  const bB=ms.querySelector('[data-m="before"]'), aB=ms.querySelector('[data-m="after"]');
-  bB.disabled=!hasBefore; bB.classList.toggle('on',showBefore); aB.classList.toggle('on',!showBefore);
-  const rb=$('#ribbon'); rb.style.display='block';
-  rb.className='g-ribbon '+(showBefore?'before':'after');
-  rb.textContent=showBefore?'⚠ Live game today — the problem':'✓ Proposed fix';
-
-  screenEl.className='layer '+(dir==='fwd'?'in-fwd':'in-back');
-  screenEl.style.paddingTop='22px';
-
-  if(showBefore){
-    screenEl.innerHTML=beforeBody();
-    const fx=screenEl.querySelector('[data-fix]'); if(fx) fx.onclick=e=>{ripple(e,fx);beep('win');mode='after';dir='fwd';render();};
-    const shotImg=screenEl.querySelector('.g-shot'); if(shotImg) shotImg.onclick=()=>openLightbox(shotImg.src, shotImg.dataset.ref+' · live game today');
-    capEl.innerHTML=`<div class="ct">${flow.name} · ${idx+1}/${flow.screens.length} — Before (real screenshot)</div><div class="cd">This is the live game today — tap the screenshot to enlarge, then “See how we fixed it”.</div>`;
+  if(before){
+    const inner = shot
+      ? `<div class="shotwrap">
+           <img class="shot" src="shots/${shot}" alt="Live game screenshot ${shot.replace('.PNG','')}" data-ref="${shot.replace('.PNG','')}">
+           <div class="shot-band"><b>The problem:</b> ${PROB[key][idx]}
+             <span class="ref">${shot.replace('.PNG','')} · real screenshot, shown whole — click to enlarge</span></div>
+           <div class="wf-btn fix" data-fix>▶ See the proposed fix</div>
+         </div>`
+      : `<div class="wf-body">${MOCK[key][idx]}<div class="wf-btn fix" data-fix>▶ See the proposed fix</div></div>`;
+    sheetEl.innerHTML=`<div class="sheet-label before"><span>⚠ Before — live game today</span><span>${idx+1}/${flow.screens.length}</span></div>${inner}`;
+    const im=sheetEl.querySelector('.shot');
+    if(im) im.onclick=()=>lightbox(im.src, im.dataset.ref+' — the live game today. '+PROB[key][idx]);
+    capEl.innerHTML=`<div class="ct">${flow.name} · ${idx+1}/${flow.screens.length} — Before</div>
+      <div class="cd">${shot?'A real screenshot, uncropped. Click to enlarge, then see':'A wireframe of the live behaviour — see'} the proposed fix.</div>`;
   } else {
-    const ctaHtml = s.cta.match ? `<div class="g-cta dim" id="cta">${s.cta.label}</div>` : `<div class="g-cta ${s.cta.gold?'gold':''}" id="cta">${s.cta.label}</div>`;
-    const caps=(s.caps||[]).map(c=>`<span class="cap" style="left:${c.x};${c.b?`bottom:${c.b};`:`top:${c.t};`}">${c.n}</span>`).join('');
-    screenEl.innerHTML=s.body.replace('{{CTA}}',ctaHtml)+caps;
-    capEl.innerHTML=`<div class="ct">${flow.name} · ${idx+1}/${flow.screens.length} — ${s.title}</div><div class="cd">${hasBefore?'Toggle <b>Before</b> above to see the live-game problem · ':''}Tap ${s.cta.match?'and swap gems':'the glowing button'} to continue.</div>`;
-    if(s.type==='match') wireMatch();
-    else {
-      if(s.type==='victory'){ beep('win'); burstConfetti(); countUps(); }
-      else if(s.type==='card'){ beep('tap'); }
-      const cta=$('#cta'); cta.onclick=(e)=>{ ripple(e,cta); advance(s); };
-    }
+    const btn = s.cta.match
+      ? `<div class="wf-btn dim" id="cta">${s.cta.label}</div>`
+      : `<div class="wf-btn ${s.cta.primary?'primary':''}" id="cta">${s.cta.label}</div>`;
+    sheetEl.innerHTML=`
+      <div class="sheet-label after"><span>✓ After — proposed</span><span>${idx+1}/${flow.screens.length}</span></div>
+      <div class="wf-status"><span>9:41</span><span>▮▮▮ ᯤ</span></div>
+      <div class="wf-bar"><span class="back" id="back">‹</span><span class="chip">${s.top}</span></div>
+      <div class="wf-body">${s.body}${btn}</div>
+      <div class="wf-nav">${s.nav}</div>`;
+    $('#back').onclick=()=>{ if(idx>0){ idx--; mode='after'; render(); } else renderHub(); };
+    if(s.type==='match') wireMatch(); else $('#cta').onclick=()=>advance(s);
+    placePins();
+    capEl.innerHTML=`<div class="ct">${flow.name} · ${idx+1}/${flow.screens.length} — ${s.title}</div>
+      <div class="cd">${hasBefore()?'Toggle <b>Before</b> to see the live game. ':''}${s.cta.match?'Swap gems to continue.':'Click the button to continue.'}</div>`;
   }
 
-  // dots
-  dotsEl.innerHTML=flow.screens.map((_,i)=>`<button class="dot ${i===idx?'on':i<idx?'done':''}" data-i="${i}"></button>`).join('');
-  dotsEl.querySelectorAll('.dot').forEach(d=>d.onclick=()=>{dir=(+d.dataset.i>idx)?'fwd':'back';mode='after';idx=+d.dataset.i;render();});
-  // rail always carries the fix context
+  dotsEl.innerHTML=flow.screens.map((_,i)=>`<button class="dot ${i===idx?'on':i<idx?'done':''}" data-i="${i}" aria-label="Screen ${i+1}"></button>`).join('');
+  dotsEl.querySelectorAll('.dot').forEach(d=>d.onclick=()=>{ idx=+d.dataset.i; mode='after'; render(); });
+  const fx=sheetEl.querySelector('[data-fix]'); if(fx) fx.onclick=()=>{ mode='after'; render(); };
   renderRail(s);
-  const active=[...navEl.children].findIndex(n=>n.classList.contains('active'));
-  if(active>=0 && !showBefore) navEl.children[active].classList.add('pop');
+}
+
+/* pins anchor to elements, so they can never drift out of sync with the content */
+function placePins(){
+  const box=sheetEl.getBoundingClientRect();
+  sheetEl.querySelectorAll('[data-pin]').forEach(el=>{
+    const r=el.getBoundingClientRect();
+    const p=document.createElement('span');
+    p.className='pin'; p.textContent=el.dataset.pin;
+    p.style.left=Math.min(box.width-21,r.right-box.left-9)+'px';
+    p.style.top=Math.max(2,r.top-box.top-9)+'px';
+    sheetEl.appendChild(p);
+  });
 }
 
 function advance(s){
-  beep('tap'); mode='after';
-  if(s.cta.end){ startFlow(flowKey); return; }
-  if(idx<flow.screens.length-1){ dir='fwd'; idx++; render(); }
+  if(s.cta.next){ start(s.cta.next); return; }
+  if(s.cta.end){ renderHub(); return; }
+  if(idx<flow.screens.length-1){ idx++; mode='after'; render(); }
 }
 
 function renderRail(s){
-  const shot=SHOTS[flowKey] && SHOTS[flowKey][idx];
+  const shot=SHOTS[key]&&SHOTS[key][idx];
   const ref=shot?shot.replace('.PNG',''):'';
-  const thumb=shot?`<div class="rc-shot" data-shot="${shot}" data-ref="${ref}"><img src="shots/${shot}" alt="Live game ${ref}"><span class="tag">Live: ${ref}</span><span class="zoom">⤢</span></div>`:'';
-  railEl.innerHTML=`<div class="railcard">
-    <div class="rc-top"><span class="rc-stage">${flow.stage} · ${flow.name}</span>
-      <div class="rc-ice"><div class="l">ICE</div><div class="v">${flow.ice}</div></div></div>
-    <div class="rc-body">
-      <div class="rc-title">${s.title}</div>
-      <div class="rc-why">${s.why}</div>
-      <div class="rc-block rc-today"><span class="h">In the live game today</span>${s.today}${thumb}</div>
-      <div class="rc-metrics">
+  railEl.innerHTML=`<div class="card">
+    <div class="card-top">
+      <span class="who">${flow.move} · ${flow.name}<i>${flow.axis}</i></span>
+      <div class="val"><div class="l">Base / yr</div><div class="v">${flow.value}</div></div>
+    </div>
+    <div class="card-body">
+      <h3>${s.title}</h3>
+      <p>${s.why}</p>
+      <div class="today"><span class="h">In the live game today</span>${s.today}
+        ${shot?`<div class="thumb" data-shot="${shot}"><img src="shots/${shot}" alt="Live game ${ref}"><span class="tg">Live: ${ref}</span><span class="zz">⤢ enlarge</span></div>`:''}
+      </div>
+      <div class="metrics">
         <div class="m"><div class="l">Primary KPI</div><div class="v g">${s.kpi}</div></div>
         <div class="m"><div class="l">Guardrail</div><div class="v r">${s.guard}</div></div>
       </div>
     </div>
   </div>`;
-  const rs=railEl.querySelector('.rc-shot');
-  if(rs) rs.onclick=()=>openLightbox('shots/'+rs.dataset.shot, rs.dataset.ref+' · live game today');
+  const t=railEl.querySelector('.thumb');
+  if(t) t.onclick=()=>lightbox('shots/'+t.dataset.shot, t.dataset.shot.replace('.PNG','')+' — the live game today');
 }
 
-/* ---------- interactive match ---------- */
-/* real Bejeweled-style swap-to-match engine */
+/* ---------- the one interaction: a match that cannot be lost ---------- */
 function wireMatch(){
-  const C=7, R=6, COLORS=['rG','bG','gG','yG','pG'];
-  const rnd=()=>Math.floor(Math.random()*COLORS.length);
-  const board=$('#board'), finbar=$('#finbar'), fintxt=$('#fintxt'), foehp=$('#foehp'), foenum=$('#foenum'), cta=$('#cta');
-  let grid=[], sel=null, animating=false, charge=0, hpMax=4200, hp=4200, won=false;
+  const C=7,R=6,L=['R','B','G','Y','P'];
+  const rnd=()=>Math.floor(Math.random()*L.length);
+  const grid=$('#grid'), finbar=$('#finbar'), fintxt=$('#fintxt'), foehp=$('#foehp'), foenum=$('#foenum'), cta=$('#cta');
+  let g=[], sel=null, busy=false, charge=0, hp=4200, won=false;
 
-  function make(){
-    grid=[];
-    for(let r=0;r<R;r++){grid[r]=[];for(let c=0;c<C;c++){
-      let v; do{ v=rnd(); }while(
-        (c>=2 && grid[r][c-1]===v && grid[r][c-2]===v) ||
-        (r>=2 && grid[r-1][c]===v && grid[r-2][c]===v) );
-      grid[r][c]=v;
-    }}
-  }
-  function draw(drop){
-    let h='';
-    for(let r=0;r<R;r++)for(let c=0;c<C;c++){
-      const s=(sel&&sel.r===r&&sel.c===c)?'sel':'';
-      h+=`<button class="g-gem ${COLORS[grid[r][c]]} ${s} ${drop?'drop':''}" data-r="${r}" data-c="${c}"></button>`;
-    }
-    board.innerHTML=h;
-  }
-  const cell=(r,c)=>board.children[r*C+c];
-  function findMatches(g){
-    const marked=new Set();
+  function make(){ g=[];
+    for(let r=0;r<R;r++){ g[r]=[]; for(let c=0;c<C;c++){ let v;
+      do{ v=rnd(); } while((c>=2&&g[r][c-1]===v&&g[r][c-2]===v)||(r>=2&&g[r-1][c]===v&&g[r-2][c]===v));
+      g[r][c]=v; } } }
+  function draw(){ let h='';
+    for(let r=0;r<R;r++) for(let c=0;c<C;c++)
+      h+=`<button class="wf-gem ${sel&&sel.r===r&&sel.c===c?'sel':''}" data-r="${r}" data-c="${c}">${g[r][c]===null?'':L[g[r][c]]}</button>`;
+    grid.innerHTML=h; }
+  const cell=(r,c)=>grid.children[r*C+c];
+  function matches(){
+    const m=new Set();
     for(let r=0;r<R;r++){let run=1;for(let c=1;c<=C;c++){
-      if(c<C && g[r][c]===g[r][c-1] && g[r][c]!==null) run++;
-      else{ if(run>=3)for(let k=1;k<=run;k++)marked.add(r+','+(c-k)); run=1; }
-    }}
+      if(c<C&&g[r][c]!==null&&g[r][c]===g[r][c-1])run++; else {if(run>=3)for(let k=1;k<=run;k++)m.add(r+','+(c-k));run=1;}}}
     for(let c=0;c<C;c++){let run=1;for(let r=1;r<=R;r++){
-      if(r<R && g[r][c]===g[r-1][c] && g[r][c]!==null) run++;
-      else{ if(run>=3)for(let k=1;k<=run;k++)marked.add((r-k)+','+c); run=1; }
-    }}
-    return marked;
+      if(r<R&&g[r][c]!==null&&g[r][c]===g[r-1][c])run++; else {if(run>=3)for(let k=1;k<=run;k++)m.add((r-k)+','+c);run=1;}}}
+    return m;
   }
-  function gravity(){
-    for(let c=0;c<C;c++){
-      const keep=[];
-      for(let r=0;r<R;r++) if(grid[r][c]!==null) keep.push(grid[r][c]);
-      const need=R-keep.length, col=[];
-      for(let i=0;i<need;i++) col.push(rnd());
-      const full=col.concat(keep);
-      for(let r=0;r<R;r++) grid[r][c]=full[r];
-    }
-  }
-  const swapVals=(a,b)=>{const t=grid[a.r][a.c];grid[a.r][a.c]=grid[b.r][b.c];grid[b.r][b.c]=t;};
+  function gravity(){ for(let c=0;c<C;c++){ const keep=[];
+    for(let r=0;r<R;r++) if(g[r][c]!==null) keep.push(g[r][c]);
+    const fill=Array.from({length:R-keep.length},rnd).concat(keep);
+    for(let r=0;r<R;r++) g[r][c]=fill[r]; } }
+  const swap=(a,b)=>{const t=g[a.r][a.c];g[a.r][a.c]=g[b.r][b.c];g[b.r][b.c]=t;};
 
-  function onGem(r,c){
-    if(!sel){ sel={r,c}; draw(false); beep('tap'); return; }
-    if(sel.r===r && sel.c===c){ sel=null; draw(false); return; }
-    if(Math.abs(sel.r-r)+Math.abs(sel.c-c)===1){ const a=sel; sel=null; trySwap(a,{r,c}); }
-    else { sel={r,c}; draw(false); beep('tap'); }
-  }
-  function trySwap(a,b){
-    animating=true; swapVals(a,b);
-    if(findMatches(grid).size===0){          // illegal — revert with a wiggle
-      swapVals(a,b); draw(false); beep('hit');
-      const ea=cell(a.r,a.c), eb=cell(b.r,b.c);
-      if(ea)ea.classList.add('bad'); if(eb)eb.classList.add('bad');
-      setTimeout(()=>{ animating=false; },300);
-    } else { beep('hit'); draw(false); setTimeout(resolve,150); }
-  }
   function resolve(){
-    const m=findMatches(grid);
-    if(m.size===0){ animating=false; return; }
-    m.forEach(k=>{const[r,c]=k.split(',').map(Number);const el=cell(r,c);if(el)el.classList.add('clearing');});
-    cleared(m.size);
-    setTimeout(()=>{
-      m.forEach(k=>{const[r,c]=k.split(',').map(Number);grid[r][c]=null;});
-      gravity(); draw(true);
-      if(!won) setTimeout(resolve,170);
-    },200);
+    const m=matches();
+    if(!m.size){ busy=false; return; }
+    m.forEach(k=>{const[r,c]=k.split(',').map(Number);const e=cell(r,c);if(e)e.classList.add('clearing');});
+    charge=Math.min(100,charge+m.size*7); finbar.style.width=charge+'%'; fintxt.textContent=charge+'%';
+    hp=Math.max(0,hp-m.size*150); foehp.style.width=(hp/4200*100)+'%'; foenum.textContent=hp;
+    if(charge>=100&&!won){ cta.className='wf-btn primary'; cta.textContent='UNLEASH FINISHER ▶'; cta.onclick=win; }
+    if(hp<=0&&!won){ win(); return; }
+    setTimeout(()=>{ m.forEach(k=>{const[r,c]=k.split(',').map(Number);g[r][c]=null;}); gravity(); draw(); if(!won) setTimeout(resolve,150); },180);
   }
-  function cleared(n){
-    charge=Math.min(100,charge+n*7); finbar.style.width=charge+'%'; fintxt.textContent=charge+'%';
-    hp=Math.max(0,hp-n*150); if(foehp)foehp.style.width=(hp/hpMax*100)+'%'; if(foenum)foenum.textContent=hp;
-    beep('hit');
-    if(charge>=100 && !won && cta){ cta.className='g-cta gold'; cta.textContent='UNLEASH FINISHER ▶'; cta.onclick=e=>{ripple(e,cta);win('FINISHER!');}; }
-    if(hp<=0 && !won){ win('K.O.!'); }
-  }
-  function win(txt){
-    won=true; animating=true; beep('unleash');
-    phoneEl.classList.remove('shake');void phoneEl.offsetWidth;phoneEl.classList.add('shake');
-    if(foehp)foehp.style.width='0%';
-    const d=document.createElement('div');d.className='dmg';d.textContent=txt;screenEl.appendChild(d);
-    setTimeout(()=>{ dir='fwd'; idx++; render(); }, 900);
-  }
+  function win(){ won=true; busy=true; idx++; mode='after'; setTimeout(render,320); }
 
-  make(); draw(false);
-  board.onclick=e=>{ const b=e.target.closest('.g-gem'); if(!b||animating||won) return; onGem(+b.dataset.r,+b.dataset.c); };
-}
-
-/* ---------- juice ---------- */
-function ripple(e,el){
-  const r=document.createElement('span');r.className='ripple';
-  const b=el.getBoundingClientRect();const size=Math.max(b.width,b.height);
-  r.style.width=r.style.height=size+'px';
-  r.style.left=((e.clientX||b.left+b.width/2)-b.left-size/2)+'px';
-  r.style.top=((e.clientY||b.top+b.height/2)-b.top-size/2)+'px';
-  el.appendChild(r);setTimeout(()=>r.remove(),500);
-}
-function countUps(){
-  screenEl.querySelectorAll('[data-count]').forEach(el=>{
-    const target=+el.dataset.count;let cur=0;const steps=28;const inc=target/steps;let i=0;
-    const t=setInterval(()=>{ i++;cur=Math.min(target,Math.round(inc*i));
-      el.textContent=cur.toLocaleString(); if(i>=steps){clearInterval(t);el.textContent=target.toLocaleString();} },22);
-  });
-}
-const cv=$('#confetti'),cx=cv.getContext('2d');let parts=[],raf=null;
-function sizeCv(){cv.width=cv.clientWidth;cv.height=cv.clientHeight;}
-function burstConfetti(){
-  sizeCv();const cols=['#f3d270','#ff5a5a','#ffffff','#5fd06a','#4aa8ff'];parts=[];
-  for(let i=0;i<70;i++){parts.push({x:cv.width/2,y:cv.height*0.28,vx:(Math.random()-.5)*7,vy:Math.random()*-7-2,g:.22,s:3+Math.random()*4,c:cols[i%cols.length],r:Math.random()*6,life:60+Math.random()*30});}
-  if(raf)cancelAnimationFrame(raf);tickConfetti();
-}
-function tickConfetti(){
-  cx.clearRect(0,0,cv.width,cv.height);let alive=false;
-  parts.forEach(p=>{ if(p.life<=0)return;alive=true;p.vy+=p.g;p.x+=p.vx;p.y+=p.vy;p.r+=.2;p.life--;
-    cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.globalAlpha=Math.max(0,p.life/40);
-    cx.fillRect(-p.s/2,-p.s/2,p.s,p.s*1.6);cx.restore(); });
-  if(alive)raf=requestAnimationFrame(tickConfetti);else cx.clearRect(0,0,cv.width,cv.height);
+  make(); draw();
+  grid.onclick=e=>{
+    const b=e.target.closest('.wf-gem'); if(!b||busy||won) return;
+    const r=+b.dataset.r, c=+b.dataset.c;
+    if(!sel){ sel={r,c}; draw(); return; }
+    if(sel.r===r&&sel.c===c){ sel=null; draw(); return; }
+    if(Math.abs(sel.r-r)+Math.abs(sel.c-c)!==1){ sel={r,c}; draw(); return; }
+    const a=sel; sel=null; busy=true; swap(a,{r,c});
+    if(!matches().size){                       /* illegal swap — revert */
+      swap(a,{r,c}); draw();
+      [cell(a.r,a.c),cell(r,c)].forEach(e=>e&&e.classList.add('bad'));
+      setTimeout(()=>{busy=false;draw();},280);
+    } else { draw(); setTimeout(resolve,140); }
+  };
 }
 
 /* ---------- controls ---------- */
-$('#homeBtn').onclick=()=>{beep('tap');renderHub();};
-$('#restartBtn').onclick=()=>{if(flow){beep('tap');idx=0;dir='back';render();}};
-$('#annBtn').onclick=function(){beep('tap');document.body.classList.toggle('show-ann');this.classList.toggle('on');};
-$('#soundBtn').onclick=function(){soundOn=!soundOn;this.classList.toggle('on',soundOn);if(soundOn)beep('tap');};
-$('#modeswitch [data-m="before"]').onclick=function(){if(this.disabled||!flow)return;mode='before';dir='fwd';beep('tap');render();};
-$('#modeswitch [data-m="after"]').onclick=function(){if(!flow)return;mode='after';beep('tap');render();};
-
-$('#lightbox').onclick=function(){this.classList.remove('on');};
-
-function tick(){const d=new Date();$('#clock').textContent=d.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});}
-tick();setInterval(tick,10000);
-window.addEventListener('resize',()=>{if(parts.length)sizeCv();});
+$('#homeBtn').onclick=renderHub;
+$('#restartBtn').onclick=()=>{ if(flow){ idx=0; mode='after'; render(); } };
+$('#annBtn').onclick=function(){ document.body.classList.toggle('show-ann'); this.classList.toggle('on'); };
+msEl.querySelector('[data-m="before"]').onclick=function(){ if(this.disabled||!flow)return; mode='before'; render(); };
+msEl.querySelector('[data-m="after"]').onclick=()=>{ if(!flow)return; mode='after'; render(); };
+$('#lightbox').onclick=function(){ this.classList.remove('on'); };
+addEventListener('resize',()=>{ if(flow&&mode==='after'){ sheetEl.querySelectorAll('.pin').forEach(p=>p.remove()); placePins(); } });
 
 renderHub();
 </script>

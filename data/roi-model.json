@@ -81,38 +81,38 @@
   {
    "id": 2,
    "name": "Build the rung",
-   "sub": "a three-rung deterministic starter ladder",
-   "effort": "6-8 wks \u00b7 1 pod + economy",
+   "sub": "two deterministic rungs below the existing $14.99 floor",
+   "effort": "5-7 wks \u00b7 1 pod + economy",
    "sc": {
     "low": {
-     "added_payers_mo": 198,
-     "conv_pp": 0.22,
-     "added_payer_rev": 33264,
+     "added_payers_mo": 126,
+     "conv_pp": 0.14,
+     "added_payer_rev": 21168,
      "repeat_rev": 0,
-     "payer_retention_rev": 6360,
+     "payer_retention_rev": 4047,
      "nonpayer_retention_rev": 0,
-     "rev": 39624,
-     "d_dau": 79
+     "rev": 25215,
+     "d_dau": 50
     },
     "base": {
-     "added_payers_mo": 495,
-     "conv_pp": 0.55,
-     "added_payer_rev": 124740,
+     "added_payers_mo": 315,
+     "conv_pp": 0.35,
+     "added_payer_rev": 79380,
      "repeat_rev": 0,
-     "payer_retention_rev": 15899,
+     "payer_retention_rev": 10118,
      "nonpayer_retention_rev": 0,
-     "rev": 140639,
-     "d_dau": 198
+     "rev": 89498,
+     "d_dau": 126
     },
     "high": {
-     "added_payers_mo": 990,
-     "conv_pp": 1.1,
-     "added_payer_rev": 403920,
+     "added_payers_mo": 630,
+     "conv_pp": 0.7,
+     "added_payer_rev": 257040,
      "repeat_rev": 0,
-     "payer_retention_rev": 31799,
+     "payer_retention_rev": 20236,
      "nonpayer_retention_rev": 0,
-     "rev": 435719,
-     "d_dau": 396
+     "rev": 277276,
+     "d_dau": 252
     }
    }
   },
@@ -157,31 +157,31 @@
  ],
  "programme": {
   "low": {
-   "rev": 143469,
-   "d_dau": 955,
-   "conv_pp": 0.4,
-   "ever_pay_after": 2.4,
-   "arpdau_after": 0.22154,
-   "d_arpdau": 0.00154,
-   "d_arpdau_pct": 0.7
+   "rev": 129060,
+   "d_dau": 926,
+   "conv_pp": 0.32,
+   "ever_pay_after": 2.32,
+   "arpdau_after": 0.22127,
+   "d_arpdau": 0.00127,
+   "d_arpdau_pct": 0.58
   },
   "base": {
-   "rev": 417814,
-   "d_dau": 1982,
-   "conv_pp": 1.0,
-   "ever_pay_after": 3.0,
-   "arpdau_after": 0.22588,
-   "d_arpdau": 0.00588,
-   "d_arpdau_pct": 2.67
+   "rev": 366673,
+   "d_dau": 1910,
+   "conv_pp": 0.8,
+   "ever_pay_after": 2.8,
+   "arpdau_after": 0.22486,
+   "d_arpdau": 0.00486,
+   "d_arpdau_pct": 2.21
   },
   "high": {
-   "rev": 1110540,
-   "d_dau": 3155,
-   "conv_pp": 2.0,
-   "ever_pay_after": 4.0,
-   "arpdau_after": 0.23922,
-   "d_arpdau": 0.01922,
-   "d_arpdau_pct": 8.74
+   "rev": 952097,
+   "d_dau": 3011,
+   "conv_pp": 1.6,
+   "ever_pay_after": 3.6,
+   "arpdau_after": 0.23596,
+   "d_arpdau": 0.01596,
+   "d_arpdau_pct": 7.25
   }
  },
  "compare": {
@@ -195,11 +195,11 @@
     "d_arpdau_pct": 0.17
    },
    "first_dollar": {
-    "d_dau": 1982,
-    "rev": 482944,
-    "arpdau_after": 0.22735,
-    "d_arpdau": 0.00735,
-    "d_arpdau_pct": 3.34
+    "d_dau": 1910,
+    "rev": 431803,
+    "arpdau_after": 0.22633,
+    "d_arpdau": 0.00633,
+    "d_arpdau_pct": 2.88
    }
   },
   "marginal_corrected": {
@@ -211,11 +211,11 @@
     "d_arpdau_pct": -5.98
    },
    "first_dollar": {
-    "d_dau": 1982,
-    "rev": 417814,
-    "arpdau_after": 0.22588,
-    "d_arpdau": 0.00588,
-    "d_arpdau_pct": 2.67
+    "d_dau": 1910,
+    "rev": 366673,
+    "arpdau_after": 0.22486,
+    "d_arpdau": 0.00486,
+    "d_arpdau_pct": 2.21
    }
   }
  },
